@@ -1,0 +1,1286 @@
+@preamble{ "\newcommand{\noopsort}[1]{} "
+	# "\newcommand{\printfirst}[2]{#1} "
+	# "\newcommand{\singleletter}[1]{#1} "
+	# "\newcommand{\switchargs}[2]{#2#1} " }
+
+@ARTICLE{article-minimal,
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+}
+
+@ARTICLE{article-full,
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+   volume = 41,
+   number = 7,
+   pages = "73+",
+   month = jul,
+   note = "This is a full ARTICLE entry",
+}
+
+The KEY field is here to override the KEY field in the journal being
+cross referenced (so is the NOTE field, in addition to its imparting
+information).
+
+@ARTICLE{article-crossref,
+   crossref = {WHOLE-JOURNAL},
+   key = "",
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   pages = "73+",
+   note = "This is a cross-referencing ARTICLE entry",
+}
+
+@ARTICLE{whole-journal,
+   key = "GAJ",
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+   volume = 41,
+   number = 7,
+   month = jul,
+   note = {The entire issue is devoted to gnats and gnus
+		(this entry is a cross-referenced ARTICLE (journal))},
+}
+
+@INBOOK{inbook-minimal,
+   author = "Donald E. Knuth",
+   title = "Fundamental Algorithms",
+   publisher = "Addison-Wesley",
+   year = "{\noopsort{1973b}}1973",
+   chapter = "1.2",
+}
+
+@INBOOK{inbook-full,
+   author = "Donald E. Knuth",
+   title = "Fundamental Algorithms",
+   volume = 1,
+   series = "The Art of Computer Programming",
+   publisher = "Addison-Wesley",
+   address = "Reading, Massachusetts",
+   edition = "Second",
+   month = "10~" # jan,
+   year = "{\noopsort{1973b}}1973",
+   type = "Section",
+   chapter = "1.2",
+   pages = "10--119",
+   note = "This is a full INBOOK entry",
+}
+
+@INBOOK{inbook-crossref,
+   crossref = "whole-set",
+   title = "Fundamental Algorithms",
+   volume = 1,
+   series = "The Art of Computer Programming",
+   edition = "Second",
+   year = "{\noopsort{1973b}}1973",
+   type = "Section",
+   chapter = "1.2",
+   note = "This is a cross-referencing INBOOK entry",
+}
+
+@BOOK{book-minimal,
+   author = "Donald E. Knuth",
+   title = "Seminumerical Algorithms",
+   publisher = "Addison-Wesley",
+   year = "{\noopsort{1973c}}1981",
+}
+
+@BOOK{book-full,
+   author = "Donald E. Knuth",
+   title = "Seminumerical Algorithms",
+   volume = 2,
+   series = "The Art of Computer Programming",
+   publisher = "Addison-Wesley",
+   address = "Reading, Massachusetts",
+   edition = "Second",
+   month = "10~" # jan,
+   year = "{\noopsort{1973c}}1981",
+   note = "This is a full BOOK entry",
+}
+
+@BOOK{book-crossref,
+   crossref = "whole-set",
+   title = "Seminumerical Algorithms",
+   volume = 2,
+   series = "The Art of Computer Programming",
+   edition = "Second",
+   year = "{\noopsort{1973c}}1981",
+   note = "This is a cross-referencing BOOK entry",
+}
+
+@BOOK{whole-set,
+   author = "Donald E. Knuth",
+   publisher = "Addison-Wesley",
+   title = "The Art of Computer Programming",
+   series = "Four volumes",
+   year = "{\noopsort{1973a}}{\switchargs{--90}{1968}}",
+   note = "Seven volumes planned (this is a cross-referenced set of BOOKs)",
+}
+
+@BOOKLET{booklet-minimal,
+   key = "Kn{\printfirst{v}{1987}}",
+   title = "The Programming of Computer Art",
+}
+
+@BOOKLET{booklet-full,
+   author = "Jill C. Knvth",
+   title = "The Programming of Computer Art",
+   howpublished = "Vernier Art Center",
+   address = "Stanford, California",
+   month = feb,
+   year = 1988,
+   note = "This is a full BOOKLET entry",
+}
+
+@INCOLLECTION{incollection-minimal,
+   author = "Daniel D. Lincoll",
+   title = "Semigroups of Recurrences",
+   booktitle = "High Speed Computer and Algorithm Organization",
+   publisher = "Academic Press",
+   year = 1977,
+}
+
+@INCOLLECTION{incollection-full,
+   author = "Daniel D. Lincoll",
+   title = "Semigroups of Recurrences",
+   editor = "David J. Lipcoll and D. H. Lawrie and A. H. Sameh",
+   booktitle = "High Speed Computer and Algorithm Organization",
+   number = 23,
+   series = "Fast Computers",
+   chapter = 3,
+   type = "Part",
+   pages = "179--183",
+   publisher = "Academic Press",
+   address = "New York",
+   edition = "Third",
+   month = sep,
+   year = 1977,
+   note = "This is a full INCOLLECTION entry",
+}
+
+@INCOLLECTION{incollection-crossref,
+   crossref = "whole-collection",
+   author = "Daniel D. Lincoll",
+   title = "Semigroups of Recurrences",
+   pages = "179--183",
+   note = "This is a cross-referencing INCOLLECTION entry",
+}
+
+@BOOK{whole-collection,
+   editor = "David J. Lipcoll and D. H. Lawrie and A. H. Sameh",
+   title = "High Speed Computer and Algorithm Organization",
+   booktitle = "High Speed Computer and Algorithm Organization",
+   number = 23,
+   series = "Fast Computers",
+   publisher = "Academic Press",
+   address = "New York",
+   edition = "Third",
+   month = sep,
+   year = 1977,
+   note = "This is a cross-referenced BOOK (collection) entry",
+}
+
+@MANUAL{manual-minimal,
+   key = "Manmaker",
+   title = "The Definitive Computer Manual",
+}
+
+@MANUAL{manual-full,
+   author = "Larry Manmaker",
+   title = "The Definitive Computer Manual",
+   organization = "Chips-R-Us",
+   address = "Silicon Valley",
+   edition = "Silver",
+   month = apr # "-" # may,
+   year = 1986,
+   note = "This is a full MANUAL entry",
+}
+
+@MASTERSTHESIS{mastersthesis-minimal,
+   author = "{\'{E}}douard Masterly",
+   title = "Mastering Thesis Writing",
+   school = "Stanford University",
+   year = 1988,
+}
+
+@MASTERSTHESIS{mastersthesis-full,
+   author = "{\'{E}}douard Masterly",
+   title = "Mastering Thesis Writing",
+   school = "Stanford University",
+   type = "Master's project",
+   address = "English Department",
+   month = jun # "-" # aug,
+   year = 1988,
+   note = "This is a full MASTERSTHESIS entry",
+}
+
+@MISC{misc-minimal,
+   key = "Missilany",
+   note = "This is a minimal MISC entry",
+}
+
+@MISC{misc-full,
+   author = "Joe-Bob Missilany",
+   title = "Handing out random pamphlets in airports",
+   howpublished = "Handed out at O'Hare",
+   month = oct,
+   year = 1984,
+   note = "This is a full MISC entry",
+}
+
+@STRING{STOC-key = "OX{\singleletter{stoc}}"}
+
+@STRING{ACM = "The OX Association for Computing Machinery"}
+
+@STRING{STOC = " Symposium on the Theory of Computing"}
+
+@INPROCEEDINGS{inproceedings-minimal,
+   author = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+   title = "On Notions of Information Transfer in {VLSI} Circuits",
+   booktitle = "Proc. Fifteenth Annual ACM" # STOC,
+   year = 1983,
+}
+
+@INPROCEEDINGS{inproceedings-full,
+   author = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+   title = "On Notions of Information Transfer in {VLSI} Circuits",
+   editor = "Wizard V. Oz and Mihalis Yannakakis",
+   booktitle = "Proc. Fifteenth Annual ACM" # STOC,
+   number = 17,
+   series = "All ACM Conferences",
+   pages = "133--139",
+   month = mar,
+   year = 1983,
+   address = "Boston",
+   organization = ACM,
+   publisher = "Academic Press",
+   note = "This is a full INPROCEDINGS entry",
+}
+
+@INPROCEEDINGS{inproceedings-crossref,
+   crossref = "whole-proceedings",
+   author = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+   title = "On Notions of Information Transfer in {VLSI} Circuits",
+   organization = "",
+   pages = "133--139",
+   note = "This is a cross-referencing INPROCEEDINGS entry",
+}
+
+@PROCEEDINGS{proceedings-minimal,
+   key = STOC-key,
+   title = "Proc. Fifteenth Annual" # STOC,
+   year = 1983,
+}
+
+@PROCEEDINGS{proceedings-full,
+   editor = "Wizard V. Oz and Mihalis Yannakakis",
+   title = "Proc. Fifteenth Annual" # STOC,
+   number = 17,
+   series = "All ACM Conferences",
+   month = mar,
+   year = 1983,
+   address = "Boston",
+   organization = ACM,
+   publisher = "Academic Press",
+   note = "This is a full PROCEEDINGS entry",
+}
+
+@PROCEEDINGS{whole-proceedings,
+   key = STOC-key,
+   organization = ACM,
+   title = "Proc. Fifteenth Annual" # STOC,
+   address = "Boston",
+   year = 1983,
+   booktitle = "Proc. Fifteenth Annual ACM" # STOC,
+   note = "This is a cross-referenced PROCEEDINGS",
+}
+
+@PHDTHESIS{phdthesis-minimal,
+   author = "F. Phidias Phony-Baloney",
+   title = "Fighting Fire with Fire: Festooning {F}rench Phrases",
+   school = "Fanstord University",
+   year = 1988,
+}
+
+@PHDTHESIS{phdthesis-full,
+   author = "F. Phidias Phony-Baloney",
+   title = "Fighting Fire with Fire: Festooning {F}rench Phrases",
+   school = "Fanstord University",
+   type = "{PhD} Dissertation",
+   address = "Department of French",
+   month = jun # "-" # aug,
+   year = 1988,
+   note = "This is a full PHDTHESIS entry",
+}
+
+@TECHREPORT{techreport-minimal,
+   author = "Tom Terrific",
+   title = "An {$O(n \log n / \! \log\log n)$} Sorting Algorithm",
+   institution = "Fanstord University",
+   year = 1988,
+}
+
+@TECHREPORT{techreport-full,
+   author = "Tom T{\'{e}}rrific",
+   title = "An {$O(n \log n / \! \log\log n)$} Sorting Algorithm",
+   institution = "Fanstord University",
+   type = "Wishful Research Result",
+   number = "7",
+   address = "Computer Science Department, Fanstord, California",
+   month = oct,
+   year = 1988,
+   note = "This is a full TECHREPORT entry",
+}
+
+@UNPUBLISHED{unpublished-minimal,
+   author = "Ulrich {\"{U}}nderwood and Ned {\~N}et and Paul {\={P}}ot",
+   title = "Lower Bounds for Wishful Research Results",
+   note = "Talk at Fanstord University (this is a minimal UNPUBLISHED entry)",
+}
+
+@UNPUBLISHED{unpublished-full,
+   author = "Ulrich {\"{U}}nderwood and Ned {\~N}et and Paul {\={P}}ot",
+   title = "Lower Bounds for Wishful Research Results",
+   month = nov # ", " # dec,
+   year = 1988,
+   note = "Talk at Fanstord University (this is a full UNPUBLISHED entry)",
+}
+
+@MISC{random-note-crossref,
+   key = {Volume-2},
+   note = "Volume~2 is listed under Knuth \cite{book-full}"
+}
+
+
+@article{quarantelliProblematicalAspectsInformation1997,
+  title = {Problematical Aspects of the Information/ Communication Revolution for Disaster Planning and Research: Ten Non-Technical Issues and Questions},
+  volume = {6},
+  copyright = {Copyright MCB UP Limited (MCB) 1997},
+  issn = {09653562},
+  shorttitle = {Problematical Aspects of the Information/ Communication Revolution for Disaster Planning and Research},
+  abstract = {An information/communication revolution is being brought about by recent developments and innovations in computer and related technologies. This paper recognizes that many of the consequences will be very positive for all aspects of social life, but also focuses on probable and possible negative effects of the currently accelerating cyberspace revolution. Ten problematic aspects for disaster planning, management, and research are discussed, ranging, for example, from the creation of a new kind of disaster - computer-related system failures - and the increased difficulties that will be generated for intra- and inter-organizational communication and co-ordination, to the problems that will come from an inevitable information overload and the diffusion of inappropriate or incorrect disaster relevant "facts" and "ideas."},
+  language = {English},
+  number = {2},
+  journal = {Disaster Prevention and Management; Bradford},
+  author = {Quarantelli, E. L.},
+  year = {1997},
+  keywords = {Contingency planning,Information dissemination,Management of crises,Problems,Public Health And Safety,Research,Social life \& customs,Technological change},
+  pages = {94-106},
+}
+
+@article{viewegMicrobloggingTwoNatural2010,
+  title = {Microblogging during Two Natural Hazards Events: What Twitter May Contribute to Situational Awareness},
+  abstract = {We analyze microblog posts generated during two recent, concurrent emergency events in North America via Twitter, a popular microblogging service. We focus on communications broadcast by people who were ``on the ground'' during the Oklahoma Grassfires of April 2009 and the Red River Floods that occurred in March and April 2009, and identify information that may contribute to enhancing situational awareness (SA). This work aims to inform next steps for extracting useful, relevant information during emergencies using information extraction (IE) techniques.},
+  language = {en},
+  author = {Vieweg, Sarah and Hughes, Amanda L and Starbird, Kate and Palen, Leysia},
+  year = {2010},
+  pages = {10},
+  file = {/home/abrahamq/Zotero/storage/7PVUMVH4/Vieweg et al. - 2010 - Microblogging during two natural hazards events w.pdf}
+}
+
+@inproceedings{starbirdVoluntweetersSelforganizingDigital,
+  title = {Voluntweeters:'' {{Self}}-Organizing by Digital Volunteers in Times of Crisis},
+  shorttitle = {Voluntweeters},
+  abstract = {This empirical study of ``digital volunteers '' in the aftermath of the January 12, 2010 Haiti earthquake describes their behaviors and mechanisms of self-organizing in the information space of a microblogging environment, where collaborators were newly found and distributed across continents. The paper explores the motivations, resources, activities and products of digital volunteers. It describes how seemingly small features of the technical environment offered structure for self-organizing, while considering how the social-technical milieu enabled individual capacities and collective action. Using social theory about self-organizing, the research offers insight about features of coordination within a setting of massive interaction. Author Keywords Computer-mediated communication, crisis informatics,},
+  booktitle = {Proc. of {{CHI}} (2011},
+  author = {Starbird, Kate and Palen, Leysia},
+  pages = {1071--1080},
+  file = {/home/abrahamq/Zotero/storage/HH8SU47Z/Starbird and Palen - Voluntweeters” Self-organizing by digital volunte.pdf;/home/abrahamq/Zotero/storage/BCP6KM7W/summary.html}
+}
+
+@article{chanFloodRiskAsia2012,
+  title = {Flood {{Risk}} in {{Asia}}'s {{Urban Mega}}-Deltas: {{Drivers}}, {{Impacts}} and {{Response}}},
+  volume = {3},
+  issn = {0975-4253},
+  shorttitle = {Flood {{Risk}} in {{Asia}}'s {{Urban Mega}}-Deltas},
+  abstract = {Asia's urbanized mega-deltas are experiencing increased incidences of flooding. Flood risk is increasing due to urban growth, which makes people more vulnerable and threatens economic assets, and due to factors that increase flood hazard, including reduced delta aggradation, subsidence though natural resource extraction, and climate change, including extreme weather events, such as typhoons, and sea level rise. The recent history of flooding in Asia's deltaic cities and the drivers of that risk have been examined in this article. We give particular attention to the Pearl River Delta, and its cities of Guangzhou, Hong Kong and Shenzhen, important economic centres of Asia. The flood risk is substantial, but flood risk management appear to suffer through a lack of sufficient strategic planning, and the difficulty of defending deltaic cities through traditional engineering approaches alone. Drawing on lessons from flood risk management internationally, we suggest that there are ways forward in developing flood mitigation strategies for deltaic cities in the region, which deserve further exploration.},
+  language = {en},
+  number = {1},
+  journal = {Environment and Urbanization ASIA},
+  doi = {10.1177/097542531200300103},
+  author = {Chan, Faith Ka Shun and Mitchell, Gordon and Adekola, Olalekan and McDonald, Adrian},
+  month = mar,
+  year = {2012},
+  pages = {41-61},
+  file = {/home/abrahamq/Zotero/storage/VGH38R2G/Chan et al. - Flood Risk in Asia’s Urban Mega-deltas.pdf}
+}
+
+@article{ahernGlobalHealthImpacts2005,
+  title = {Global {{Health Impacts}} of {{Floods}}: {{Epidemiologic Evidence}}},
+  volume = {27},
+  issn = {0193-936X},
+  shorttitle = {Global {{Health Impacts}} of {{Floods}}},
+  number = {1},
+  journal = {Epidemiologic Reviews},
+  doi = {10.1093/epirev/mxi004},
+  author = {Ahern, Mike and Kovats, R. Sari and Wilkinson, Paul and Few, Roger and Matthies, Franziska},
+  month = jul,
+  year = {2005},
+  pages = {36-46},
+  file = {/home/abrahamq/Zotero/storage/BKXK52KG/Ahern et al. - 2005 - Global Health Impacts of Floods Epidemiologic Evi.pdf;/home/abrahamq/Zotero/storage/SNG4UTQW/Ahern et al. - 2005 - Global Health Impacts of Floods Epidemiologic Evi.html}
+}
+
+@article{tortiFloodsSoutheastAsia2012,
+  title = {Floods in {{Southeast Asia}}: {{A}} Health Priority},
+  volume = {2},
+  issn = {2047-2978},
+  shorttitle = {Floods in {{Southeast Asia}}},
+  number = {2},
+  journal = {Journal of Global Health},
+  doi = {10.7189/jogh.02.020304},
+  author = {Torti, Jacqueline},
+  month = dec,
+  year = {2012},
+  file = {/home/abrahamq/Zotero/storage/3JAWK43G/Torti - 2012 - Floods in Southeast Asia A health priority.pdf},
+  pmid = {23289075},
+  pmcid = {PMC3529313}
+}
+
+@article{carverHumancomputerInteractionHuman2007,
+  title = {Human-Computer Interaction: The Human and Computer as a Team in Emergency Management Information Systems},
+  volume = {50},
+  issn = {00010782},
+  shorttitle = {Human-Computer Interaction},
+  language = {en},
+  number = {3},
+  journal = {Communications of the ACM},
+  doi = {10.1145/1226736.1226761},
+  author = {Carver, Liz and Turoff, Murray},
+  month = mar,
+  year = {2007},
+  pages = {33},
+  file = {/home/abrahamq/Zotero/storage/LTKG5TGY/Carver and Turoff - 2007 - Human-computer interaction the human and computer.pdf}
+}
+
+@article{flentgeDesigningContextAwareHCI,
+  title = {Designing {{Context}}-{{Aware HCI}} for {{Collaborative Emergency Management}}},
+  abstract = {When a disaster strikes the management and coordination of available resources becomes a crucial and challenging task. Hereby, availability of information and effective communication is of utmost importance. Efficient support for first responders and decision makers, coordinating the assignments, is necessary to save time and lives, as many victims might not survive long without appropriate assistance. Context-aware computing and adequate HCI can be key factors, supporting first responders as well as decision makers in their difficult tasks. This position paper discusses preliminary thoughts on basic questions relevant to the design of HCI for emergency management. A short overview of the challenges of HCI in emergency scenarios is given. Some implications of these challenges, the need for context-aware user interfaces as well as the careful design of interaction methods and devices are discussed briefly.},
+  language = {en},
+  journal = {1987},
+  author = {Flentge, Felix and Weber, Stefan G and Behring, Alexander and Ziegert, Thomas},
+  pages = {4},
+  file = {/home/abrahamq/Zotero/storage/Y73NUFZF/Flentge et al. - Designing Context-Aware HCI for Collaborative Emer.pdf}
+}
+
+@incollection{jhaNaturalAnthropogenicDisasters2010,
+  address = {{Dordrecht}},
+  title = {Natural and {{Anthropogenic Disasters}}: {{An Overview}}},
+  isbn = {978-90-481-2498-5},
+  shorttitle = {Natural and {{Anthropogenic Disasters}}},
+  abstract = {Disasters are undesirable and often sudden events causing human, material, economic and/or environmental losses, which exceed the coping capability of the affected community or society. They are caused either by natural forces/processes (known as `natural disasters') or by human actions, negligence, or errors (known as `anthropogenic disasters''). Natural disasters are generally classified into three major groups (CRED, 2009): (i) `geophysical disasters' (e.g., earthquake, volcanic eruption, rockfall, landslide, avalanche, and subsidence); (ii) `hydro-meteorological disasters' (e.g., flood, drought, storm, extreme temperature, wildfire, and wet mass movement); and (iii) `biological disasters' (e.g., epidemic, insect infestation, and animal stampede). Similarly, anthropogenic disasters are broadly classified into two major groups (http://en.wikipedia.org/wiki/Disaster): (i) `technological disasters' (e.g., disasters due to engineering failures, transport disasters, and environmental disasters); and (ii) `sociological disasters' (e.g., criminal acts, riots, war, stampedes, etc.).},
+  language = {en},
+  booktitle = {Natural and {{Anthropogenic Disasters}}: {{Vulnerability}}, {{Preparedness}} and {{Mitigation}}},
+  publisher = {{Springer Netherlands}},
+  author = {Jha, Madan Kumar},
+  editor = {Jha, Madan Kumar},
+  year = {2010},
+  keywords = {Disaster Management,Disaster Risk,Disaster Risk Reduction,Natural Disaster,Tropical Cyclone},
+  pages = {1-16},
+  file = {/home/abrahamq/Zotero/storage/GLP9YSU8/Jha - 2010 - Natural and Anthropogenic Disasters An Overview.pdf},
+  doi = {10.1007/978-90-481-2498-5_1}
+}
+
+@article{inanKnowledgeSharingDisaster2016,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1606.01355},
+  primaryClass = {cs},
+  title = {Towards Knowledge Sharing in Disaster Management: {{An}} Agent Oriented Knowledge Analysis Framework},
+  shorttitle = {Towards Knowledge Sharing in Disaster Management},
+  abstract = {Disaster Management (DM) is a complex set of interrelated activities. The activities are often knowledge intensive and time sensitive. Sharing the required knowledge timely is critical for DM. In developed countries, for recurring disasters (e.g. floods), there are dedicated document repositories of Disaster Management Plans (DMP) that can be accessed as needs arise. However, accessing the appropriate plan in a timely manner and sharing activities between plans often requires domain knowledge and intimate knowledge of the plans in the first place. In this paper, we introduce an agent-based knowledge analysis method to convert DMPs into a collection of knowledge units that can be stored into a unified repository. The repository of DM actions then enables the mixing and matching knowledge between different plans. The repository is structured as a layered abstraction according to Meta Object Facility (MOF). We use the flood management plans used by SES in NSW to illustrate and give a preliminary validation of the approach. It is illustrated using DMPs along the flood prone Murrumbidgee River in central NSW.},
+  journal = {arXiv:1606.01355 [cs]},
+  author = {Inan, Dedi Iskandar and Beydoun, Ghassan and Opper, Simon},
+  month = jun,
+  year = {2016},
+  keywords = {Computer Science - Computers and Society},
+  file = {/home/abrahamq/Zotero/storage/8CANN76Z/Inan et al. - 2016 - Towards knowledge sharing in disaster management .pdf;/home/abrahamq/Zotero/storage/32BCYT2G/1606.html}
+}
+
+@misc{tbelcumich.eduHeb316870001001,
+  title = {Heb31687.0001.001.Epub},
+  journal = {fulcrum.org},
+  howpublished = {https://hdl.handle.net/2027/fulcrum.ws859g216},
+  author = {{tbelc@umich.edu}},
+  keywords = {Science \& Technology},
+  file = {/home/abrahamq/Zotero/storage/JGM4X6XF/ws859g216.html}
+}
+
+@book{medinaCyberneticRevolutionariesTechnology,
+  title = {Cybernetic Revolutionaries: Technology and Politics in {{Allende}}'s {{Chile}}},
+  isbn = {978-0-262-01649-0},
+  shorttitle = {Cybernetic Revolutionaries},
+  publisher = {{MIT Press}},
+  author = {Medina, Eden},
+  keywords = {Science \& Technology},
+  file = {/home/abrahamq/Zotero/storage/SX2S7EEE/j3860746g.html}
+}
+
+@misc{DayChennaiDrowned,
+  title = {The {{Day Chennai Drowned}}: {{City Experiences}} '{{Sunk Monday}}'},
+  shorttitle = {The {{Day Chennai Drowned}}},
+  abstract = {Highest rainfall in November since 2009 submerges several areas while residents were rescued with the help of boats, IAF chopper.},
+  journal = {The New Indian Express},
+  howpublished = {http://www.newindianexpress.com/cities/chennai/2015/nov/17/The-Day-Chennai-Drowned-City-Experiences-Sunk-Monday-843991.html},
+  file = {/home/abrahamq/Zotero/storage/CZ2UZN8V/The-Day-Chennai-Drowned-City-Experiences-Sunk-Monday-843991.html}
+}
+
+@article{vermaNaturalLanguageProcessing,
+  title = {Natural {{Language Processing}} to the {{Rescue}}? {{Extracting}} ``{{Situational Awareness}}'' {{Tweets During Mass Emergency}}},
+  abstract = {In times of mass emergency, vast amounts of data are generated via computer-mediated communication (CMC) that are difficult to manually cull and organize into a coherent picture. Yet valuable information is broadcast, and can provide useful insight into time- and safety-critical situations if captured and analyzed properly and rapidly. We describe an approach for automatically identifying messages communicated via Twitter that contribute to situational awareness, and explain why it is beneficial for those seeking information during mass emergencies.},
+  language = {en},
+  author = {Verma, Sudha and Vieweg, Sarah and Corvey, William J and Palen, Leysia and Martin, James H and Palmer, Martha and Schram, Aaron and Anderson, Kenneth M},
+  pages = {8},
+  file = {/home/abrahamq/Zotero/storage/JGVW4X3P/Verma et al. - Natural Language Processing to the Rescue Extract.pdf}
+}
+
+@article{granlundWebbasedMicroworldSimulation2001,
+  series = {I: {{Best}} of {{Websim99}}. {{II}}: {{Traffic Simulation}}},
+  title = {Web-Based Micro-World Simulation for Emergency Management Training},
+  volume = {17},
+  issn = {0167-739X},
+  abstract = {Micro-world simulation and exercise monitoring will have an important role in future group distance exercise (GDE) systems. Micro-world simulations can be used for training basic co-ordination and collaborative work in emergency management and command-and-control situations. An important design task when developing distributed interactive simulation systems for GDE is to define a proper monitoring functionality that will help the training managers to evaluate the exercises. In our research, we have developed C3Fire, a web-based distributed interactive simulation system. This paper presents results from using the C3Fire micro-world and our work on exercise monitoring.},
+  number = {5},
+  journal = {Future Generation Computer Systems},
+  doi = {10.1016/S0167-739X(00)00039-X},
+  author = {Granlund, Rego},
+  month = mar,
+  year = {2001},
+  keywords = {Distance education,Exercise monitoring,Micro-world simulation,Web-based simulation},
+  pages = {561-572},
+  file = {/home/abrahamq/Zotero/storage/8AQW8WLZ/Granlund - 2001 - Web-based micro-world simulation for emergency man.pdf;/home/abrahamq/Zotero/storage/FV8XGSLK/S0167739X0000039X.html}
+}
+
+@article{reigeluthInstructionalTheoryDesign1989,
+  title = {An Instructional Theory for the Design of Computer-Based Simulations (42)},
+  volume = {16},
+  abstract = {Focuses on prescriptions for designing the instructional overlay of computer-based simulations, which serves to optimize learning and motivation. The instructional functions of simulations and the instructional features that should be used to achieve these functions are described. The design of computer-based simulations is presented in the form of a general model that offers prescriptions for the design of the introduction, acquisition, application, and assessment stages of simulations and for dealing with the issue of control (system or learner). Variations on the general model are based on the nature of the behavior (using procedures, process principles, or causal principles), complexity of the content, form of learner participation, form of changes being simulated (physical or nonphysical), and motivational requirements. (PsycINFO Database Record (c) 2012 APA, all rights reserved)},
+  journal = {Journal of Computer-Based Instruction},
+  author = {Reigeluth, Charles and Schwartz, Ellen},
+  month = mar,
+  year = {1989},
+  pages = {1-10},
+  file = {/home/abrahamq/Zotero/storage/FHRWPQVL/Reigeluth and Schwartz - 1989 - An instructional theory for the design of computer.pdf}
+}
+
+@article{otimCaseBasedKnowledgeManagement2006,
+  title = {A {{Case}}-{{Based Knowledge Management System}} for {{Disaster Management}}: {{Fundamental Concepts}}},
+  abstract = {Computer-based knowledge management systems are vital for disaster detection, response planning, and management. These systems aid in early warning, and provide decision support for disaster response and recovery management. Managing past knowledge for reuse can expedite the process of disaster response and recovery management. While early warning systems predict some disasters with remarkable accuracy, there is a paucity of knowledge management systems for disaster response and management. This paper outlines a case-based reasoning (CBR) knowledge management system that in effect, is a model of human reasoning since it is based upon the idea that people frequently rely on previous problem-solving experiences when solving new problems. A CBR knowledge management system results in efficient and effective disaster response and management.},
+  language = {en},
+  author = {Otim, Samuel},
+  year = {2006},
+  pages = {7},
+  file = {/home/abrahamq/Zotero/storage/82Z7HGIZ/Otim - 2006 - A Case-Based Knowledge Management System for Disas.pdf}
+}
+
+@article{otimCaseBasedKnowledgeManagement2006a,
+  title = {A {{Case}}-{{Based Knowledge Management System}} for {{Disaster Management}}: {{Fundamental Concepts}}},
+  abstract = {Computer-based knowledge management systems are vital for disaster detection, response planning, and management. These systems aid in early warning, and provide decision support for disaster response and recovery management. Managing past knowledge for reuse can expedite the process of disaster response and recovery management. While early warning systems predict some disasters with remarkable accuracy, there is a paucity of knowledge management systems for disaster response and management. This paper outlines a case-based reasoning (CBR) knowledge management system that in effect, is a model of human reasoning since it is based upon the idea that people frequently rely on previous problem-solving experiences when solving new problems. A CBR knowledge management system results in efficient and effective disaster response and management.},
+  language = {en},
+  author = {Otim, Samuel},
+  year = {2006},
+  pages = {7},
+  file = {/home/abrahamq/Zotero/storage/YG3D8D5V/Otim - 2006 - A Case-Based Knowledge Management System for Disas.pdf}
+}
+
+@misc{johnAlarmingFailuresLeft,
+  title = {{Alarming failures left many in path of California wildfires vulnerable and without warning - Los Angeles Times}},
+  abstract = {``I can use my cellphone to order a pizza and it gets here,'' said Rob Lewin, director of the Santa Barbara County Office of Emergency Management. ``Why can't I have that same system to save people's lives? To get people out of harm's way?''},
+  language = {English (United States), en-US},
+  journal = {latimes.com},
+  howpublished = {http://www.latimes.com/local/lanow/la-me-fire-warnings-failure-20171229-story.html},
+  author = {John, Paige St},
+  file = {/home/abrahamq/Zotero/storage/6YVJ52SK/la-me-fire-warnings-failure-20171229-story.html}
+}
+
+@phdthesis{yangUrbanFloodSimulation,
+  title = {Urban {{Flood Simulation}} and {{Integrated Flood Risk Management}}},
+  abstract = {Climate change induces the probability of occurring natural disasters; e.g.
+floods, Sea Level Rise, Green House Gases. Flood is considered one of the
+most dangerous phenomena that tremendously and dramatically threatening
+the human being and environment worldwide. Rapid urban growth,
+demographic explosion, and unplanned land uses have exacerbated the
+problem of urban flooding, particularly in the cities of China. In addition to that,
+the concept of flood risk management and adaptation measures and strategies
+are still missed in the cities' development future plans.
+The main objective of this Ph.D. dissertation is to investigate the flood risk
+analysis and assessment based on flood simulation and adaptive strategies for
+flood event through two case studies of Changsha city in south-central China.
+In case study I, fluvial flooding was considered on mesoscale and an MCAbased
+approach was proposed to assess the integrated flood risk of Changsha
+central city. HEC-RAS 1-D model was used to simulation the inundation
+characteristics for hazard analysis based on four risk dimensions: economic,
+social, environmental, and infrastructural risk. For infrastructural dimension,
+apart for direct damage on road segments, network analysis method was
+combined with inundation information and macroscopic traffic simulation to
+evaluate the impact on traffic volume as well as a decrease of road service level.
+Closeness centrality weighted with a travel time of pre- and after- flood was
+compared in order to measure the impact on urban accessibility. Integrated risk
+values were calculated using various weighting criteria sets. Sobol' indices were
+used as a tool of spatially-explicit global Uncertainty Analysis and Sensitivity
+Analysis (UA/SA) for damage models.
+In case study II, an agent-based modeling approach was proposed to simulate
+the emergency pluvial flood event caused by a short-time rainstorm in local
+areas of cities aiming at developing an interactive flood emergency
+management system capable of interpreting the risk and reduction strategy of
+the pluvial flood. The simulation integrated an inundation model with
+microscopic traffic simulation. It also reveals that all agents can benefit
+significantly from both engineering measures and the only pedestrian obtain
+relatively more benefits from risk warning with high awareness. The method
+provided potentials in studies on the adaptive emergency management and risk
+reduction, help both decision-makers and stakeholders to acquire deeper and
+comprehensive understanding of the flood risk.
+IV
+This Ph.D. study has investigated holistic methods and models' selection in
+flood risk assessment and management to overcome data deficiency and to
+achieve the integration of different data. The results of the first case study reveal
+that the integrated methods have proved to be able to improved flood risk
+analysis and assessment especially for indirect damage of infrastructural
+system with network features. The global UA/SA based on Sobol' method and
+visualization with maps enable to gain the spatial distribution of uncertainty for
+various factors, the validation of damage models, and deeper and more
+comprehensive understanding of flood risk. Then based on the integrated risk
+assessment, functions of spatial planning in flood risk management were
+discussed, potentially providing guidance and support for decision-making.
+The results of the second case study denote that agent-based modeling and
+simulation can be effectively utilized for flood emergency management. Two
+scenarios focusing on specific risk reduction interventions were designed and
+compared. Engineering measures by improving capability of the drainage
+system and the surface permeability of waterlogging areas are the most
+effective means for damage mitigation. High public risk awareness still has
+great potential benefits of the in the event of emergencies, which can greatly
+enhance the effectiveness of the official warning. The agent-based modeling
+and simulation provided an effective method for analyzing the effectiveness of
+different strategies for reducing flood risk at the local scale and for supporting
+urban flood emergency management. The case studies also indicate the
+significance and necessity of establishing a platform and database to realize
+full sharing and synergies of spatial information resources for flood risk
+management, which is a vital issue to manage the urban flood risk and take
+effective measures correspondingly with responding to emergency extreme
+flood event.},
+  author = {Yang, Mu},
+  file = {/home/abrahamq/Zotero/storage/NJQTS9ZB/Yang - Urban Flood Simulation and Integrated Flood Risk M.pdf}
+}
+
+@book{walleInformationSystemsEmergency2014,
+  title = {Information {{Systems}} for {{Emergency Management}}},
+  isbn = {978-1-317-46796-0},
+  abstract = {This book provides the most current and comprehensive overview available today of the critical role of information systems in emergency response and preparedness. It includes contributions from leading scholars, practitioners, and industry researchers, and covers all phases of disaster management - mitigation, preparedness, response, and recovery. 'Foundational' chapters provide a design framework and review ethical issues. 'Context' chapters describe the characteristics of individuals and organizations in which EMIS are designed and studied. 'Case Study' chapters include systems for distributed microbiology laboratory diagnostics to detect possible epidemics or bioterrorism, humanitarian MIS, and response coordination systems. 'Systems Design and Technology' chapters cover simulation, geocollaborative systems, global disaster impact analysis, and environmental risk analysis. Throughout the book, the editors and contributors give special emphasis to the importance of assessing the practical usefulness of new information systems for supporting emergency preparedness and response, rather than drawing conclusions from a theoretical understanding of the potential benefits of new technologies.},
+  language = {en},
+  publisher = {{Routledge}},
+  author = {Walle, Bartel Van De and Turoff, Murray and Hiltz, Starr Roxanne},
+  month = dec,
+  year = {2014},
+  keywords = {Business \& Economics / Economics / General,Business \& Economics / General}
+}
+
+@article{turoffFutureEmergencyResponse2002,
+  title = {Past and Future Emergency Response Information Systems},
+  volume = {45},
+  issn = {00010782},
+  language = {en},
+  number = {4},
+  journal = {Communications of the ACM},
+  doi = {10.1145/505248.505265},
+  author = {Turoff, Murray},
+  month = apr,
+  year = {2002},
+  pages = {29},
+  file = {/home/abrahamq/Zotero/storage/7N8LCUU7/Turoff - 2002 - Past and future emergency response information sys.pdf}
+}
+
+@article{sorensenDecisionMakingUncertainties,
+  title = {Decision Making {{Uncertainties}} in {{Emergency Warning System Organizations}}},
+  volume = {5},
+  number = {1},
+  journal = {International Journal of Mass Emergencies and Disasters},
+  author = {Sorensen, John and Mileti, Dennis},
+  pages = {33-61},
+  file = {/home/abrahamq/Zotero/storage/ZV2LCH9F/decision making uncertainties in emergency warning system or.pdf}
+}
+
+@misc{DecisionmakingUncertaintiesEmergency,
+  title = {Decision-Making {{Uncertainties}} in {{Emergency Warning System Organizations}} - {{International Journal}} of {{Mass Emergencies}} and {{Disasters}}},
+  howpublished = {http://ijmed.org/articles/297/},
+  file = {/home/abrahamq/Zotero/storage/24RQKGEJ/297.html}
+}
+
+@article{holdernessGeosocialIntelligence2013,
+  title = {Geosocial Intelligence},
+  language = {en},
+  author = {Holderness, Tomas},
+  year = {2013},
+  pages = {5},
+  file = {/home/abrahamq/Zotero/storage/N2NFXH82/Holderness - 2013 - Geosocial intelligence.pdf}
+}
+
+@incollection{holdernessSocialMediaGeoSocial2015,
+  address = {{Cham}},
+  title = {From {{Social Media}} to {{GeoSocial Intelligence}}: {{Crowdsourcing Civic Co}}-Management for {{Flood Response}} in {{Jakarta}}, {{Indonesia}}},
+  isbn = {978-3-319-27235-1 978-3-319-27237-5},
+  shorttitle = {From {{Social Media}} to {{GeoSocial Intelligence}}},
+  abstract = {Here we present a review of PetaJakarta.org, a system designed to harness social media use in Jakarta for the purpose of relaying information about flood locations from citizen to citizen and from citizens and the city's emergency management agency. The project aimed to produce an open, real-time situational overview of flood conditions and provide decision support for the management agency, as well as offering the government a data source for post-event analysis. As such, the platform was designed as a socio-technological system and developed as a civic co-management tool to enable climate adaptation and community resilience in Jakarta, a delta megacity suffering enormous infrastructural instability due to a troubled confluence of environmental factors\textemdash{}the city's rapid urbanization, its unique geographic limitations, and increasing sea-levels and monsoon rainfalls resulting from climate change. The chapter concludes with a discussion of future research in open source platform and their role in infrastructure and disaster management.},
+  language = {en},
+  booktitle = {Social {{Media}} for {{Government Services}}},
+  publisher = {{Springer International Publishing}},
+  author = {Holderness, Tomas and Turpin, Etienne},
+  editor = {Nepal, Surya and Paris, C{\'e}cile and Georgakopoulos, Dimitrios},
+  year = {2015},
+  pages = {115-133},
+  file = {/home/abrahamq/Zotero/storage/EJ9G5RBX/Holderness and Turpin - 2015 - From Social Media to GeoSocial Intelligence Crowd.pdf},
+  doi = {10.1007/978-3-319-27237-5_6}
+}
+
+@incollection{holdernessSocialMediaGeoSocial2015a,
+  address = {{Cham}},
+  title = {From {{Social Media}} to {{GeoSocial Intelligence}}: {{Crowdsourcing Civic Co}}-Management for {{Flood Response}} in {{Jakarta}}, {{Indonesia}}},
+  isbn = {978-3-319-27237-5},
+  shorttitle = {From {{Social Media}} to {{GeoSocial Intelligence}}},
+  abstract = {Here we present a review of PetaJakarta.org, a system designed to harness social media use in Jakarta for the purpose of relaying information about flood locations from citizen to citizen and from citizens and the city's emergency management agency. The project aimed to produce an open, real-time situational overview of flood conditions and provide decision support for the management agency, as well as offering the government a data source for post-event analysis. As such, the platform was designed as a socio-technological system and developed as a civic co-management tool to enable climate adaptation and community resilience in Jakarta, a delta megacity suffering enormous infrastructural instability due to a troubled confluence of environmental factors\textemdash{}the city's rapid urbanization, its unique geographic limitations, and increasing sea-levels and monsoon rainfalls resulting from climate change. The chapter concludes with a discussion of future research in open source platform and their role in infrastructure and disaster management.},
+  language = {en},
+  booktitle = {Social {{Media}} for {{Government Services}}},
+  publisher = {{Springer International Publishing}},
+  author = {Holderness, Tomas and Turpin, Etienne},
+  editor = {Nepal, Surya and Paris, C{\'e}cile and Georgakopoulos, Dimitrios},
+  year = {2015},
+  keywords = {Civic co-management,Climate adaptation,Crowdsourcing,Digital ecosystems,Disaster risk management,Geosocial intelligence,Infrastructure management,Social media,Socio-technological systems},
+  pages = {115-133},
+  file = {/home/abrahamq/Zotero/storage/LD6ZUE7G/Holderness and Turpin - 2015 - From Social Media to GeoSocial Intelligence Crowd.pdf},
+  doi = {10.1007/978-3-319-27237-5_6}
+}
+
+@book{universityTerminalDisastersComputer1986,
+  address = {{Boulder?}},
+  series = {Program on Environment and Behavior},
+  title = {Terminal Disasters: Computer Applications in Emergency Management},
+  lccn = {HV553.T47 1986},
+  shorttitle = {Terminal Disasters},
+  number = {monograph \#39},
+  publisher = {{Institute of Behavioral Science, University of Colorado}},
+  author = {University, of Colorado Boulder and University, of Colorado Boulder},
+  editor = {Marston, Sallie A.},
+  year = {1986},
+  keywords = {Data processing,Emergency management}
+}
+
+@article{perryNaturalDisasterManagement2007,
+  title = {Natural Disaster Management Planning: {{A}} Study of Logistics Managers Responding to the Tsunami},
+  volume = {37},
+  issn = {0960-0035},
+  shorttitle = {Natural Disaster Management Planning},
+  abstract = {Purpose \textendash{} The paper aims to discuss the findings of a humanitarian logistics manager field study on response activity concerning the 2004 tsunami disaster in terms of what should have occurred and to present a comprehensive hindsight-analysis case for a model placing natural disaster response activity clearly within the context of local-nation-led, holistic and inclusive natural disaster planning.},
+  language = {en},
+  number = {5},
+  journal = {International Journal of Physical Distribution \& Logistics Management},
+  doi = {10.1108/09600030710758455},
+  author = {Perry, Marcia},
+  month = jun,
+  year = {2007},
+  pages = {409-433},
+  file = {/home/abrahamq/Zotero/storage/Q99DRGPZ/Perry - 2007 - Natural disaster management planning A study of l.pdf}
+}
+
+@article{ohlFloodingHumanHealth2000,
+  title = {Flooding and Human Health},
+  volume = {321},
+  issn = {09598138},
+  language = {en},
+  number = {7270},
+  journal = {BMJ},
+  doi = {10.1136/bmj.321.7270.1167},
+  author = {Ohl, C. A},
+  month = nov,
+  year = {2000},
+  pages = {1167-1168},
+  file = {/home/abrahamq/Zotero/storage/7PER65FG/Ohl - 2000 - Flooding and human health.pdf}
+}
+
+@techreport{tzemosUseGISFederal1995,
+  title = {Use of {{GIS}} in the {{Federal Emergency Management Information System}} ({{FEMIS}})},
+  abstract = {The U.S. Department of Energy's Office of Scientific and Technical Information},
+  language = {English},
+  number = {PNL-SA-26086; CONF-9505242-1},
+  institution = {{Pacific Northwest Lab., Richland, WA (United States)}},
+  author = {Tzemos, S. and Burnett, R. A.},
+  month = may,
+  year = {1995},
+  file = {/home/abrahamq/Zotero/storage/8KENUBR9/Tzemos and Burnett - 1995 - Use of GIS in the Federal Emergency Management Inf.pdf;/home/abrahamq/Zotero/storage/CPTS67PE/89547.html}
+}
+
+@misc{EmergencyManagementOperations,
+  title = {Emergency {{Management Operations Solution}} | {{ArcGIS Software}}, {{Real}}-{{Time Data}} \& {{Training}}},
+  abstract = {Our emergency management operations solution includes ArcGIS software with access to real-time data, and professional services \& training. Modernize your operations.},
+  language = {en-us},
+  howpublished = {https://www.esri.com/en-us/industries/state-local-government/solutions/emergency-management?aduc=social\&adum=internal\&utm\_Source=social},
+  file = {/home/abrahamq/Zotero/storage/56RT7WQ6/emergency-management.html}
+}
+
+@book{tierneyFacingUnexpectedDisaster2001,
+  title = {Facing the {{Unexpected}}: {{Disaster Preparedness}} and {{Response}} in the {{United States}}},
+  isbn = {978-0-309-51518-4},
+  shorttitle = {Facing the {{Unexpected}}},
+  abstract = {Facing the Unexpected presents the wealth of information derived from disasters around the world over the past 25 years. The authors explore how these findings can improve disaster programs, identify remaining research needs, and discuss disaster within the broader context of sustainable development.How do different people think about disaster? Are we more likely to panic or to respond with altruism? Why are 110 people killed in a Valujet crash considered disaster victims while the 50,000 killed annually in traffic accidents in the U.S. are not? At the crossroads of social, cultural, and economic factors, this book examines these and other compelling questions.The authors review the influences that shape the U.S. governmental system for disaster planning and response, the effectiveness of local emergency agencies, and the level of professionalism in the field. They also compare technological versus natural disaster and examine the impact of technology on disaster programs.},
+  language = {en},
+  publisher = {{Joseph Henry Press}},
+  author = {Tierney, Kathleen J. and Lindell, Michael K. and Perry, Ronald W.},
+  month = nov,
+  year = {2001},
+  keywords = {Science / General}
+}
+
+@article{quarantelliProblematicalAspectsInformation1997,
+  title = {Problematical Aspects of the Information/ Communication Revolution for Disaster Planning and Research: Ten Non-Technical Issues and Questions},
+  volume = {6},
+  copyright = {Copyright MCB UP Limited (MCB) 1997},
+  issn = {09653562},
+  shorttitle = {Problematical Aspects of the Information/ Communication Revolution for Disaster Planning and Research},
+  abstract = {An information/communication revolution is being brought about by recent developments and innovations in computer and related technologies. This paper recognizes that many of the consequences will be very positive for all aspects of social life, but also focuses on probable and possible negative effects of the currently accelerating cyberspace revolution. Ten problematic aspects for disaster planning, management, and research are discussed, ranging, for example, from the creation of a new kind of disaster - computer-related system failures - and the increased difficulties that will be generated for intra- and inter-organizational communication and co-ordination, to the problems that will come from an inevitable information overload and the diffusion of inappropriate or incorrect disaster relevant "facts" and "ideas."},
+  language = {English},
+  number = {2},
+  journal = {Disaster Prevention and Management; Bradford},
+  author = {Quarantelli, E. L.},
+  year = {1997},
+  keywords = {Contingency planning,Information dissemination,Management of crises,Problems,Public Health And Safety,Research,Social life \& customs,Technological change},
+  pages = {94-106},
+  file = {/home/abrahamq/Zotero/storage/7QX6NHYQ/1.html}
+}
+
+@misc{MegacityDefinitionMegacity,
+  title = {Megacity | {{Definition}} of Megacity in {{English}} by {{Oxford Dictionaries}}},
+  abstract = {Definition of megacity - a very large city, typically one with a population of over ten million people.},
+  journal = {Oxford Dictionaries | English},
+  howpublished = {https://en.oxforddictionaries.com/definition/megacity},
+  file = {/home/abrahamq/Zotero/storage/2TX8AQP9/megacity.html}
+}
+
+@article{chanResilientFloodRisk2018,
+  title = {Towards Resilient Flood Risk Management for {{Asian}} Coastal Cities: {{Lessons}} Learned from {{Hong Kong}} and {{Singapore}}},
+  volume = {187},
+  issn = {0959-6526},
+  shorttitle = {Towards Resilient Flood Risk Management for {{Asian}} Coastal Cities},
+  abstract = {Many coastal cities are experiencing growing risk to hydrological hazards through the combination of uncontrolled urban development and exposure to natural phenomena linked to climate change, including rising sea levels, intensified storms, and amplified storm surges. This growing risk is particularly acute in Asian coastal mega-cities, many of which have yet to develop adequate adaptation policies to address plausible impacts of climate change. In this analysis, we review how Hong Kong and Singapore, two of the most affluent coastal cities in East Asia, have initiated many flood mitigation strategies policies that have allowed them to reduce the impacts flooding. These strategies, once relying largely on building flood control structures, have now evolved to include holistic flood risk management approaches that include socio-economic factors. Arguably these two success stories provide inspiration for other coastal Asian cities. However, as climate change and uncontrolled development are likely to increase urban flooding in the future, general improvements could be made to improve knowledge transfer: e.g., develop means to work across policy silos and strike compromises between conflicting sectoral responsibilities, and develop long-term integrated strategies using planning tools and practices to address growing risk. While knowledge transfer cannot be direct because of different geographical settings, socio-economic situations, and political situations, we encourage governments to look beyond engineering-based flood control structures as to develop flood governance programs.},
+  journal = {Journal of Cleaner Production},
+  doi = {10.1016/j.jclepro.2018.03.217},
+  author = {Chan, F. K. S. and Chuah, C. Joon and Ziegler, A. D. and D{\k{a}}browski, M. and Varis, O.},
+  month = jun,
+  year = {2018},
+  keywords = {Climate adaptation,Coastal cities,Flood risk management,Hong Kong and Singapore,Resilience},
+  pages = {576-589},
+  file = {/home/abrahamq/Zotero/storage/QBQXSKF3/Chan et al. - 2018 - Towards resilient flood risk management for Asian .pdf;/home/abrahamq/Zotero/storage/NDGTLSX5/S0959652618308941.html}
+}
+
+@misc{WorldCities2018,
+  title = {The {{World}}'s {{Cities}} in 2018},
+  shorttitle = {The},
+  publisher = {{United Nations}},
+  file = {/home/abrahamq/Zotero/storage/H5JENELT/the_worlds_cities_in_2018_data_booklet.pdf}
+}
+
+@article{imranProcessingSocialMedia2015,
+  title = {Processing {{Social Media Messages}} in {{Mass Emergency}}: {{A Survey}}},
+  volume = {47},
+  issn = {03600300},
+  shorttitle = {Processing {{Social Media Messages}} in {{Mass Emergency}}},
+  language = {en},
+  number = {4},
+  journal = {ACM Computing Surveys},
+  doi = {10.1145/2771588},
+  author = {Imran, Muhammad and Castillo, Carlos and Diaz, Fernando and Vieweg, Sarah},
+  month = jun,
+  year = {2015},
+  pages = {1-38},
+  file = {/home/abrahamq/Zotero/storage/78NWEGIH/Imran et al. - 2015 - Processing Social Media Messages in Mass Emergency.pdf}
+}
+
+@article{ranaMultidimensionalModelVulnerability2018,
+  title = {Multidimensional {{Model}} for {{Vulnerability Assessment}} of {{Urban Flooding}}: {{An Empirical Study}} in {{Pakistan}}},
+  volume = {9},
+  copyright = {International Journal of Disaster Risk Science is a copyright of Springer, (2018). All Rights Reserved., \textcopyright{} 2018. This work is published under http://creativecommons.org/licenses/by/4.0/ (the ``License''). Notwithstanding the ProQuest Terms and Conditions, you may use this content in accordance with the terms of the License.},
+  issn = {20950055},
+  shorttitle = {Multidimensional {{Model}} for {{Vulnerability Assessment}} of {{Urban Flooding}}},
+  abstract = {Urban flooding has become a regular phenomenon in many towns and cities in the Asia Pacific region over the past years. Professionals associated with disaster management and climate change are at the forefront of addressing urban flooding. To reduce flood risks, vulnerability and its components must be understood. Vulnerability assessment methods are diverse and complex, with a varied nature of understanding the key terms used in various contexts, and this diversity ultimately reflects on the interpretation of results in research settings. Diverse interpretations and definitions exist in the disaster risk and climate change literature, complicating the process of astute and comprehensive vulnerability assessment. The main purpose of this study was to quantify vulnerability indicators and develop a multidimensional model for vulnerability assessment. Vulnerability is explored through the lens of five dimensions: social, economic, physical/infrastructural, institutional, and attitudinal. This methodology is applied to urban flooding in Pakistan, to verify the proposed model. Three study sites in urban areas with different population sizes, situated in high-risk flood zones in the Punjab Province of Pakistan were selected for empirical investigation. A household survey was conducted, and indices were developed for each dimension based on well-defined indicators. The proposed methodology for vulnerability assessment was tested and found operational. This method can be replicated irrespective of spatial scales and can be modified for other disasters by streamlining hazard specific indicators.},
+  language = {English},
+  number = {3},
+  journal = {International Journal of Disaster Risk Science; Heidelberg},
+  doi = {http://dx.doi.org/10.1007/s13753-018-0179-4},
+  author = {Rana, Irfan Ahmad and Routray, Jayant K.},
+  month = sep,
+  year = {2018},
+  keywords = {Pakistan,Punjab,Urban flooding,Vulnerability assessment},
+  pages = {359-375},
+  file = {/home/abrahamq/Zotero/storage/GU7Z4HYL/Rana and Routray - 2018 - Multidimensional Model for Vulnerability Assessmen.pdf}
+}
+
+@article{glickphdMovingSituationalAwareness2013,
+  title = {Moving from Situational Awareness to Decisions during Disaster Response: {{Transition}} to Decision Making},
+  volume = {11},
+  issn = {1543-5865, 1543-5865},
+  shorttitle = {Moving from Situational Awareness to Decisions during Disaster Response},
+  abstract = {During major disasters, at what point in the decisional process do senior government officials transition from developing necessary situational awareness to perform decision making? This ``transition to decision making'' (TDM) concept was analyzed through a structured interview survey of 25 current and former US Federal Coordinating Officers (FCOs) and focused on their decision-making process during the initial response period in a Presidentially declared Stafford Act disaster. This analysis suggests that the TDM for these emergency leaders is influenced by the following five factors: 1) Analogue Factor: the decision maker's previous knowledge and experience from analogous disaster situations; 2) New Paradigm Factor: the degree to which the disaster situation is very atypical to the decision maker due to hazard type and/or situation severity, 3) Data Capture Factor: the quality, amount, and speed of disaster situation data conveyed to the decision maker; 4) Data Integration Factor: the decision maker's ability to integrate situational data elements into a mental framework/picture; and 5) Time Urgency Factor: the decision maker's perception as to time available before a decision has to be made. The article describes the factors and graphs that how these may influence the timing of the TDM in four types of emergency situations faced by FCOs: 1) an analogue disaster, 2) a disaster situation that presents a new paradigm, 3) an intuitive disaster situation, and 4) a disaster requiring an urgent response.},
+  language = {en},
+  number = {6},
+  journal = {Journal of Emergency Management},
+  doi = {10.5055/jem.2013.0155},
+  author = {Glick, PhD, Jeffrey A. and Barbera, MD, Joseph A.},
+  month = nov,
+  year = {2013},
+  pages = {423},
+  file = {/home/abrahamq/Zotero/storage/GY4R7V5B/Glick, PhD and Barbera, MD - 2013 - Moving from situational awareness to decisions dur.pdf}
+}
+
+@article{NationalResponseFramework,
+  title = {National {{Response Framework}}},
+  language = {en},
+  pages = {54},
+  file = {/home/abrahamq/Zotero/storage/8DJGEV4E/National Response Framework.pdf}
+}
+
+@article{NationalResponseFrameworka,
+  title = {National {{Response Framework}}, {{Third Edition}}},
+  language = {en},
+  pages = {58},
+  file = {/home/abrahamq/Zotero/storage/8S5V8IN9/National Response Framework, Third Edition.pdf}
+}
+
+@article{blackstoneEconomicsEmergencyResponse2007,
+  title = {The {{Economics}} of {{Emergency Response}}},
+  volume = {40},
+  issn = {0032-2687},
+  abstract = {Federal first responder funding is estimated to be \$98 billion below the minimum required level over the 5 years ending in 2010. A significant portion of that shortfall can be covered by savings attained by eliminating non-public-good services, initiating public-private partnerships for meeting peak time demand in emergency situations, and contracting-out other public services. We concentrate on such savings in the context of response to false calls to police, fire, and ambulance services. Solving the false alarm problem for police, fire, and ambulance services and eliminating some non-public-good police services could release significant service-hours and 23.7-31.4\% of the required additional Homeland Security (HLS) annual spending. Reducing false alarms means 88,000 police, fire, and ambulance first responders could be shifted to HLS activities.},
+  number = {4},
+  journal = {Policy Sciences},
+  author = {Blackstone, Erwin A. and Buck, Andrew J. and Hakim, Simon},
+  year = {2007},
+  pages = {313-334},
+  file = {/home/abrahamq/Zotero/storage/A74JH6DE/Blackstone et al. - 2007 - The Economics of Emergency Response.pdf}
+}
+
+@techreport{ImplementationEuropeanEmergency2017,
+  address = {{Brussels, Belgium}},
+  type = {Working {{Document}}},
+  title = {Implementation of the {{European}} Emergency Number 112 \textendash{} {{Results}} of the Tenth Data-Gathering Round},
+  language = {English},
+  institution = {{European Commission}},
+  month = oct,
+  year = {2017},
+  file = {/home/abrahamq/Zotero/storage/VMYQSTBM/COCOM-false-emergency-calls.pdf}
+}
+
+@techreport{ImplementationEuropeanEmergency2018,
+  address = {{Brussels, Belgium}},
+  type = {Working {{Document}}},
+  title = {Implementation of the {{European}} Emergency Number 112 \textendash{} {{Results}} of the Eleventh Data-Gathering Round},
+  language = {English},
+  institution = {{European Commission}},
+  month = sep,
+  year = {2018},
+  file = {/home/abrahamq/Zotero/storage/Z8HSJXYN/COCOM-locating-emergency-callers.pdf}
+}
+
+@article{imranProcessingSocialMedia2014,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1407.7071},
+  primaryClass = {cs},
+  title = {Processing {{Social Media Messages}} in {{Mass Emergency}}: {{A Survey}}},
+  shorttitle = {Processing {{Social Media Messages}} in {{Mass Emergency}}},
+  abstract = {Social media platforms provide active communication channels during mass convergence and emergency events such as disasters caused by natural hazards. As a result, first responders, decision makers, and the public can use this information to gain insight into the situation as it unfolds. In particular, many social media messages communicated during emergencies convey timely, actionable information. Processing social media messages to obtain such information, however, involves solving multiple challenges including: handling information overload, filtering credible information, and prioritizing different classes of messages. These challenges can be mapped to classical information processing operations such as filtering, classifying, ranking, aggregating, extracting, and summarizing. We survey the state of the art regarding computational methods to process social media messages, focusing on their application in emergency response scenarios. We examine the particularities of this setting, and then methodically examine a series of key sub-problems ranging from the detection of events to the creation of actionable and useful summaries.},
+  journal = {arXiv:1407.7071 [cs]},
+  author = {Imran, Muhammad and Castillo, Carlos and Diaz, Fernando and Vieweg, Sarah},
+  month = jul,
+  year = {2014},
+  keywords = {Computer Science - Computers and Society,Computer Science - Social and Information Networks},
+  file = {/home/abrahamq/Zotero/storage/5PN8YNAL/Imran et al. - 2014 - Processing Social Media Messages in Mass Emergency.pdf;/home/abrahamq/Zotero/storage/CGA57M9X/1407.html}
+}
+
+@book{meierDigitalHumanitariansHow2015,
+  address = {{Boca Raton, FL, USA}},
+  title = {Digital {{Humanitarians}}: {{How Big Data Is Changing}} the {{Face}} of {{Humanitarian Response}}},
+  isbn = {978-1-4822-4839-5},
+  shorttitle = {Digital {{Humanitarians}}},
+  abstract = {The overflow of information generated during disasters can be as paralyzing to humanitarian response as the lack of information. Making sense of this information--Big Data--is proving an impossible challenge for traditional humanitarian organizations, which is precisely why they're turning to Digital Humanitarians. This new humanitarians mobilize online to make sense of vast volumes of data--social media and text messages; satellite and aerial imagery--in direct support of relief efforts worldwide. How? They craft ingenious crowdsourcing solutions with trail-blazing insights from artificial intelligence. This book charts the spectacular rise of Digital Humanitarians, highlighting how their humanity coupled with innovative Big Data solutions is changing humanitarian relief for forever. Praise for the book: ...examines how new uses of technology and vast quantities of digital data are transforming the way societies prepare for, respond to, cope with, and ultimately understand humanitarian disasters. --Dr. Enzo Bollettino, Executive Director, The Harvard Humanitarian Initiative, Harvard University ...explains the strengths and potential weaknesses of using big data and crowdsourced analytics in crisis situations. It is at once a deeply personal and intellectually satisfying book.--Professor Steven Livingston, Professor of Media \& Public and International Affairs, Elliott School of International Affairs, George Washington University},
+  publisher = {{CRC Press, Inc.}},
+  author = {Meier, Patrick},
+  year = {2015}
+}
+
+@misc{AssistantAttorneyGeneral2018,
+  title = {Assistant {{Attorney General}} with {{Ties}} to {{Russian Bank Recused}} from {{Mueller Investigation}}},
+  language = {en-US},
+  journal = {American Oversight},
+  howpublished = {https://www.americanoversight.org/assistant-attorney-general-with-ties-to-russian-bank-recused-from-mueller-investigation},
+  month = dec,
+  year = {2018},
+  file = {/home/abrahamq/Zotero/storage/QLUU3SRN/assistant-attorney-general-with-ties-to-russian-bank-recused-from-mueller-investigation.html}
+}
+
+@misc{TimezoneChennaiTz,
+  title = {Timezone Chennai Tz - {{Google Search}}},
+  howpublished = {https://www.google.com/search?ei=WPAJXICKNsOvggfouLKgCg\&q=timezone+chennai+tz\&oq=timezone+chennai+tz\&gs\_l=psy-ab.3...0.0..291...0.0..0.0.0.......0......gws-wiz.\_quPnjCzjSA},
+  file = {/home/abrahamq/Zotero/storage/GPBCYCTE/search.html}
+}
+
+@misc{ResearchGate,
+  title = {{{ResearchGate}}},
+  abstract = {ResearchGate is a network dedicated to science and research. Connect, collaborate and discover scientific publications, jobs and conferences. All for free.},
+  language = {en},
+  journal = {ResearchGate},
+  howpublished = {https://www.researchgate.net/publication/225741423\_Data-driven\_topo-climatic\_mapping\_with\_machine\_learning\_methods/download},
+  file = {/home/abrahamq/Zotero/storage/E485AU6W/225741423_Data-driven_topo-climatic_mapping_with_machine_learning_methods.html}
+}
+
+@article{pozdnoukhovDatadrivenTopoclimaticMapping2009,
+  title = {Data-Driven Topo-Climatic Mapping with Machine Learning Methods},
+  volume = {50},
+  abstract = {Automatic environmental monitoring networks enforced by wireless communication technologies provide large and ever increasing
+volumes of data nowadays. The use of this information in natural hazard research is an important issue. Particularly useful
+for risk assessment and decision making are the spatial maps of hazard-related parameters produced from point observations
+and available auxiliary information. The purpose of this article is to present and explore the appropriate tools to process
+large amounts of available data and produce predictions at fine spatial scales. These are the algorithms of machine learning,
+which are aimed at non-parametric robust modelling of non-linear dependencies from empirical data. The computational efficiency
+of the data-driven methods allows producing the prediction maps in real time which makes them superior to physical models
+for the operational use in risk assessment and mitigation. Particularly, this situation encounters in spatial prediction of
+climatic variables (topo-climatic mapping). In complex topographies of the mountainous regions, the meteorological processes
+are highly influenced by the relief. The article shows how these relations, possibly regionalized and non-linear, can be modelled
+from data using the information from digital elevation models. The particular illustration of the developed methodology concerns
+the mapping of temperatures (including the situations of F{\"o}hn and temperature inversion) given the measurements taken from
+the Swiss meteorological monitoring network. The range of the methods used in the study includes data-driven feature selection,
+support vector algorithms and artificial neural networks.},
+  journal = {Natural Hazards},
+  doi = {10.1007/s11069-008-9339-y},
+  author = {Pozdnoukhov, A and Foresti, Loris and Kanevski, Mikhail},
+  month = sep,
+  year = {2009},
+  pages = {497-518},
+  file = {/home/abrahamq/Zotero/storage/UBUNWGFE/Pozdnoukhov et al. - 2009 - Data-driven topo-climatic mapping with machine lea.pdf}
+}
+
+@inproceedings{maratheICTEnabledGrievanceRedressal2016,
+  address = {{Ann Arbor, MI, USA}},
+  title = {{{ICT}}-{{Enabled Grievance Redressal}} in {{Central India}}: {{A Comparative Analysis}}},
+  isbn = {978-1-4503-4306-0},
+  shorttitle = {{{ICT}}-{{Enabled Grievance Redressal}} in {{Central India}}},
+  abstract = {Helping citizens to resolve grievances is an important part of many e-governance initiatives. In this paper, we examine two contemporary initiatives that use ICTs to help citizens resolve grievances in central India. One system is a state-run call center (the CM Helpline), while the other is an independent citizen journalism service (CGNet Swara). Despite similarities in their high-level goals, approach, and geographies served, the systems have key differences in their use of technology, their level of transparency, and their relationship to government. Using qualitative interviews, field immersions, and other data, we analyze how these differences impact the experiences of citizens, officials, and the intermediaries between them. We synthesize our observations into a set of recommendations for the design of future ICT-enabled grievance redressal systems.},
+  language = {en},
+  booktitle = {Proceedings of the {{Eighth International Conference}} on {{Information}} and {{Communication Technologies}} and {{Development}}  - {{ICTD}} '16},
+  publisher = {{ACM Press}},
+  doi = {10.1145/2909609.2909653},
+  author = {Marathe, Meghana and O'Neill, Jacki and Pain, Paromita and Thies, William},
+  year = {2016},
+  pages = {1-11},
+  file = {/home/abrahamq/Zotero/storage/ZYMQKAJL/Marathe et al. - 2016 - ICT-Enabled Grievance Redressal in Central India .pdf}
+}
+
+@misc{KeralaStateEmergency,
+  title = {Kerala {{State Emergency Operations Center Handbook}}},
+  file = {/home/abrahamq/Zotero/storage/E3NKYQNN/EOCESFP2015-Edition-2.pdf}
+}
+
+@article{hongExploringSocialMedia2019,
+  title = {Exploring Social Media Use in University Crisis Communication: {{An}} Experiment to Measure Impact on Perceived Crisis Severity and Attitudes of Key Publics},
+  volume = {27},
+  issn = {09660879},
+  shorttitle = {Exploring Social Media Use in University Crisis Communication},
+  language = {en},
+  number = {1},
+  journal = {Journal of Contingencies and Crisis Management},
+  doi = {10.1111/1468-5973.12242},
+  author = {Hong, Seoyeon and Kim, Bokyung},
+  month = jan,
+  year = {2019},
+  pages = {61-71},
+  file = {/home/abrahamq/Zotero/storage/FR5UMPVI/Hong and Kim - 2019 - Exploring social media use in university crisis co.pdf}
+}
+
+@article{veilWorkInProcessLiteratureReview2011,
+  title = {A {{Work}}-{{In}}-{{Process Literature Review}}: {{Incorporating Social Media}} in {{Risk}} and {{Crisis Communication}}},
+  volume = {19},
+  issn = {09660879},
+  shorttitle = {A {{Work}}-{{In}}-{{Process Literature Review}}},
+  abstract = {This work-in-process literature review gives an overview of recent insight in the incorporation of social media in risk and crisis communication. By marrying literature and examples of social media use with best practices in risk and crisis communication, this study demonstrates how communicators can embrace social media tools to better manage a risk or crisis. Best practices in risk and crisis communication are summarized, examples of social media tools used to manage risks and crises are expounded, and recommendations for practitioners are provided to incorporate social media tools in risk and crisis communication.},
+  number = {2},
+  journal = {Journal of Contingencies \& Crisis Management},
+  doi = {10.1111/j.1468-5973.2011.00639.x},
+  author = {Veil, Shari R. and Buehner, Tara and Palenchar, Michael J.},
+  month = jun,
+  year = {2011},
+  keywords = {Social media,Communication \& technology,Crisis communication,Crisis management,Technological innovations},
+  pages = {110-122},
+  file = {/home/abrahamq/Zotero/storage/885GTSK3/Veil et al. - 2011 - A Work-In-Process Literature Review Incorporating.pdf}
+}
+
+@article{alamTwitterTaleThree2018,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1805.05144},
+  primaryClass = {cs},
+  title = {A {{Twitter Tale}} of {{Three Hurricanes}}: {{Harvey}}, {{Irma}}, and {{Maria}}},
+  shorttitle = {A {{Twitter Tale}} of {{Three Hurricanes}}},
+  abstract = {People increasingly use microblogging platforms such as Twitter during natural disasters and emergencies. Research studies have revealed the usefulness of the data available on Twitter for several disaster response tasks. However, making sense of social media data is a challenging task due to several reasons such as limitations of available tools to analyze high-volume and high-velocity data streams. This work presents an extensive multidimensional analysis of textual and multimedia content from millions of tweets shared on Twitter during the three disaster events. Specifically, we employ various Artificial Intelligence techniques from Natural Language Processing and Computer Vision fields, which exploit different machine learning algorithms to process the data generated during the disaster events. Our study reveals the distributions of various types of useful information that can inform crisis managers and responders as well as facilitate the development of future automated systems for disaster management.},
+  journal = {arXiv:1805.05144 [cs]},
+  author = {Alam, Firoj and Ofli, Ferda and Imran, Muhammad and Aupetit, Michael},
+  month = may,
+  year = {2018},
+  keywords = {Computer Science - Social and Information Networks},
+  file = {/home/abrahamq/Zotero/storage/8CX6572D/Alam et al. - 2018 - A Twitter Tale of Three Hurricanes Harvey, Irma, .pdf;/home/abrahamq/Zotero/storage/77K2KPE2/1805.html}
+}
+
+@article{butlerWhenGoogleGot2013,
+  title = {When {{Google}} Got Flu Wrong},
+  volume = {494},
+  abstract = {US outbreak foxes a leading web-based method for tracking seasonal flu.},
+  language = {en},
+  number = {7436},
+  journal = {Nature News},
+  doi = {10.1038/494155a},
+  author = {Butler, Declan},
+  month = feb,
+  year = {2013},
+  pages = {155},
+  file = {/home/abrahamq/Zotero/storage/FKEXHAN3/when-google-got-flu-wrong-1.html}
+}
+
+@article{vasavadaManagingDisasterNetworks2013,
+  title = {Managing {{Disaster Networks}} in {{India}}},
+  volume = {15},
+  issn = {14719037},
+  abstract = {This article studies a disaster management network in the state of Gujarat, India. Through social network analysis and interviews, the article examines the governance structure of a disaster management network and identifies factors that affect its effectiveness. Four factors \textendash{} trust, number of participants in the network, goal consensus and the need for network-level competencies based on the nature of the task \textendash{} were examined. The article concludes by discussing how the dynamics of these factors affected this particular disaster management network.},
+  number = {3},
+  journal = {Public Management Review},
+  doi = {10.1080/14719037.2013.769854},
+  author = {Vasavada, Triparna},
+  month = mar,
+  year = {2013},
+  keywords = {Emergency management,Crisis management,disaster management,Gujarat (India),India,Network governance,network management,Public safety},
+  pages = {363-382},
+  file = {/home/abrahamq/Zotero/storage/BCMMZG24/Vasavada - 2013 - Managing Disaster Networks in India.pdf}
+}
+
+@article{donahueDeCAFDeepConvolutional2013,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1310.1531},
+  primaryClass = {cs},
+  title = {{{DeCAF}}: {{A Deep Convolutional Activation Feature}} for {{Generic Visual Recognition}}},
+  shorttitle = {{{DeCAF}}},
+  abstract = {We evaluate whether features extracted from the activation of a deep convolutional network trained in a fully supervised fashion on a large, fixed set of object recognition tasks can be re-purposed to novel generic tasks. Our generic tasks may differ significantly from the originally trained tasks and there may be insufficient labeled or unlabeled data to conventionally train or adapt a deep architecture to the new tasks. We investigate and visualize the semantic clustering of deep convolutional features with respect to a variety of such tasks, including scene recognition, domain adaptation, and fine-grained recognition challenges. We compare the efficacy of relying on various network levels to define a fixed feature, and report novel results that significantly outperform the state-of-the-art on several important vision challenges. We are releasing DeCAF, an open-source implementation of these deep convolutional activation features, along with all associated network parameters to enable vision researchers to be able to conduct experimentation with deep representations across a range of visual concept learning paradigms.},
+  journal = {arXiv:1310.1531 [cs]},
+  author = {Donahue, Jeff and Jia, Yangqing and Vinyals, Oriol and Hoffman, Judy and Zhang, Ning and Tzeng, Eric and Darrell, Trevor},
+  month = oct,
+  year = {2013},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {/home/abrahamq/Zotero/storage/WEBA6IYM/Donahue et al. - 2013 - DeCAF A Deep Convolutional Activation Feature for.pdf;/home/abrahamq/Zotero/storage/JUTDG3X3/1310.html}
+}
+
+@article{khuranaNaturalLanguageProcessing2017,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1708.05148},
+  primaryClass = {cs},
+  title = {Natural {{Language Processing}}: {{State}} of {{The Art}}, {{Current Trends}} and {{Challenges}}},
+  shorttitle = {Natural {{Language Processing}}},
+  abstract = {Natural language processing (NLP) has recently gained much attention for representing and analysing human language computationally. It has spread its applications in various fields such as machine translation, email spam detection, information extraction, summarization, medical, and question answering etc. The paper distinguishes four phases by discussing different levels of NLP and components of Natural Language Generation (NLG) followed by presenting the history and evolution of NLP, state of the art presenting the various applications of NLP and current trends and challenges.},
+  journal = {arXiv:1708.05148 [cs]},
+  author = {Khurana, Diksha and Koli, Aditya and Khatter, Kiran and Singh, Sukhdev},
+  month = aug,
+  year = {2017},
+  keywords = {Computer Science - Computation and Language},
+  file = {/home/abrahamq/Zotero/storage/55ZZVVC5/Khurana et al. - 2017 - Natural Language Processing State of The Art, Cur.pdf;/home/abrahamq/Zotero/storage/VX5NY2HF/1708.html}
+}
+
+@article{kaplanUsersWorldUnite2010,
+  title = {Users of the World, Unite! {{The}} Challenges and Opportunities of {{Social Media}}},
+  volume = {53},
+  issn = {00076813},
+  abstract = {The concept of Social Media is top of the agenda for many business executives today. Decision makers, as well as consultants, try to identify ways in which firms can make profitable use of applications such as Wikipedia, YouTube, Facebook, Second Life, and Twitter. Yet despite this interest, there seems to be very limited understanding of what the term ``Social Media'' exactly means; this article intends to provide some clarification. We begin by describing the concept of Social Media, and discuss how it differs from related concepts such as Web 2.0 and User Generated Content. Based on this definition, we then provide a classification of Social Media which groups applications currently subsumed under the generalized term into more specific categories by characteristic: collaborative projects, blogs, content communities, social networking sites, virtual game worlds, and virtual social worlds. Finally, we present 10 pieces of advice for companies which decide to utilize Social Media.},
+  language = {en},
+  number = {1},
+  journal = {Business Horizons},
+  doi = {10.1016/j.bushor.2009.09.003},
+  author = {Kaplan, Andreas M. and Haenlein, Michael},
+  month = jan,
+  year = {2010},
+  pages = {59-68},
+  file = {/home/abrahamq/Zotero/storage/JLRSM5Z3/Kaplan and Haenlein - 2010 - Users of the world, unite! The challenges and oppo.pdf}
+}
+
+@article{vasavadaManagingDisasterNetworks2013a,
+  title = {Managing {{Disaster Networks}} in {{India}}},
+  volume = {15},
+  issn = {14719037},
+  abstract = {This article studies a disaster management network in the state of Gujarat, India. Through social network analysis and interviews, the article examines the governance structure of a disaster management network and identifies factors that affect its effectiveness. Four factors \textendash{} trust, number of participants in the network, goal consensus and the need for network-level competencies based on the nature of the task \textendash{} were examined. The article concludes by discussing how the dynamics of these factors affected this particular disaster management network.},
+  number = {3},
+  journal = {Public Management Review},
+  doi = {10.1080/14719037.2013.769854},
+  author = {Vasavada, Triparna},
+  month = mar,
+  year = {2013},
+  keywords = {Emergency management,Crisis management,disaster management,Gujarat (India),India,Network governance,network management,Public safety},
+  pages = {363-382},
+  file = {/home/abrahamq/Zotero/storage/9DKF2SZQ/Vasavada - 2013 - Managing Disaster Networks in India.pdf}
+}
+
+@article{liveraForecastingTimeSeries2011,
+  title = {Forecasting {{Time Series With Complex Seasonal Patterns Using Exponential Smoothing}}},
+  volume = {106},
+  issn = {0162-1459},
+  abstract = {An innovations state space modeling framework is introduced for forecasting complex seasonal time series such as those with multiple seasonal periods, high-frequency seasonality, non-integer seasonality, and dual-calendar effects. The new framework incorporates Box\textendash{}Cox transformations, Fourier representations with time varying coefficients, and ARMA error correction. Likelihood evaluation and analytical expressions for point forecasts and interval predictions under the assumption of Gaussian errors are derived, leading to a simple, comprehensive approach to forecasting complex seasonal time series. A key feature of the framework is that it relies on a new method that greatly reduces the computational burden in the maximum likelihood estimation. The modeling framework is useful for a broad range of applications, its versatility being illustrated in three empirical studies. In addition, the proposed trigonometric formulation is presented as a means of decomposing complex seasonal time series, and it is shown that this decomposition leads to the identification and extraction of seasonal components which are otherwise not apparent in the time series plot itself.},
+  number = {496},
+  journal = {Journal of the American Statistical Association},
+  doi = {10.1198/jasa.2011.tm09771},
+  author = {Livera, Alysha M. De and Hyndman, Rob J. and Snyder, Ralph D.},
+  month = dec,
+  year = {2011},
+  keywords = {Fourier series,Prediction intervals,Seasonality,State space models,Time series decomposition},
+  pages = {1513-1527},
+  file = {/home/abrahamq/Zotero/storage/XHI3NCQS/Livera et al. - 2011 - Forecasting Time Series With Complex Seasonal Patt.pdf;/home/abrahamq/Zotero/storage/F6ELUBLL/jasa.2011.html}
+}
+
+@article{chatfieldReturnDevilDetails2014,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1405.3531},
+  primaryClass = {cs},
+  title = {Return of the {{Devil}} in the {{Details}}: {{Delving Deep}} into {{Convolutional Nets}}},
+  shorttitle = {Return of the {{Devil}} in the {{Details}}},
+  abstract = {The latest generation of Convolutional Neural Networks (CNN) have achieved impressive results in challenging benchmarks on image recognition and object detection, significantly raising the interest of the community in these methods. Nevertheless, it is still unclear how different CNN methods compare with each other and with previous state-of-the-art shallow representations such as the Bag-of-Visual-Words and the Improved Fisher Vector. This paper conducts a rigorous evaluation of these new techniques, exploring different deep architectures and comparing them on a common ground, identifying and disclosing important implementation details. We identify several useful properties of CNN-based representations, including the fact that the dimensionality of the CNN output layer can be reduced significantly without having an adverse effect on performance. We also identify aspects of deep and shallow methods that can be successfully shared. In particular, we show that the data augmentation techniques commonly applied to CNN-based methods can also be applied to shallow methods, and result in an analogous performance boost. Source code and models to reproduce the experiments in the paper is made publicly available.},
+  journal = {arXiv:1405.3531 [cs]},
+  author = {Chatfield, Ken and Simonyan, Karen and Vedaldi, Andrea and Zisserman, Andrew},
+  month = may,
+  year = {2014},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {/home/abrahamq/Zotero/storage/64ZQC386/Chatfield et al. - 2014 - Return of the Devil in the Details Delving Deep i.pdf;/home/abrahamq/Zotero/storage/ZZ58U2JD/1405.html}
+}
+
+@inproceedings{nguyenDamageAssessmentSocial2017,
+  address = {{New York, NY, USA}},
+  series = {{{ASONAM}} '17},
+  title = {Damage {{Assessment}} from {{Social Media Imagery Data During Disasters}}},
+  isbn = {978-1-4503-4993-2},
+  abstract = {Rapid access to situation-sensitive data through social media networks creates new opportunities to address a number of real-world problems. Damage assessment during disasters is a core situational awareness task for many humanitarian organizations that traditionally takes weeks and months. In this work, we analyze images posted on social media platforms during natural disasters to determine the level of damage caused by the disasters. We employ state-of-the-art machine learning techniques to perform an extensive experimentation of damage assessment using images from four major natural disasters. We show that the domain-specific fine-tuning of deep Convolutional Neural Networks (CNN) outperforms other state-of-the-art techniques such as Bag-of-Visual-Words (BoVW). High classification accuracy under both event-specific and cross-event test settings demonstrate that the proposed approach can effectively adapt deep-CNN features to identify the severity of destruction from social media images taken after a disaster strikes.},
+  booktitle = {Proceedings of the 2017 {{IEEE}}/{{ACM International Conference}} on {{Advances}} in {{Social Networks Analysis}} and {{Mining}} 2017},
+  publisher = {{ACM}},
+  doi = {10.1145/3110025.3110109},
+  author = {Nguyen, Dat T. and Ofli, Ferda and Imran, Muhammad and Mitra, Prasenjit},
+  year = {2017},
+  pages = {569--576},
+  file = {/home/abrahamq/Zotero/storage/KFN27UYQ/Nguyen et al. - 2017 - Damage Assessment from Social Media Imagery Data D.pdf}
+}
+
+@inproceedings{cresciLinguisticallydrivenApproachCrossEvent2015,
+  address = {{Florence, Italy}},
+  title = {A {{Linguistically}}-Driven {{Approach}} to {{Cross}}-{{Event Damage Assessment}} of {{Natural Disasters}} from {{Social Media Messages}}},
+  isbn = {978-1-4503-3473-0},
+  abstract = {This work focuses on the analysis of Italian social media messages for disaster management and aims at the detection of messages carrying critical information for the damage assessment task. A main novelty of this study consists in the focus on out-domain and cross-event damage detection, and on the investigation of the most relevant tweet-derived features for these tasks. We devised different experiments by resorting to a wide set of linguistic features qualifying the lexical and grammatical structure of a text as well as ad-hoc features specifically implemented for this task. We investigated the most effective features that allow to achieve the best results. A further result of this study is the construction of the first manually annotated Italian corpus of social media messages for damage assessment.},
+  language = {en},
+  booktitle = {Proceedings of the 24th {{International Conference}} on {{World Wide Web}} - {{WWW}} '15 {{Companion}}},
+  publisher = {{ACM Press}},
+  doi = {10.1145/2740908.2741722},
+  author = {Cresci, Stefano and Tesconi, Maurizio and Cimino, Andrea and Dell'Orletta, Felice},
+  year = {2015},
+  pages = {1195-1200},
+  file = {/home/abrahamq/Zotero/storage/NGALSED6/Cresci et al. - 2015 - A Linguistically-driven Approach to Cross-Event Da.pdf}
+}
