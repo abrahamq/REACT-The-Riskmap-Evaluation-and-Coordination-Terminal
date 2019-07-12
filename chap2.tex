@@ -12,13 +12,65 @@
 Most of the work in this area has been done by passively listening to twitter
 posts or facebook comments. 
 
-Problems with that approach
+Some was looking for clues after disasters: 
+\cite{viewegMicrobloggingTwoNatural2010}
+problem: don't have real time results
+
+Some used humans to filter out social media for real time disaster info
+\cite{starbirdVoluntweetersSelforganizingDigital}
+\cite{meierDigitalHumanitariansHow2015}
+
+Some involved using machine learning:
+\cite{imranPracticalExtractionDisasterrelevant2013}
+
+\subsubsection{Problems with that approach:}
+It is very difficult to filter out which social media images are related to the
+disaster and which are not.
 
 \subsection{On Image Data}
+Online learning using traditional transfer
+learning~\cite{donahueDeCAFDeepConvolutional2013} but online (so they get people
+to label images as a disaster happens?) plus train with generic disaster
+images in order to solve cold start problem at the beginning of an event.
+Classify social media images into 3 classes: (severe, mild, little) damage.
+\cite{nguyenDamageAssessmentSocial2017}
+
 
 
 \subsection{On Text Data}
+Crowd sentiment detection during disasters using twitter and the 2010 San Bruno
+CA fires n=3698
+\cite{nagyCrowdSentimentDetection2012}
 
-CrisisNLP has a huge datasets 
+Feature engineering on twitter messages to classify into pre-incident, during
+incident and post-incident
+\cite{chowdhuryTweet4actUsingIncidentspecific2013}
+
+
+Classifying tweets as informative/ not informative using CNNs vs SVMs (CNN wins)
+\cite{carageaIdentifyingInformativeMessages2016}
+
+
+
+CrisisNLP from the Qatar Computing Research Institute
+has a huge datasets 
+\cite{nguyenRapidClassificationCrisisRelated}
+
+
+
+
 
 \subsection{Ensemble Data Models}
+
+\subsection{Common Difficulties}
+\subsubsection{Task Subjectivity}
+Task subjectivity is an incredibly common
+issue~\cite{nguyenDamageAssessmentSocial2017, quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
+whether an object is or is not an apple, this task does not translate to
+defining if a picture indicates a severe event or a minor one. 
+
+In other words, people's perception of risk varies widely from region to region
+and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
+
+\subsubsection{Small datasets}
+For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets.
