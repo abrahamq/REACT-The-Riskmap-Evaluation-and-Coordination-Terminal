@@ -9,6 +9,14 @@
 \section{Machine Learning in Crisis Informatics}
 
 \subsection{Passive Listening}
+Using social media in order to obtain on the ground information about
+disasters, both anthropogenic and otherwise, is as old social media itself. One
+of the first 
+
+
+The usefulness of social media
+
+
 Most of the work in this area has been done by passively listening to twitter
 posts or facebook comments. 
 
@@ -26,6 +34,9 @@ Some involved using machine learning:
 \subsubsection{Problems with that approach:}
 It is very difficult to filter out which social media images are related to the
 disaster and which are not.
+
+
+%%%%%%%
 
 \subsection{On Image Data}
 Online learning using traditional transfer
@@ -46,31 +57,72 @@ Feature engineering on twitter messages to classify into pre-incident, during
 incident and post-incident
 \cite{chowdhuryTweet4actUsingIncidentspecific2013}
 
-
 Classifying tweets as informative/ not informative using CNNs vs SVMs (CNN wins)
 \cite{carageaIdentifyingInformativeMessages2016}
-
-
 
 CrisisNLP from the Qatar Computing Research Institute
 has a huge datasets 
 \cite{nguyenRapidClassificationCrisisRelated}
 
 
-
-
-
 \subsection{Ensemble Data Models}
+
+This paper~\cite{mouzannarDamageIdentificationSocial2018} uses deep learning to
+identify damage related info 
+
+Low level visual features (extract color, shape texture) + then Use bag of words
+on the text. Make a 
+\cite{jomaaSemanticVisualCues2016}
+
 
 \subsection{Common Difficulties}
 \subsubsection{Task Subjectivity}
 Task subjectivity is an incredibly common
-issue~\cite{nguyenDamageAssessmentSocial2017, quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
+issue~\cite{nguyenDamageAssessmentSocial2017,
+quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
 whether an object is or is not an apple, this task does not translate to
 defining if a picture indicates a severe event or a minor one. 
 
 In other words, people's perception of risk varies widely from region to region
 and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
 
-\subsubsection{Small datasets}
-For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets.
+\subsubsection{Small Datasets}
+Although larger datasets have recently become available, there has
+historically been a scarcity of training and validation data available for
+crisis detection~\cite{imranTwitterLifelineHumanannotated, alamCrisisMMDMultimodalTwitter}. 
+Deep learning models that are trained on small datasets tend to overfit on the
+training data and do not generalize well to the validation
+dataset~\cite{perezEffectivenessDataAugmentation2017}.
+
+In many early studies only hundreds of data points were considered--- combined
+with the small size of those data points (for example, twitter microblogs of
+140 or 280 characters) and effectively using deep learning becomes very
+difficult.
+% TODO for Adi should I not write this? % 
+For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
+order to train 
+
+\subsubsection{Connects citizens to EOC}
+As discussed in~\ref{chap1:riskmap}, the Riskmap system helps to connect
+citizens to Emergency Operations Centers
+
+\subsubsection{Focus on technology rather than whole system design}
+A series of UN case studies on six disaster information systems found that while
+engineering and system design were essential, it was the hidden wiring of 
+\begin{quote}
+An important message emerges from the case studies: an effective disaster
+information management system requires a good technological platform,
+but also much more. Software programs for storing, sharing, and manipulating
+data for disasters are being developed or patched together at a steady pace,
+often in the aftermath of disasters. The real difficulty lies in anchoring
+these technological approaches in an appropriate institutional context where
+they are supported by relevant and effective operating procedures, agreed
+terminology and data labeling, and a shared awareness of the benefits of proper
+handling of disaster information. Clearly, a disaster information management
+system must be supported by accepted rules, procedures, and relationships
+that encourage, facilitate, and guide the production, sharing, and analysis and
+use of data in response to disaster. In these case studies, the institutional
+dimension---the hidden wiring---determined the effectiveness of the
+systems.~\cite{aminDataNaturalDisasters2008}
+\end{quote}
+
