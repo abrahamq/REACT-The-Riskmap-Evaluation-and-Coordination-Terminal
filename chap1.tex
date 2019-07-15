@@ -148,24 +148,43 @@ intelligence Holderness~\cite{holdernessSocialMediaGeoSocial2015a}.
 	means that disaster response organizations must become acclimated with the
 	system at the same time that they are dealing with disaster situations. 
 	
-	There have been some notable projects that attempt to provide complete systems
-	that can be used for different disasters. Most notably are the Sahana and the
-	AIDR projects.
+	Researchers have shown the need to create open sourced crowdsourced emergency systems
+	that provide open data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The
+	Riskmap system was created to fill that need.
 
-	Sahana has suspended its disaster response project that helped to
-	mobilize volunteers to respond to disasters.
-	// not focusing enough on the HCI and hidden wiring?
+	\subsection{System Overview}
+	The Riskmap system alleviates the load on emergency managers by
+	centralizing reports from many social media sources. It also makes it
+	easy not only for reports to come into the response center, but also for
+	emergency managers to indicate which areas of a city are most affected
+	at any one time. The data gathered during an event is persistent and
+	available under the Creative Commons license, which allows researchers
+	to track the flood over time and pinpoint areas that are particularly
+	vulnerable to flooding, thus fulfilling the need for open data~\cite{holdernessSocialMediaGeoSocial2015a}.
+
+	Riskmap consists of many different social media bots that are actively
+	filtering social media streams and looking for citizens that might be
+	reporting flooding events, it then reaches out to those users and asks
+	them to submit a flood report that consists of a GPS location, the
+	estimated flood height at that location, a picture, and a textual
+	description. These reports are then displayed on a public map for other
+	citizens to inform themselves. Furthermore, EOC personnel are able to
+	access the Risk Evaluation Matrix (REM), a special dashboard that allows
+	them to give even more information to citizens.
 	
-	On the need of opening up crowdsourced emergency systems~\cite{avvenutiNeedOpeningCrowdsourced2018a}
+	The system has been in place in Jakarta and Chennai since 2016, and has seen
+	hundreds of thousands of views during flood events.
 
 \section{Conquering Information Overload}
 	It is not enough to create an advanced system for consuming citizen
 	reports, it is also necessary to ensure that this system does not
 	consume resources that are already scarce during a disaster event, for
 	example the time of emergency
-	workers~\cite{aminDataNaturalDisasters2008}. If analyzing data takes too
-	much time, then decision makers will make decisions without having fully
-	analyzed the data~\cite{quarantelliUrbanVulnerabilityDisasters2003}
+	workers~\cite{aminDataNaturalDisasters2008}. It is also important to
+	reduce the amount of time needed to create insights because if analyzing
+	data takes too much time, then decision makers will make decisions
+	without having fully analyzed the
+	data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
 
 	Using computers to automatically make sense of disaster data has long
 	been a goal in disaster informatics, but only recently have machine
@@ -174,10 +193,10 @@ intelligence Holderness~\cite{holdernessSocialMediaGeoSocial2015a}.
 	recognition algorithms can provide summaries of objects and scenes found
 	in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
 	donahueDeCAFDeepConvolutional2013}. Natural language processing can
-	estimate the probability that a textual document is overall negative or positive
-	and thereby give EOCs a shorthand way to summarize thousands of reports
-	in short amounts of time~\cite{nguyenRapidClassificationCrisisRelated,
+	estimate the probability that a textual document is overall negative or
+	positive and thereby give EOCs a shorthand way to summarize thousands of
+	reports in short amounts of
+	time~\cite{nguyenRapidClassificationCrisisRelated,
 	nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
 	learn relationships between disparate datasets and synthesize a single
 	result~\cite{mouzannarDamageIdentificationSocial2018}.
-
