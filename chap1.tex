@@ -6,24 +6,26 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Introduction} Flooding is the most common natural disaster in the
 world~\cite{chanFloodRiskAsia2012}.  Flood related deaths account for half of
-all deaths from natural disasters~\cite{ohlFloodingHumanHealth2000}.  Although
+all deaths from natural disasters~\cite{ohlFloodingHumanHealth2000}. Although
 flooding impacts both developed and developing countries, developing nations
 face much worse consequences as a result of flooding since they lack resources
 to adequately mitigate
-disasters~\cite{quarantelliUrbanVulnerabilityDisasters2003}.  Unregulated
-urbanization, rising population and climate change are all contributing to
-increase the rate at which floods occur in developing megacities; furthermore,
-there is little data about these
-disasters~\cite{meierDigitalHumanitariansHow2015}.
-Data scarcity makes it hard to pinpoint where to direct aid during disasters and
-where to make infrastructure improvements after
-disasters~\cite{ranaMultidimensionalModelVulnerability2018}.
+hazards~\cite{quarantelliUrbanVulnerabilityDisasters2003}. Deltaic megacities
+in developing countries are particularly at risk because of unregulated
+urbanization, rising population and climate change are increasing the rate at
+which floods occur~\cite{chanFloodRiskAsia2012}. In
+addition to the increase in disaster risk, there is little data that is
+available before, during, and after a disaster to help stakeholders mitigate
+hazards~\cite{meierDigitalHumanitariansHow2015}. Data scarcity makes it hard to
+pinpoint where to direct aid during disasters and where to make infrastructure
+improvements after disasters~\cite{ranaMultidimensionalModelVulnerability2018}.
 
+%% TODO: this is pretty disjointed
 Various stakeholders have different but overlapping interests with regards to
-disaster management.  Government and NGOs work together to provide relief from
-mitigate damages from flooding~\cite{chanResilientFloodRisk2018}. Citizens look
-for relevant flood information and try to reduce their
-risk~\cite{viewegMicrobloggingTwoNatural2010}.  Information is at the core of
+disaster management. Government and NGOs work together to provide relief and
+mitigate damages from flooding~\cite{chanResilientFloodRisk2018}, while Citizens
+look for relevant flood information and try to reduce their
+risk~\cite{viewegMicrobloggingTwoNatural2010}. Information is at the core of
 this interaction; however, data scarcity makes it hard for emergency personnel
 to optimize their use of resources, while citizens have an abundance of
 information about their surroundings but must be careful not to trust incorrect
@@ -37,20 +39,19 @@ information~\cite{tierneyFacingUnexpectedDisaster2001}.
 
 The REACT system uses novel machine learning and human computer interaction
 research to reduce information overload in EOCs, thereby decreasing disaster
-response time. REACT learns how Emergency Operations Centers (EOCs) classify the
-severity of flood events given citizen submitted reports. REACT trains itself
-through a gamified simulation of a disaster event. During a real disaster, REACT
-digests social media reports and estimates how severely an event is impacting
-different areas of a city and thereby helps EOCs to respond in the best manner
-possible.
+response time. REACT classifies reports as indicating heavy flooding or not
+through an ensemble model. It first extracts key features from each of the parts
+of a report (text, picture, metadata) using known techniques and then uses a
+small dense neural net to classify the citizen report.
 
-\section{Emerging Risk In South and Southeast Asia}
-Global climate change is `expected to increase the frequency and intensity of
+%% TODO I feel like I'm restating myself here?
+\section{Emerging Risk In South and Southeast Asia} Global climate change is
+`expected to increase the frequency and intensity of
 floods'~\cite{ahernGlobalHealthImpacts2005}.  Urban areas are particularly at
 risk from flooding; unchecked development and rising population have created
-megacities that regularly experience flooding~\cite{chanFloodRiskAsia2012}. Nowhere is
-this more apparent than in South and Southeast Asia, where the severity of
-floods has been increasing over the past several
+megacities that regularly experience flooding~\cite{chanFloodRiskAsia2012}.
+Nowhere is this more apparent than in South and Southeast Asia, where the
+severity of floods has been increasing over the past several
 decades~\cite{tortiFloodsSoutheastAsia2012}.
 
 Of the world's 33 megacities, over 60 percent are located in developing Asian
@@ -62,59 +63,49 @@ and loss of life, but it also means that there are large numbers of citizens
 that have disaster information they would like to share with
 others~\cite{chanFloodRiskAsia2012}.
 
-\section{History of Disaster Informatics}
-One of the best known and earliest
-
-Work in Mapping disasters epidemiology
-John Snow's use of maps to find the source of Cholera outbreak in
-London\cite{rogersJohnSnowData2013}.
+\section{History of Disaster Informatics} One of the best known and earliest
+work in mapping disasters was John Snow's use of maps to find the
+source of the 1857 Cholera outbreak in London\cite{rogersJohnSnowData2013}. This
+example is generally taught to all new students of epidemiology and illustrates
+the need not only for up to date information, but for systems that ease the
+analysis of this information. In John Snow's case, the map was the tool that
+allowed him to visualize the spread of the disease and effectively take action
+that ended the outbreak.
 
 In more recent times, the need for Information Technology (IT) in disaster
 management has been clear since the mid 1980s when computers became user
 friendly enough to be used during
 disasters~\cite{universityTerminalDisastersComputer1986}. Now many EOCs use
-Geographic Information Systems (GIS) in order to organize spatial data and
-analyze disaster information; however, researchers have often stated that `there
+Geographic Information Systems (GIS), inventory control systems, and online
+messaging systems among other technology in order to organize spatial data and
+analyze disaster information. While some systems have helped some regions to
+better respond to disasters, researchers have often stated that `there
 are many reasons to remain skeptical about the idea that technology will provide
 a panacea for emergency management problems'~\cite{tzemosUseGISFederal1995,
-tierneyFacingUnexpectedDisaster2001, perryNaturalDisasterManagement2007}.
-A number of potential negative effects associated with
-IT disaster management technology have been identified: the potential for the
-technology to increase social inequality, the potential of information overload,
-and the dissemination of incorrect and outdated information
-\cite{quarantelliProblematicalAspectsInformation1997,
+tierneyFacingUnexpectedDisaster2001, perryNaturalDisasterManagement2007}. A
+number of potential negative effects associated with disaster management
+technology have been identified: the potential for the technology to increase
+social inequality, the potential of information overload, and the dissemination
+of incorrect and outdated information~\cite{quarantelliProblematicalAspectsInformation1997,
 flentgeDesigningContextAwareHCI}.
 
+\subsection{Social Media and Disasters}
+%% TODO is this in the right place??
+The history of social media and the
+hashtag is invariably linked to disaster communication.  It was during the San
+Diego bush fires of 2007 that the hashtag was first widely used on
+twitter~\cite{salazarHashtagsAnnotatedHistory2017}.
 
-For flooding:~\cite{ahernGlobalHealthImpacts2005}
+Much work has been done in passively listening to social media streams
+in order to better understand how disasters unfold and how humans use
+social media as a communication tool during disaster events. Many of
+these studies use hand labeled tweets in order to analyze which
+percentage of them 
 
-Technology can help disaster response; however, it also has the ability to cause
-information overload\cite{tierneyFacingUnexpectedDisaster2001}
+Digital Humanitarians use twitter to help spatially locate needs in
+Haiti after the 2008 earthquake~\cite{meierDigitalHumanitariansHow2015}
 
-\subsection{Social Media and disasters}
-	The history of social media and the hashtag is invariably linked to
-	disaster communication.  It was during the San Diego bush fires of 2007
-	that the hashtag was first widely used on
-	twitter~\cite{salazarHashtagsAnnotatedHistory2017}.
-	
-	Much work has been done in passively listening to social media streams in order
-	to better understand how disasters unfold and how humans use social media as a
-	communication tool during disaster events. Many of these studies use hand
-	labeled tweets in order to analyze which percentage of them 
-	
-	Digital Humanitarians use twitter to help spatially locate needs in Haiti after
-	the 2008 earthquake~\cite{meierDigitalHumanitariansHow2015}
-	
-	Twitter tale of 3 hurricanes~\cite{alamTwitterTaleThree2018}
-
-
-
-\section{The Riskmap System}\label{chap1:riskmap}
-
-
-\subsection{Motivation for crowdsourced data} Citizens as sensors Geosocial
-intelligence
-Holderness~\cite{holdernessSocialMediaGeoSocial2015a}.
+Twitter tale of 3 hurricanes~\cite{alamTwitterTaleThree2018}
 
 Quarantelli emphaszied that  `management of hazards is fundamentally social in
 nature and not something that can be achieved strictly through technological
@@ -122,4 +113,71 @@ upgrading'~\cite{tierneyFacingUnexpectedDisaster2001} yet social media brings
 human behavior into a machine readable format that can be used to provide
 further information during disasters.
 
-\section{Motivation for Machine Learning}
+\subsection{Crowdsourcing vs. Passive Listening}
+\begin{quote}
+	\textit{Since humanitarian organizations
+	don't ask eyewitnesses on social media to report information on needs
+	and impact groups like the Red Cross have to rely on witnesses sharing
+	relevant information by chance.}
+		\begin{flushright}
+		--- Patrick Meier~\cite{meierDigitalHumanitariansHow2015}
+		\end{flushright}
+\end{quote}
+
+As Patrick Meier points out in \textit{Digital Humanitarians}, passively
+listening to twitter data streams and hoping that someone posts relevant
+disaster information is not always a winning strategy. One solution to this
+problem is to have paid workers that collect information and enter it into
+disaster information systems as in~\cite{aminDataNaturalDisasters2008}, which
+details how paid workers were used to input data from citizens during the
+Mozambique floods of 2007; however, this method is expensive and does not scale
+well. The same report states that `data processing and consolidation [were]
+difficult' and that `the few data entry clerks struggled to keep
+up'~\cite{aminDataNaturalDisasters2008}.
+
+
+Citizens as sensors Geosocial
+intelligence Holderness~\cite{holdernessSocialMediaGeoSocial2015a}.
+
+%% TODO not sure where to place this section?
+\section{The Riskmap System}\label{chap1:riskmap}
+
+	\subsection{Need for open data}
+	Creating bespoke information systems at the beginning of disasters has been the
+	norm~\cite{aminDataNaturalDisasters2008}; however this
+	means that disaster response organizations must become acclimated with the
+	system at the same time that they are dealing with disaster situations. 
+	
+	There have been some notable projects that attempt to provide complete systems
+	that can be used for different disasters. Most notably are the Sahana and the
+	AIDR projects.
+
+	Sahana has suspended its disaster response project that helped to
+	mobilize volunteers to respond to disasters.
+	// not focusing enough on the HCI and hidden wiring?
+	
+	On the need of opening up crowdsourced emergency systems~\cite{avvenutiNeedOpeningCrowdsourced2018a}
+
+\section{Conquering Information Overload}
+	It is not enough to create an advanced system for consuming citizen
+	reports, it is also necessary to ensure that this system does not
+	consume resources that are already scarce during a disaster event, for
+	example the time of emergency
+	workers~\cite{aminDataNaturalDisasters2008}. If analyzing data takes too
+	much time, then decision makers will make decisions without having fully
+	analyzed the data~\cite{quarantelliUrbanVulnerabilityDisasters2003}
+
+	Using computers to automatically make sense of disaster data has long
+	been a goal in disaster informatics, but only recently have machine
+	learning techniques become good enough to be implemented in production
+	emergency systems~\cite{meierDigitalHumanitariansHow2015}. Image
+	recognition algorithms can provide summaries of objects and scenes found
+	in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
+	donahueDeCAFDeepConvolutional2013}. Natural language processing can
+	estimate the probability that a textual document is overall negative or positive
+	and thereby give EOCs a shorthand way to summarize thousands of reports
+	in short amounts of time~\cite{nguyenRapidClassificationCrisisRelated,
+	nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
+	learn relationships between disparate datasets and synthesize a single
+	result~\cite{mouzannarDamageIdentificationSocial2018}.
+
