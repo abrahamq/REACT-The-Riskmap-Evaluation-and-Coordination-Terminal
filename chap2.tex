@@ -4,132 +4,167 @@
 %% You can process specific files by typing their names in at the 
 %% \files=
 %% prompt when you run the file main.tex through LaTeX.
-\chapter{Previous Work} 
+\chapter{Background}
 
-\section{Machine Learning in Crisis Informatics}
+%% TODO I feel like I'm restating myself here?
+Global climate change is
+`expected to increase the frequency and intensity of
+floods'~\cite{ahernGlobalHealthImpacts2005}.  Urban areas are particularly at
+risk from flooding; unchecked development and rising population have created
+megacities that regularly experience flooding~\cite{chanFloodRiskAsia2012}.
+Nowhere is this more apparent than in South and Southeast Asia, where the
+severity of floods has been increasing over the past several
+decades~\cite{tortiFloodsSoutheastAsia2012}.
 
-\subsection{Passive Listening}
-Using social media in order to obtain on the ground information about
-disasters, both anthropogenic and otherwise, is as old social media itself. One
-of the first 
+Of the world's 33 megacities, over 60 percent are located in developing Asian
+Countries~\cite{unitednationsdepartmentofeconomicandsocialaffairsWorldCities20162016}.
+These cities face a looming crisis as flood risk increases, but there are also
+unique opportunities for risk mitigation. Megacities are characterized by high
+population density. This high density leads to an increase in economic damages
+and loss of life, but it also means that there are large numbers of citizens
+that have disaster information they would like to share with
+others~\cite{chanFloodRiskAsia2012}.
 
+\section{History of Disaster Informatics} One of the best known and earliest
+work in mapping disasters was John Snow's use of maps to find the
+source of the 1857 Cholera outbreak in London\cite{rogersJohnSnowData2013}. This
+example is generally taught to all new students of epidemiology and illustrates
+the need not only for up to date information, but for systems that ease the
+analysis of this information. In John Snow's case, the map was the tool that
+allowed him to visualize the spread of the disease and effectively take action
+that ended the outbreak.
 
-The usefulness of social media
+In more recent times, the need for Information Technology (IT) in disaster
+management has been clear since the mid 1980s when computers became user
+friendly enough to be used during
+disasters~\cite{universityTerminalDisastersComputer1986}. Now many EOCs use
+Geographic Information Systems (GIS), inventory control systems, and online
+messaging systems among other technology in order to organize spatial data and
+analyze disaster information. While some systems have helped some regions to
+better respond to disasters, researchers have often stated that `there
+are many reasons to remain skeptical about the idea that technology will provide
+a panacea for emergency management problems'~\cite{tzemosUseGISFederal1995,
+tierneyFacingUnexpectedDisaster2001, perryNaturalDisasterManagement2007}. A
+number of potential negative effects associated with disaster management
+technology have been identified: the potential for the technology to increase
+social inequality, the potential of information overload, and the dissemination
+of incorrect and outdated information~\cite{quarantelliProblematicalAspectsInformation1997,
+flentgeDesigningContextAwareHCI}.
 
+\subsection{Social Media and Disasters}
+%% TODO is this in the right place??
+The history of social media and the
+hashtag is invariably linked to disaster communication.  It was during the San
+Diego bush fires of 2007 that the hashtag was first widely used on
+twitter~\cite{salazarHashtagsAnnotatedHistory2017}.
 
-Most of the work in this area has been done by passively listening to twitter
-posts or facebook comments. 
+Quarantelli emphaszied that  `management of hazards is fundamentally social in
+nature and not something that can be achieved strictly through technological
+upgrading'~\cite{tierneyFacingUnexpectedDisaster2001} yet social media brings
+human behavior into a machine readable format that can be used to provide
+further information during disasters.
 
-Some was looking for clues after disasters: 
-\cite{viewegMicrobloggingTwoNatural2010}
-problem: don't have real time results
+Much work has been done in passively listening to social media streams
+in order to better understand how disasters unfold and how humans use
+social media as a communication tool during disaster events. Many of
+these studies use hand labeled tweets in order to classify what kind of
+information people talk about~\cite{alamTwitterTaleThree2018}.
 
-Some used humans to filter out social media for real time disaster info
-\cite{starbirdVoluntweetersSelforganizingDigital}
-\cite{meierDigitalHumanitariansHow2015}
-
-Some involved using machine learning:
-\cite{imranPracticalExtractionDisasterrelevant2013}
-
-\subsubsection{Problems with that approach:}
-It is very difficult to filter out which social media images are related to the
-disaster and which are not.
-
-
-%%%%%%%
-
-\subsection{On Image Data}
-Online learning using traditional transfer
-learning~\cite{donahueDeCAFDeepConvolutional2013} but online (so they get people
-to label images as a disaster happens?) plus train with generic disaster
-images in order to solve cold start problem at the beginning of an event.
-Classify social media images into 3 classes: (severe, mild, little) damage.
-\cite{nguyenDamageAssessmentSocial2017}
-
-
-
-\subsection{On Text Data}
-Crowd sentiment detection during disasters using twitter and the 2010 San Bruno
-CA fires n=3698
-\cite{nagyCrowdSentimentDetection2012}
-
-Feature engineering on twitter messages to classify into pre-incident, during
-incident and post-incident
-\cite{chowdhuryTweet4actUsingIncidentspecific2013}
-
-Classifying tweets as informative/ not informative using CNNs vs SVMs (CNN wins)
-\cite{carageaIdentifyingInformativeMessages2016}
-
-CrisisNLP from the Qatar Computing Research Institute
-has a huge datasets 
-\cite{nguyenRapidClassificationCrisisRelated}
-
-
-\subsection{Ensemble Data Models}
-
-This paper~\cite{mouzannarDamageIdentificationSocial2018} uses deep learning to
-identify damage related info 
-
-Low level visual features (extract color, shape texture) + then Use bag of words
-on the text. Make a 
-\cite{jomaaSemanticVisualCues2016}
-
-There have been some notable projects that attempt to provide complete systems
-that can be used for different disasters. Most notably are the Sahana and the
-AIDR projects.
-
-Sahana has suspended its disaster response project that helped to
-mobilize volunteers to respond to disasters.
-// not focusing enough on the HCI and hidden wiring?
-
-
-\subsection{Common Difficulties}
-\subsubsection{Task Subjectivity}
-Task subjectivity is an incredibly common
-issue~\cite{nguyenDamageAssessmentSocial2017,
-quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
-whether an object is or is not an apple, this task does not translate to
-defining if a picture indicates a severe event or a minor one. 
-
-In other words, people's perception of risk varies widely from region to region
-and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
-
-\subsubsection{Small Datasets}
-Although larger datasets have recently become available, there has
-historically been a scarcity of training and validation data available for
-Deep learning models that are trained on small datasets tend to overfit on the
-training data and do not generalize well to the validation
-dataset~\cite{perezEffectivenessDataAugmentation2017}.
-
-In many early studies only hundreds of data points were considered--- combined
-with the small size of those data points (for example, twitter microblogs of
-140 or 280 characters) and effectively using deep learning becomes very
-difficult.
-% TODO for Adi should I not write this? % 
-For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
-order to train 
-
-\subsubsection{Connects citizens to EOC}
-As discussed in~\ref{chap1:riskmap}, the Riskmap system helps to connect
-citizens to Emergency Operations Centers
-
-\subsubsection{Focus on technology rather than whole system design}
-A series of UN case studies on six disaster information systems found that while
-engineering and system design were essential, it was the hidden wiring of 
+Further work has evolved to using artificial intelligence methods to
+automatically label new tweets using supervised learning. For example, Patrick
+Meier's Haiti Crisis Map initially used volunteers to classify large number of
+tweets, but his more recent projects focus on the use of AI for tackling big
+data problems~\cite{meierDigitalHumanitariansHow2015}.
+\subsection{Crowdsourcing vs. Passive Listening}
 \begin{quote}
-An important message emerges from the case studies: an effective disaster
-information management system requires a good technological platform,
-but also much more. Software programs for storing, sharing, and manipulating
-data for disasters are being developed or patched together at a steady pace,
-often in the aftermath of disasters. The real difficulty lies in anchoring
-these technological approaches in an appropriate institutional context where
-they are supported by relevant and effective operating procedures, agreed
-terminology and data labeling, and a shared awareness of the benefits of proper
-handling of disaster information. Clearly, a disaster information management
-system must be supported by accepted rules, procedures, and relationships
-that encourage, facilitate, and guide the production, sharing, and analysis and
-use of data in response to disaster. In these case studies, the institutional
-dimension---the hidden wiring---determined the effectiveness of the
-systems.~\cite{aminDataNaturalDisasters2008}
+	\textit{Since humanitarian organizations
+	don't ask eyewitnesses on social media to report information on needs
+	and impact groups like the Red Cross have to rely on witnesses sharing
+	relevant information by chance.}
+		\begin{flushright}
+		--- Patrick Meier~\cite{meierDigitalHumanitariansHow2015}
+		\end{flushright}
 \end{quote}
 
+As Patrick Meier points out in \textit{Digital Humanitarians}, passively
+listening to twitter data streams and hoping that someone posts relevant
+disaster information is not always a winning strategy. One solution to this
+problem is to have paid workers that collect information and enter it into
+disaster information systems as in~\cite{aminDataNaturalDisasters2008}, which
+details how paid workers were used to input data from citizens during the
+Mozambique floods of 2007; however, this method is expensive and does not scale
+well. The same report states that `data processing and consolidation [were]
+difficult' and that `the few data entry clerks struggled to keep
+up'~\cite{aminDataNaturalDisasters2008}.
+
+
+Citizens as sensors Geosocial
+intelligence Holderness~\cite{holdernessSocialMediaGeoSocial2015a}.
+
+%% TODO not sure where to place this section?
+\section{The Riskmap System}\label{chap1:riskmap}
+
+	\subsection{Need for open data}
+	Creating bespoke information systems at the beginning of disasters has been the
+	norm~\cite{aminDataNaturalDisasters2008}; however this
+	means that disaster response organizations must become acclimated with the
+	system at the same time that they are dealing with disaster situations.
+	Researchers have shown the need to create open sourced crowdsourced emergency systems
+	that provide open data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The
+	Riskmap system was created to fill that need.
+
+	\subsection{System Overview}
+	The Riskmap system alleviates the load on emergency managers by
+	centralizing reports from many social media sources. It also makes it
+	easy not only for reports to come into the response center, but also for
+	emergency managers to indicate which areas of a city are most affected
+	at any one time. The data gathered during an event is persistent and
+	available under the Creative Commons license, which allows researchers
+	to track the flood over time and pinpoint areas that are particularly
+	vulnerable to flooding, thus fulfilling the need for open data~\cite{holdernessSocialMediaGeoSocial2015a}.
+
+	Riskmap consists of many different social media bots that are actively
+	filtering social media streams and looking for citizens that might be
+	reporting flooding events, it then reaches out to those users and asks
+	them to submit a flood report that consists of a GPS location, the
+	estimated flood height at that location, a picture, and a textual
+	description. These reports are then displayed on a public map for other
+	citizens to inform themselves. Furthermore, EOC personnel are able to
+	access the Risk Evaluation Matrix (REM), a special dashboard that allows
+	them to give even more information to citizens.
+
+	The system has been in place in Jakarta and Chennai since 2016, and has seen
+	hundreds of thousands of views during flood events.
+
+	\begin{figure}
+		\includegraphics[width=\linewidth]{riskmap.png}
+		\caption{Submitting a flood report card}\label{fig:cards}
+	\end{figure}
+
+\section{Conquering Information Overload}
+	It is not enough to create an advanced system for consuming citizen
+	reports, it is also necessary to ensure that this system does not
+	consume resources that are already scarce during a disaster event, for
+	example the time of emergency
+	workers~\cite{aminDataNaturalDisasters2008}. It is also important to
+	reduce the amount of time needed to create insights because if analyzing
+	data takes too much time, then decision makers will make decisions
+	without having fully analyzed the
+	data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
+
+	Using computers to automatically make sense of disaster data has long
+	been a goal in disaster informatics, but only recently have machine
+	learning techniques become good enough to be implemented in production
+	emergency systems~\cite{meierDigitalHumanitariansHow2015}. Image
+	recognition algorithms can provide summaries of objects and scenes found
+	in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
+	donahueDeCAFDeepConvolutional2013}. Natural language processing can
+	estimate the probability that a textual document is overall negative or
+	positive and thereby give EOCs a shorthand way to summarize thousands of
+	reports in short amounts of
+	time~\cite{nguyenRapidClassificationCrisisRelated,
+	nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
+	learn relationships between disparate datasets and synthesize a single
+	result~\cite{mouzannarDamageIdentificationSocial2018}.
+
+	// lay out problem statement for thesis

@@ -46,6 +46,8 @@
 %% \ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
 
 \usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{images/}}
 
 \begin{document}
 
@@ -60,6 +62,7 @@
 \include{chap2}
 \include{chap3}
 \include{chap4}
+\include{chap5}
 \appendix
 \include{appa}
 \include{appb}
