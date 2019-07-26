@@ -7,5 +7,62 @@ MIT to gather thousands of reports of real flooding in Indonesia and India.
 \subsection{Image Data}
 
 \subsection{Text Data}
+
+Sample of the data:
+\begin{tabular}{ll}
+	\toprule
+	{} &
+	text \\
+	pkey &
+	\\
+	\midrule
+	169  &
+	Waterlogging near cathedral road flyover  \\
+	171  &
+	1st street Engineers avenue \\
+	173  &
+	Not that much water safe only \\
+	174  &
+	50cm water stagnant on the road \\
+	175  &  This picture is taken from near paruthipattu. The two day
+	unleashed rain submerged this playground and turns into breeding grounds
+	for bugs \\
+	176  &
+	Water level rising  slowly  \\
+	177  &
+	Water logging  \\
+	178  &
+	Model school road is completely flooded, with water almost knee deep \\
+	179  &
+	Heavy rain in West mambalam\textbackslash{} nFlood \\
+	180  &
+	Water on roads. Stay safe \\
+	182  &                                                           4cm
+	rainfall.. still continuing.. hope for safe .. dont come outside in
+	night time \\
+	181  &
+	Luz signal flooded knee deep water \\
+	183  &                    Luz church road from rangachari cloth store
+	till tulsi silks flooded with knee deep water motorists proceed with
+	caution  \\
+	\bottomrule
+\end{tabular}
+
+\subsubsection{Preprocessing}
+Remove punctuation replaced with whitespace and then split along whitespace.
 \subsection{Flood Height}
 \subsection{Location Information}
+
+\section{Image Recognition}
+\section{NLP}
+
+	\subsection{Bag of Words}
+	\subsubsection{Performance}
+	67\% on 5 fold cross validation on Chennai dataset with 328 reports. All
+	punctuation removed.
+		
+	\subsection{Bigrams}
+	\subsubsection{Performance}
+	67\% with bigram model
+
+\section{Flood Height}
