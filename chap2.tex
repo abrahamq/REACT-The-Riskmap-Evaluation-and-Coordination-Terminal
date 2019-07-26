@@ -14,7 +14,7 @@ flooding%%~\cite{chanFloodRiskAsia2012} %% .  Nowhere is this more apparent than
 in South and Southeast Asia, where the severity of floods has been increasing
 over the past several decades~\cite{tortiFloodsSoutheastAsia2012}.
 
-Of the world's 33 mega-cities with population over XXXXX, over 60 percent are located in developing Asian
+Of the world's 33 mega-cities with population over 10 million, over 60 percent are located in developing Asian
 Countries~\cite{unitednationsdepartmentofeconomicandsocialaffairsWorldCities20162016}.
 These cities face a looming crisis as flood risk increases, but there are also
 unique opportunities for risk mitigation. Megacities are characterized by high
@@ -152,24 +152,39 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
 system for consuming citizen reports, it is also necessary to ensure that this
 system does not consume resources that are already scarce during a disaster
 event, for example the time of emergency
-workers~\cite{aminDataNaturalDisasters2008}. It is also important to reduce the
-amount of time needed to create insights because if analyzing data takes too
-much time, then decision makers will make decisions without having fully
+workers~\cite{aminDataNaturalDisasters2008}. Furthermore, it is also important
+to reduce the
+resources needed to create insights because if analyzing data is too 
+difficult, then decision makers will make decisions without having fully
 analyzed the data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
 
-	Using computers to automatically make sense of disaster data has long
-	been a goal in disaster informatics, but only recently have machine
-	learning techniques become good enough to be implemented in production
-	emergency systems~\cite{meierDigitalHumanitariansHow2015}. Image
-	recognition algorithms can provide summaries of objects and scenes found
-	in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
-	donahueDeCAFDeepConvolutional2013}. Natural language processing can
-	estimate the probability that a textual document is overall negative or
-	positive and thereby give EOCs a shorthand way to summarize thousands of
-	reports in short amounts of
-	time~\cite{nguyenRapidClassificationCrisisRelated,
-	nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
-	learn relationships between disparate datasets and synthesize a single
-	result~\cite{mouzannarDamageIdentificationSocial2018}.
+Using computers to automatically make sense of disaster data has long
+been a goal in disaster informatics, but only recently have machine
+learning techniques become advanced enough to be implemented in production
+emergency systems~\cite{meierDigitalHumanitariansHow2015}. Image
+recognition algorithms can provide summaries of objects and scenes found
+in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
+donahueDeCAFDeepConvolutional2013}. Natural language processing can
+estimate the probability that a textual document is overall negative or
+positive and thereby give EOCs a shorthand way to summarize thousands of
+reports in short amounts of
+time~\cite{nguyenRapidClassificationCrisisRelated,
+nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
+learn relationships between disparate datasets and synthesize a single
+result~\cite{mouzannarDamageIdentificationSocial2018}.
+
+In this work we will experiment with different machine learning techniques
+for image recognition, finally showing that transfer learning at the 
+output layer can turn off the shelf multi---label  classification
+algorithms into classifiers for flood image classification. For textual analysis, 
+we will show the performance of bag of words, bigrams, and a combination of 
+both techniques to classify report texts into heavy flooding/ no heavy flooding classes.
+Flood height will first be assessed as a raw numerical feature but will then be 
+joined with nearby reports through a one dimensional convolutional filter in order
+to draw out temporal patterns. 
+
+Finally, the output of these disparate techniques will be combined by using a 
+small deep neural network. In order to allow better interpretability, the
+labels from the machine learning algorithms
 
 	// lay out problem statement for thesis

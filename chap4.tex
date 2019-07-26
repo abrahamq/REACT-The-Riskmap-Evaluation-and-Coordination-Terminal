@@ -7,14 +7,14 @@ MIT to gather thousands of reports of real flooding in Indonesia and India.
 \subsection{Image Data}
 
 \subsection{Text Data}
-
-Sample of the data:
-\begin{tabular}{ll}
+\label{table:text_sample}
+\begin{tabular}{l|l}
 	\toprule
 	{} &
 	text \\
 	pkey &
 	\\
+	\hline
 	\midrule
 	169  &
 	Waterlogging near cathedral road flyover  \\
@@ -24,9 +24,6 @@ Sample of the data:
 	Not that much water safe only \\
 	174  &
 	50cm water stagnant on the road \\
-	175  &  This picture is taken from near paruthipattu. The two day
-	unleashed rain submerged this playground and turns into breeding grounds
-	for bugs \\
 	176  &
 	Water level rising  slowly  \\
 	177  &
@@ -34,7 +31,7 @@ Sample of the data:
 	178  &
 	Model school road is completely flooded, with water almost knee deep \\
 	179  &
-	Heavy rain in West mambalam\textbackslash{} nFlood \\
+	Heavy rain in West mambalam flood \\
 	180  &
 	Water on roads. Stay safe \\
 	182  &                                                           4cm
@@ -42,11 +39,11 @@ Sample of the data:
 	night time \\
 	181  &
 	Luz signal flooded knee deep water \\
-	183  &                    Luz church road from rangachari cloth store
-	till tulsi silks flooded with knee deep water motorists proceed with
-	caution  \\
 	\bottomrule
 \end{tabular}
+
+Table \ref{table:text_sample} contains a sample of ten reports that are 
+indicative of those found in the Riskmap textual descriptions.
 
 \subsubsection{Preprocessing}
 Remove punctuation replaced with whitespace and then split along whitespace.
