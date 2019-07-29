@@ -8,14 +8,15 @@ nations face much higher mortality rates as a result of flooding since they lack
 resources to adequately mitigate
 hazards~\cite{quarantelliUrbanVulnerabilityDisasters2003,
 ahernGlobalHealthImpacts2005}. Deltaic megacities in
-developing countries are particularly at risk because of unregulated
+developing countries are particularly at risk because unregulated
 urbanization, rising population and climate change are increasing the rate at
 which floods occur~\cite{chanFloodRiskAsia2012}. Moreover, there is little data
 that is available before, during, and after a disaster to help stakeholders
-mitigate hazards~\cite{meierDigitalHumanitariansHow2015}. Data scarcity makes it
-hard to pinpoint where to direct aid during disasters and where to make
-infrastructure improvements after
-disasters~\cite{ranaMultidimensionalModelVulnerability2018}.
+mitigate hazards~\cite{meierDigitalHumanitariansHow2015}.
+% Data scarcity makes it
+% hard to pinpoint where to direct aid during disasters and where to make
+% infrastructure improvements after
+% disasters~\cite{ranaMultidimensionalModelVulnerability2018}.
 
 %% TODO: this is pretty disjointed
 Various stakeholders, such as humanitarian NGOs, government emergency
@@ -26,26 +27,30 @@ flooding~\cite{chanResilientFloodRisk2018}, while citizens
 look for relevant information and try to reduce their
 risk by avoiding heavily affected
 areas~\cite{viewegMicrobloggingTwoNatural2010}. Information is at the core of
-the disaster management; however, data scarcity makes it hard for emergency
+disaster management; however, data scarcity makes it hard for emergency
 personnel to optimize their use of resources, while citizens have an abundance
 of information about their surroundings but must be careful not to trust
 incorrect or outdated information about broader
 areas~\cite{quarantelliProblematicalAspectsInformation1997}.
 
-By connecting affected communities with Emergency Operations Centers (EOCs) it
-is possible to bridge the information gap between responders and citizens. Many
-such disaster information systems have been developed, but they often suffer
-from a lack of
- There is one problem with this solution, in times of crisis
-EOCs can suffer from information overload when they are presented with too much
+Disaster information systems can connect affected communities with
+Emergency Operations Centers (EOCs), thereby bridging the information gap
+between responders and citizens. Many such disaster information systems have
+been developed, but they often suffer from a lack of institutional
+buy-in~\cite{aminDataNaturalDisasters2008}. The lack of engagement can be partly
+attributed to the difficulty of adding data gathering responsibilities to
+emergency personnel that have little time during crises. Asking citizens to
+submit information is a solution to this problem; however, crowdsourcing brings
+its own issue: in times of crisis EOCs can suffer from information overload when
+they are presented with too much
 information~\cite{tierneyFacingUnexpectedDisaster2001}.
 
 The REACT system uses novel machine learning and human computer interaction
-research to reduce information overload in EOCs, thereby decreasing disaster
-response time. REACT classifies reports as indicating heavy flooding or not
-through an ensemble model. It first extracts key features from each of the parts
-of a report (text, picture, metadata) using known techniques and then uses a
-small dense neural net to classify the citizen report.
+research to reduce information overload from crowd sourced data in EOCs, thereby
+decreasing disaster response time. REACT classifies reports as indicating heavy
+flooding or not through an ensemble model. It first extracts key features from
+each of the parts of a report (text, picture, metadata) using known techniques
+and then uses a small dense neural net to classify the citizen report.
 
 First we establish the motivation for using citizens as sensors and
 analyzing this noisy data using machine learning. We then review different

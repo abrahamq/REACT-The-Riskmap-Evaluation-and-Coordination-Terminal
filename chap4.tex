@@ -1,65 +1,159 @@
 \chapter{Methodology}
-\section{Data Description}
+\section{Introduction}
 The Riskmap system allows citizens to easily submit
-disaster reports~\ref{chap1:riskmap}; as such it has allowed the Urban Risk Lab at
+disaster reports as such it has allowed the Urban Risk Lab at
 MIT to gather thousands of reports of real flooding in Indonesia and India.
+These data points include requests for help, traffic reports, indications that an
+area is safe, and advice for other citizens in the area. Images attached to
+reports include a wide variety of scenes, from daylight highways with cars and
+motorcycles to night time deserted alleys. Additionally, citizens were asked to
+provide an estimated flood height using a slider.
 
-\subsection{Image Data}
+\section{Text}
+As shown in Section~\ref{chap1:riskmap}, the Riskmap system allows citizens to provide
+a textual description to emergency managers. In Indonesia, most of the reports
+are provided in Bahasa, the local language; however, in Chennai all reports were
+submitted in English even though the system also supports Tamil. In both Chennai
+and Jakarta these reports are quite brief, with the longest reports having 140
+characters. In this manner, they are quite similar to tweets which were
+initially 140 characters but this limit was doubled in 2017. Helpfully, this
+means that much of the work described in~\ref{chap3:text} applies to the Riskmap
+text corpus.
 
-\subsection{Text Data}
-\label{table:text_sample}
-\begin{tabular}{l|l}
-	\toprule
-	{} &
-	text \\
-	pkey &
-	\\
-	\hline
-	\midrule
-	169  &
-	Waterlogging near cathedral road flyover  \\
-	171  &
-	1st street Engineers avenue \\
-	173  &
-	Not that much water safe only \\
-	174  &
-	50cm water stagnant on the road \\
-	176  &
-	Water level rising  slowly  \\
-	177  &
-	Water logging  \\
-	178  &
-	Model school road is completely flooded, with water almost knee deep \\
-	179  &
-	Heavy rain in West mambalam flood \\
-	180  &
-	Water on roads. Stay safe \\
-	182  &                                                           4cm
-	rainfall.. still continuing.. hope for safe .. dont come outside in
-	night time \\
-	181  &
-	Luz signal flooded knee deep water \\
-	\bottomrule
-\end{tabular}
-
-Table \ref{table:text_sample} contains a sample of ten reports that are 
+Table~\ref{table:text_sample} contains a sample of ten reports that are
 indicative of those found in the Riskmap textual descriptions.
 
-\subsubsection{Preprocessing}
-Remove punctuation replaced with whitespace and then split along whitespace.
-\subsection{Flood Height}
-\subsection{Location Information}
+\label{table:text_sample}
+\begin{table}
+  \begin{tabular}{ll}
+    \toprule
+    {} &
+    text \\
+    pkey &
+    \\
+    \hline{}
+    \midrule
+    169  &
+    Waterlogging near cathedral road flyover  \\
+    171  &
+    1st street Engineers avenue \\
+    173  &
+    Not that much water safe only \\
+    174  &
+    50cm water stagnant on the road \\
+    176  &
+    Water level rising  slowly  \\
+    177  &
+    Water logging  \\
+    178  &
+    Model school road is completely flooded, with water almost knee deep \\
+    179  &
+    Heavy rain in West mambalam flood \\
+    180  &
+    Water on roads. Stay safe \\
+    182  &                                                           4cm
+    rainfall.. still continuing.. hope for safe .. dont come outside in
+    night time \\
+    181  &
+    Luz signal flooded knee deep water \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\section{Image Recognition}
-\section{NLP}
+\subsection{Preprocessing}
+We first remove test reports, which are reports submitted in order to ensure
+that the system is working. The following POSTGRESQL query was executed to remove
+reports that were only used to test the system:
 
-	\subsection{Bag of Words}
-	\subsubsection{Performance}
-	67\% on 5 fold cross validation on Chennai dataset with 328 reports. All
-	punctuation removed.
-		
-	\subsection{Bigrams}
-	\subsubsection{Performance}
-	67\% with bigram model
+\begin{lstlisting}[language=SQL]
+SELECT   pkey,
+         text
+FROM     riskmap.all_reports
+WHERE    text IS NOT NULL
+AND      Length (text) > 0
+AND      text NOT similar TO '%%(T|t)(E|e)(S|s)(T|t)%%'
+ORDER BY created_at;
+\end{lstlisting}
+
+We then use python to remove punctuation and then split along whitespace, thus
+splitting the source text into individual words without any spaces.
+
+\begin{lstlisting}[language=python]
+def prepare_text(report_text):
+    '''
+    returns a list of strings where each string is a different word
+    '''
+    import string
+    exclude = set(string.punctuation)
+    s = "".join(ch for ch in inp if ch not in exclude )
+    return s.lower().split()
+\end{lstlisting}
+
+\subsection{Sentiment analysis}
+Since each report in the Chennai dataset includes a textual description in English,
+we could use off the shelf sentiment analysis to gauge how
+negatively citizens are feeling. It might be the case that a highly negative
+sentiment corresponds to heavy flooding and that a positive sentiment
+corresponds to lighter or no flooding.  We can investigate the relation between
+a negative sentiment and heavy flooding by using conditional probability. We set
+the threshhold for negative sentiment at~.5 and then use the AWS Rekognition API
+in order to classify texts into heavy flooding when negative sentiment is
+greater than $.5$ and into light or no flooding otherwise.
+
+We use bayes' rule in order to analyze the true positive rate--- the
+probability that a report represents heavy flooding given a negative sentiment:
+\\
+$$P( Heavy Flooding | negative) =  \frac{P(heavy Flooding | negative)}{P(negative)} =.65 $$
+\\
+
+The false positive rate, which is the probability that there is no heavy
+flooding given a negative sentiment is given by:
+
+\\
+$$P( No Flooding | negative) =  \frac{P(No Flooding | negative)}{P(negative)} =.34 $$
+\\
+
+These probabilities show that while there is some relation between a negative
+sentiment and flooding, it is not a very strong signal. Furthermore, there are
+no off the shelf sentiment analysis tools for the Indonesian language, so a
+model based on AWS Rekogniton or Google Cloud Natural Language API would not
+translate to the Jakarta dataset.
+
+\subsection{Bag Of Words}
+While sentiment analysis might not be a strong enough signal of heavy flooding/
+no heavy flooding, our experiment shows that the textual data contains important
+information. In order to train a machine learning algorithm on textual data one
+must first create an embedding that maps natural language into feature vectors.
+There are many ways of creating embeddings as discussed in
+Section~\ref{chap3:text}, but many of them require large datasets or do not
+support Indonesian. For example, word2vec is a popular embedding model that
+produces floating point vectors and has achieved remarkable performance;
+however, the size of its training vocabulary is 962,000 unique
+words~\cite{mikolovDistributedRepresentationsWords2013}. It is possible to
+download a pre-trained word2vec model and use it to encode new texts, but such a
+pre-trained model doesn't exist for Indonesian. We could train it using a
+different dataset of Indonesian texts, but there is no guarantee that our domain
+specific words would have a good embedding after having trained with a different
+corpus.
+
+The bag of words encoding is particularly attractive to the Riskmap
+dataset because it language agnostic and can therefore work on both the Chennai
+and Jakarta datasets.  The bag of words approach to classifying texts consists
+of first creating a vocabulary that maps from a token t to a unique index i. Each
+report text is then encoded into a feature vector by setting the ith element to
+1 if the token t exists in the report
+text~\cite{khuranaNaturalLanguageProcessing2017}.
+
+The bag of words model correctly classifies 66 percent of reports in the Chennai corpus
+under 5 fold cross validation. Examining the data, we see that there are many
+instances of reports such as `no flooding here' which are being
+misclassified because the embedding is not able to understand relationships
+between adjacent words.
+
+\section{Images}
+
+\subsection{Visual Bag of Words}
+
+~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
 
 \section{Flood Height}
