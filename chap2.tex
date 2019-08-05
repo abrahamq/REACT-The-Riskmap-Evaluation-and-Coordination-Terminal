@@ -1,9 +1,3 @@
-%% This is an example first chapter.  You should put chapter/appendix that you
-%% write into a separate file, and add a line \include{yourfilename} to
-%% main.tex, where `yourfilename.tex' is the name of the chapter/appendix file.
-%% You can process specific files by typing their names in at the 
-%% \files=
-%% prompt when you run the file main.tex through LaTeX.
 \chapter{Background}
 
 %% TODO I feel like I'm restating myself here?
@@ -49,15 +43,14 @@ technology in order to organize spatial data and analyze disaster information.
 For example, Mozambique used an integrated disaster management system to provide
 early warning during the 2007  Zambezi floods, while Guatemala's inventory
 management helped to curb government bribes~\cite{aminDataNaturalDisasters2008}.
-While some systems have helped some regions to better respond to disasters,
+While technology has helped some EOCs to better respond to disaster events,
 researchers have often stated that `there are many reasons to remain skeptical
 about the idea that technology will provide a panacea for emergency management
 problems'~\cite{tzemosUseGISFederal1995, tierneyFacingUnexpectedDisaster2001,
 perryNaturalDisasterManagement2007}. A number of potential negative effects
-associated with disaster management technology have been identified: the
-primarily the potential of information overload and the dissemination of
-incorrect and outdated
-information~\cite{quarantelliProblematicalAspectsInformation1997,
+associated with disaster management technology have been identified: primarily
+the potential of information overload and the dissemination of incorrect and
+outdated information~\cite{quarantelliProblematicalAspectsInformation1997,
 flentgeDesigningContextAwareHCI}.
 
 \subsection{Social Media and Disasters}
@@ -109,83 +102,84 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
 %% TODO not sure where to place this section?
 \section{The Riskmap System}\label{chap1:riskmap}
 
-	\subsection{Need for open data} Creating bespoke information systems at
-	the beginning of disasters has been the
-	norm~\cite{aminDataNaturalDisasters2008}; however this means that
-	disaster response organizations must become acclimated with the system
-	at the same time that they are dealing with disaster situations.
-	Researchers have shown the need to create open sourced crowdsourced
-	emergency systems that provide open
-	data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The Riskmap system was
-	created to fill that need.
-
-
-	\begin{figure} \includegraphics[width=\linewidth]{riskmap.png}
-	\caption{Submitting a flood report card}\label{fig:cards} \end{figure}
-	\subsection{System Overview} The Riskmap system alleviates the load on
-	emergency managers by centralizing reports from many social media
-	sources. It also makes it easy not only for reports to come into the
-	response center, but also for emergency managers to indicate which areas
-	of a city are most affected at any one time. The data gathered during an
-	event is persistent and available under the Creative Commons license,
-	which allows researchers to track the flood over time and pinpoint areas
-	that are particularly vulnerable to flooding, thus fulfilling the need
-	for open data~\cite{holdernessSocialMediaGeoSocial2015a}.
-
-	Riskmap consists of many different social media bots that are actively
-	filtering social media streams and looking for citizens that might be
-	reporting flooding events, it then reaches out to those users and asks
-	them to submit a flood report that consists of a GPS location, the
-	estimated flood height at that location, a picture, and a textual
-	description. The user interface for submitting these reports is shown
-	in~\ref{fig:cards}. These reports are then displayed on a public map for other
-	citizens to inform themselves. Furthermore, EOC personnel are able to
-	access the Risk Evaluation Matrix (REM), a special dashboard that allows
-	them to give even more information to citizens.
-
-	The system has been in place in Jakarta and Chennai since 2016, and has
-	seen hundreds of thousands of views during flood
-	events~\cite{noveckOpinionElectionsWon2018, oct31ChennaiGetsRain}.
+  \subsection{Need for open data} Creating bespoke information systems at
+  the beginning of disasters has been the
+  norm~\cite{aminDataNaturalDisasters2008}; however this means that
+  disaster response organizations must become acclimated with the system
+  at the same time that they are dealing with disaster situations.
+  Researchers have shown the need to create open sourced crowdsourced
+  emergency systems that provide open
+  data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The Riskmap system was
+  created to fill that need.
+  
+  
+  \begin{figure} \includegraphics[width=\linewidth]{riskmap.png}
+  \caption{Submitting a flood report card}\label{fig:cards} \end{figure}
+  \subsection{System Overview} The Riskmap system alleviates the load on
+  emergency managers by centralizing reports from many social media
+  sources. It also makes it easy not only for reports to come into the
+  response center, but also for emergency managers to indicate which areas
+  of a city are most affected at any one time. The data gathered during an
+  event is persistent and available under the Creative Commons license,
+  which allows researchers to track the flood over time and pinpoint areas
+  that are particularly vulnerable to flooding, thus fulfilling the need
+  for open data~\cite{PhilippinesPDCCollaborate,
+  antaranews.comBNPBPetaBencanaId}.
+  
+  Riskmap consists of many different social media bots that are actively
+  filtering social media streams and looking for citizens that might be
+  reporting flooding events, it then reaches out to those users and asks
+  them to submit a flood report that consists of a GPS location, the
+  estimated flood height at that location, a picture, and a textual
+  description. The user interface for submitting these reports is shown
+  in~\ref{fig:cards}. These reports are then displayed on a public map for other
+  citizens to inform themselves. Furthermore, EOC personnel are able to
+  access the Risk Evaluation Matrix (REM), a special dashboard that allows
+  them to give even more information to citizens.
+  
+  The system has been in place in Jakarta and Chennai since 2016, and has
+  seen hundreds of thousands of views during flood
+  events~\cite{noveckOpinionElectionsWon2018, oct31ChennaiGetsRain}.
 
 \section{Conquering Information Overload} It is not enough to create an advanced
-system for consuming citizen reports, it is also necessary to ensure that this
-system does not consume resources that are already scarce during a disaster
-event, for example the time of emergency
-workers~\cite{aminDataNaturalDisasters2008}. Furthermore, it is also important
-to reduce the
-resources needed to create insights because if analyzing data is too 
-difficult, then decision makers will make decisions without having fully
-analyzed the data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
-
-Using computers to automatically make sense of disaster data has long
-been a goal in disaster informatics, but only recently have machine
-learning techniques become advanced enough to be implemented in production
-emergency systems~\cite{meierDigitalHumanitariansHow2015}. Image
-recognition algorithms can provide summaries of objects and scenes found
-in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
-donahueDeCAFDeepConvolutional2013}. Natural language processing can
-estimate the probability that a textual document is overall negative or
-positive and thereby give EOCs a shorthand way to summarize thousands of
-reports in short amounts of
-time~\cite{nguyenRapidClassificationCrisisRelated,
-nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
-learn relationships between disparate datasets and synthesize a single
-result~\cite{mouzannarDamageIdentificationSocial2018}.
-
-In this work we will experiment with different machine learning techniques
-for image recognition, finally showing that transfer learning at the 
-output layer can turn off the shelf multi---label  classification
-algorithms into classifiers for flood image classification. For textual analysis, 
-we will show the performance of bag of words, bigrams, and a combination of 
-both techniques to classify report texts into heavy flooding/ no heavy flooding classes.
-Flood height will first be assessed as a raw numerical feature but will then be 
-joined with nearby reports through a one dimensional convolutional filter in order
-to draw out temporal patterns. 
-
-Finally, the output of these disparate techniques will be combined by using a 
-small deep neural network. In order to allow better interpretability, the
-most important labels from feature extraction machine learning algorithms are
-presented to the user so that they can understand what drove the machine's
-choice.
-
+  system for consuming citizen reports, it is also necessary to ensure that this
+  system does not consume resources that are already scarce during a disaster
+  event, for example the time of emergency
+  workers~\cite{aminDataNaturalDisasters2008}. Furthermore, it is also important
+  to reduce the
+  resources needed to create insights because if analyzing data is too 
+  difficult, then decision makers will make decisions without having fully
+  analyzed the data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
+  
+  Using computers to automatically make sense of disaster data has long
+  been a goal in disaster informatics, but only recently have machine
+  learning techniques become advanced enough to be implemented in production
+  emergency systems~\cite{meierDigitalHumanitariansHow2015}. Image
+  recognition algorithms can provide summaries of objects and scenes found
+  in user submitted photos~\cite{nguyenRapidClassificationCrisisRelated,
+  donahueDeCAFDeepConvolutional2013}. Natural language processing can
+  estimate the probability that a textual document is overall negative or
+  positive and thereby give EOCs a shorthand way to summarize thousands of
+  reports in short amounts of
+  time~\cite{nguyenRapidClassificationCrisisRelated,
+  nagyCrowdSentimentDetection2012}. Finally, ensemble learning methods can
+  learn relationships between disparate datasets and synthesize a single
+  result~\cite{mouzannarDamageIdentificationSocial2018}.
+  
+  In this work we will experiment with different machine learning techniques
+  for image recognition, finally showing that transfer learning at the 
+  output layer can turn off the shelf multi---label  classification
+  algorithms into classifiers for flood image classification. For textual analysis, 
+  we will show the performance of bag of words, bigrams, and a combination of 
+  both techniques to classify report texts into heavy flooding/ no heavy flooding classes.
+  Flood height will first be assessed as a raw numerical feature but will then be 
+  joined with nearby reports through a one dimensional convolutional filter in order
+  to draw out temporal patterns. 
+  
+  Finally, the output of these disparate techniques will be combined by using a 
+  small deep neural network. In order to allow better interpretability, the
+  most important labels from feature extraction machine learning algorithms are
+  presented to the user so that they can understand what drove the machine's
+  choice.
+  
 	// lay out problem statement for thesis
