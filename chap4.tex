@@ -1,4 +1,4 @@
-\chapter{Methodology}
+\chapter{Methodology and Results}
 The Riskmap system allows citizens to easily submit
 disaster reports as such it has allowed the Urban Risk Lab at
 MIT to gather thousands of reports of real flooding in Indonesia and India.
@@ -143,11 +143,20 @@ report text is then encoded into a feature vector by setting the ith element to
 1 if the token t exists in the report
 text~\cite{khuranaNaturalLanguageProcessing2017}.
 
-The bag of words model correctly classifies 66 percent of reports in the Chennai corpus
+The bag of words model correctly classifies 67 percent of reports in the Chennai corpus
 under 5 fold cross validation. Examining the data, we see that there are many
 instances of reports such as `no flooding here' which are being
 misclassified because the embedding is not able to understand relationships
 between adjacent words.
+
+\subsection{Bigrams}
+Bigrams are an embedding that allows the separator to learn relationships
+between adjacent words. The vocabulary is created by using pairs of adjacent
+words, such that `no flooding here' would turn into 2 tokens: `no flooding' and
+`flooding here'.
+
+\subsection{Both}
+
 
 \section{Images}
 
@@ -156,3 +165,7 @@ between adjacent words.
 ~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
 
 \section{Flood Height}
+\subsection{Raw}
+\subsection{Normalized}
+
+\section{Ensemble with Neural Net}

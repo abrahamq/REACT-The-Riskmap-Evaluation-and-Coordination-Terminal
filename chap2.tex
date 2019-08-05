@@ -104,14 +104,12 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
 
   \subsection{Need for open data} Creating bespoke information systems at
   the beginning of disasters has been the
-  norm~\cite{aminDataNaturalDisasters2008}; however this means that
-  disaster response organizations must become acclimated with the system
-  at the same time that they are dealing with disaster situations.
-  Researchers have shown the need to create open sourced crowdsourced
-  emergency systems that provide open
-  data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The Riskmap system was
+  norm~\cite{aminDataNaturalDisasters2008}; however this means that disaster
+  response organizations must become acclimated with the system at the same time
+  that they are dealing with disaster situations.  Researchers have shown the
+  need to create open sourced crowdsourced emergency systems that provide open
+  data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The Riskmap System was
   created to fill that need.
-  
   
   \begin{figure} \includegraphics[width=\linewidth]{riskmap.png}
   \caption{Submitting a flood report card}\label{fig:cards} \end{figure}
@@ -141,15 +139,22 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
   seen hundreds of thousands of views during flood
   events~\cite{noveckOpinionElectionsWon2018, oct31ChennaiGetsRain}.
 
-\section{Conquering Information Overload} It is not enough to create an advanced
-  system for consuming citizen reports, it is also necessary to ensure that this
-  system does not consume resources that are already scarce during a disaster
-  event, for example the time of emergency
-  workers~\cite{aminDataNaturalDisasters2008}. Furthermore, it is also important
-  to reduce the
-  resources needed to create insights because if analyzing data is too 
-  difficult, then decision makers will make decisions without having fully
-  analyzed the data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
+\section{Conquering Information Overload} 
+  When researchers have tried using social media to track real-time disasters,
+  they often suffer from information overload. For example, Meier states that
+  the Haiti Crisis map was `constantly overwhelmed with the vast amount of
+  information that needed to be monitored and processed' and that the team never
+  `managed to catch up' with the backlog of social media
+  activity~\cite{meierDigitalHumanitariansHow2015}.
+  
+  It is not enough to create an advanced system for consuming citizen reports,
+  it is also necessary to ensure that this system does not consume resources
+  that are already scarce during a disaster event, for example the time of
+  emergency workers~\cite{aminDataNaturalDisasters2008}. Furthermore, it is also
+  important to reduce the resources needed to create insights because if
+  analyzing data is too difficult, then decision makers will make decisions
+  without having fully analyzed the
+  data~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
   
   Using computers to automatically make sense of disaster data has long
   been a goal in disaster informatics, but only recently have machine
@@ -174,12 +179,11 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
   both techniques to classify report texts into heavy flooding/ no heavy flooding classes.
   Flood height will first be assessed as a raw numerical feature but will then be 
   joined with nearby reports through a one dimensional convolutional filter in order
-  to draw out temporal patterns. 
+  to draw out temporal patterns. Finally, the output of these disparate
+  techniques will be combined by using a small deep neural network to classify
+  a report into one of two classes: `heavy flooding' or `no heavy flooding'
   
-  Finally, the output of these disparate techniques will be combined by using a 
-  small deep neural network. In order to allow better interpretability, the
-  most important labels from feature extraction machine learning algorithms are
-  presented to the user so that they can understand what drove the machine's
-  choice.
-  
-	// lay out problem statement for thesis
+%  In order to
+%  allow better interpretability, the most important labels from feature
+%  extraction machine learning algorithms are presented to the user so that they
+%  can understand what drove the machine's choice.
