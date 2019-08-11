@@ -1,25 +1,54 @@
-\chapter{Previous Work}
+\chapter{Previous Work for Machine Learning in Crisis Informatics}
 
-\section{Machine Learning in Crisis Informatics}
+As discussed in Section~\ref{chap2:socialMedia}, researchers have enviously eyed
+the panacea of information present in social media streams since the inception
+of the medium. Social media datasets are often very large, often hundreds of
+thousands or millions of data points can be collected during a single event. For
+example more than 1.5 million disaster related tweets were created during the
+2011 Tohoku earthquake~\cite{doanAnalysisTwitterMessages2012} and over 20
+million during hurricane Sandy~\cite{meierDigitalHumanitariansHow2015}. While
+all of these tweets concern the natural disaster and citizen's reaction to the
+event, only a few have actionable intelligence that can help Emergency
+Operations Systems to better respond to an event.
 
-\subsection{Passive Listening}
+\section{Passive Collection after Event}
+Because of the large number of data points and because of the difficulty of
+using humans to label all of the data set, researchers have turned to keyword
+searches to whittle down the volume of
+data~\cite{doanAnalysisTwitterMessages2012}.
+
+Either hand label small set or use keywords to aggregate data points and examine
+statistics on those aggregates.
+
+
+
+\subsection{labeling by hand}
+Many studies of social media disaster data focused around post-event analysis
+using manual labeling. In~\cite{starbirdVoluntweetersSelforganizingDigital}
+Starbird and Palen explore the uptake of the Tweek the Tweet (TtT) microsyntax, where
+citizens are encouraged to use a specific syntax in order to request or offer
+help during a crisis event. The adoption of the syntax by citizens on the ground
+was very low. Only 39 tweets in the TtT dataset originated within the affected
+areas; however, the authors saw many more tweets that were translated into the
+TtT syntax by other users.
 
 Some was looking for clues after disasters:
+`To make samples manageable, we reduced the data sets to
+those user streams that included more than three tweets
+containing the search terms.'
 \cite{viewegMicrobloggingTwoNatural2010}
 problem: don't have real time results
 
-Some used humans to filter out social media for real time disaster info
-\cite{starbirdVoluntweetersSelforganizingDigital}
-\cite{meierDigitalHumanitariansHow2015}
 
-Some involved using machine learning:
+\subsection{Machine Labeled}
+
 \cite{imranPracticalExtractionDisasterrelevant2013}
 \subsubsection{Problems with that approach:}
 It is very difficult to filter out which social media images are related to the
 disaster and which are not.
 
 
-\subsection{On Image Data}
+\section{On Image Data}
 Online learning using traditional transfer
 learning~\cite{donahueDeCAFDeepConvolutional2013} but online (so they get people
 to label images as a disaster happens?) plus train with generic disaster
@@ -29,7 +58,7 @@ Classify social media images into 3 classes: (severe, mild, little) damage.
 
 
 
-\subsection{On Text Data}\label{chap3:text}
+\section{On Text Data}\label{chap3:text}
 Crowd sentiment detection during disasters using twitter and the 2010 San Bruno
 CA fires n=3698
 \cite{nagyCrowdSentimentDetection2012}
@@ -46,28 +75,30 @@ has a huge datasets
 \cite{nguyenRapidClassificationCrisisRelated}
 
 
-\subsection{Ensemble Data Models}
-Boosting of Tree-Based Classifiers for Predictive Risk Modeling in GIS
-\cite{furlanelloBoostingTreeBasedClassifiers2000}
+\section{Ensemble Learning Models}
+  Boosting of Tree-Based Classifiers for Predictive Risk Modeling in
+  GIS~\cite{furlanelloBoostingTreeBasedClassifiers2000}
+  
+  This paper~\cite{mouzannarDamageIdentificationSocial2018} uses deep learning to
+  identify damage related info 
+  
+  Low level visual features (extract color, shape texture) + then Use bag of words
+  on the text. Make a~\cite{jomaaSemanticVisualCues2016}
 
-This paper~\cite{mouzannarDamageIdentificationSocial2018} uses deep learning to
-identify damage related info 
-
-Low level visual features (extract color, shape texture) + then Use bag of words
-on the text. Make a 
-\cite{jomaaSemanticVisualCues2016}
-
-There have been some notable projects that attempt to provide complete systems
-that can be used for different disasters. Most notably are the Sahana and the
-AIDR projects.
-
-Sahana has suspended its disaster response project that helped to
-mobilize volunteers to respond to disasters.
-// not focusing enough on the HCI and hidden wiring?
+  Hierarchical Mixtures of experts using the EM
+  algorithm~\cite{jordanHierarchicalMixturesExperts1994} 
+  
+  There have been some notable projects that attempt to provide complete systems
+  that can be used for different disasters. Most notably are the Sahana and the
+  AIDR projects.
+  
+  Sahana has suspended its disaster response project that helped to
+  mobilize volunteers to respond to disasters.
+  // not focusing enough on the HCI and hidden wiring?
 
 
-\subsection{Common Difficulties}
-\subsubsection{Task Subjectivity}
+\section{Challenges}
+\subsection{Task Subjectivity}
 Task subjectivity is an incredibly common
 issue~\cite{nguyenDamageAssessmentSocial2017,
 quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
@@ -77,12 +108,12 @@ defining if a picture indicates a severe event or a minor one.
 In other words, people's perception of risk varies widely from region to region
 and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
 
-\subsubsection{Small Datasets}
-Although larger datasets have recently become available, there has
+\subsection{Small Datasets}
+Although a limited number of larger datasets have recently become available, there has
 historically been a scarcity of training and validation data available for
 Deep learning models that are trained on small datasets tend to overfit on the
 training data and do not generalize well to the validation
-dataset~\cite{perezEffectivenessDataAugmentation2017}.
+dataset~\cite{perezEffectivenessDataAugmentation2017,nguyenRapidClassificationCrisisRelated}.
 
 In many early studies only hundreds of data points were considered--- combined
 with the small size of those data points (for example, twitter microblogs of
@@ -93,7 +124,7 @@ For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
 order to train 
 
 \subsubsection{Connects citizens to EOC}
-As discussed in~\ref{chap1:riskmap}, the Riskmap system helps to connect
+As discussed in~\ref{chap2:riskmap}, the Riskmap system helps to connect
 citizens to Emergency Operations Centers
 
 \subsubsection{Focus on technology rather than whole system design}
