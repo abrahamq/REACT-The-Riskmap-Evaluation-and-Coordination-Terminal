@@ -9,93 +9,109 @@ example more than 1.5 million disaster related tweets were created during the
 million during hurricane Sandy~\cite{meierDigitalHumanitariansHow2015}. While
 all of these tweets concern the natural disaster and citizen's reaction to the
 event, only a few have actionable intelligence that can help Emergency
-Operations Systems to better respond to an event.
+Operations Systems to better respond to an event--- filtering out these 
+actionable tweets and thus better understanding the ground truth is at the core 
+of much research. 
 
 \section{Passive Collection after Event}
 Because of the large number of data points and because of the difficulty of
 using humans to label all of the data set, researchers have turned to keyword
 searches to whittle down the volume of
-data~\cite{doanAnalysisTwitterMessages2012}.
-
-Either hand label small set or use keywords to aggregate data points and examine
+data~\cite{doanAnalysisTwitterMessages2012}. Researchers then either hand label
+a small subset of the data or use keywords to aggregate data points and examine
 statistics on those aggregates.
 
 
-
-\subsection{labeling by hand}
+\subsection{keyword searches and hand labeling}
 Many studies of social media disaster data focused around post-event analysis
 using manual labeling. In~\cite{starbirdVoluntweetersSelforganizingDigital}
 Starbird and Palen explore the uptake of the Tweek the Tweet (TtT) microsyntax, where
 citizens are encouraged to use a specific syntax in order to request or offer
 help during a crisis event. The adoption of the syntax by citizens on the ground
-was very low. Only 39 tweets in the TtT dataset originated within the affected
+was very low. Only 39 out of a total of 2,911 tweets in the TtT dataset originated within the affected
 areas; however, the authors saw many more tweets that were translated into the
-TtT syntax by other users.
+TtT syntax by other users. The authors also point out that social media enable new
+forms of volunteerism where humans can be used to manually `translate' user tweets.
 
-Some was looking for clues after disasters:
-`To make samples manageable, we reduced the data sets to
-those user streams that included more than three tweets
-containing the search terms.'
-\cite{viewegMicrobloggingTwoNatural2010}
-problem: don't have real time results
+Other studies have analyzed social media behavior by using key word searches only and
+creating aggregate statistics. For example, Vieweg et al. state that they `reduced
+the data sets to those user streams that included more than three tweets
+containing the search terms' in order to 
+`make samples manageable'~\cite{viewegMicrobloggingTwoNatural2010}. The team then looked
+at easily machine readable features such as the inclusion of geotags.
 
+\section{Artificial Intelligence}
+While it is possible to gather some intelligence by using key words and
+digital volunteers to label data, artificial intelligence has two main advantages. 
+Machine learning algorithms can handle much larger volumes of data than can be 
+consumed by even a large team of people, and they can do it in a much 
+shorter amount of time.
 
-\subsection{Machine Labeled}
+\subsection{On Text Data}\label{chap3:text}
+Nagy et al. used SentiWordNet, a lexical embedding for sentiment analysis, in order 
+to classify tweets as mainly containing positive or negative feelings~\cite{nagyCrowdSentimentDetection2012}.
+A dataset of 3698 tweets created during the 2010 San Bruno, CA fires was used in this study. 
+The authors did manually label the tweets in order to find the performance of their
+method and found a precision score of 90\% on a held out set. After validation,
+the authors can use this process to classify tweets with little human interaction,
+allowing them to process much larger datasets.
 
-\cite{imranPracticalExtractionDisasterrelevant2013}
-\subsubsection{Problems with that approach:}
-It is very difficult to filter out which social media images are related to the
-disaster and which are not.
+In 2013, Chowdhury et al. used feature extraction to classify tweets into
+pre-incident, during-incident, and post-incident categories~\cite{chowdhuryTweet4actUsingIncidentspecific2013}.
+They showed the importance of treating crisis messages as distinct from other
+text based machine classification tasks. The precision score of this method 
+was at least 96\%~\cite{chowdhuryTweet4actUsingIncidentspecific2013}.
 
+Caragea et al. and Imran et al. compared the performance of Support Vector Machines (SVMs) and Convolutional 
+Neural Networks (CNNs) at classifying tweets into two classes: informative, and not
+informative~\cite{carageaIdentifyingInformativeMessages2016,imranPracticalExtractionDisasterrelevant2013}. The
+teams found that CNNs performed much better at the classification task because they were better 
+able to learn the relationships between tokens and did not require much feature engineering in order 
+to have good performance.
 
-\section{On Image Data}
-Online learning using traditional transfer
-learning~\cite{donahueDeCAFDeepConvolutional2013} but online (so they get people
-to label images as a disaster happens?) plus train with generic disaster
-images in order to solve cold start problem at the beginning of an event.
-Classify social media images into 3 classes: (severe, mild, little) damage.
-\cite{nguyenDamageAssessmentSocial2017}
+In addition to methods for classifying disaster messages, there has recently been work 
+on creating textual datasets to help researchers conduct machine learning research. 
+The Qatar Computing Research Institute has created the CrisisNLP datasets that 
+contain thousands of tweets that have been human labeled~\cite{nguyenRapidClassificationCrisisRelated}.
 
+\subsection{On Image Data}
+In the past decade there have been very promising results to using Convolutional Neural Networks
+for image recognition tasks, however training these large neural nets traditionally
+requires very large datasets. In 2014, the DeCAF team showed how to conduct 
+transfer learning on deep neural nets in order to reduce the number of 
+training images required without sacrificing performance~\cite{donahueDeCAFDeepConvolutional2013}.
+Following this result, Nguyen et al. used transfer learning with an online component 
+to classify social media disaster images into 3 classes: severe, mild, and little
+damage~\cite{nguyenDamageAssessmentSocial2017}. 
 
-
-\section{On Text Data}\label{chap3:text}
-Crowd sentiment detection during disasters using twitter and the 2010 San Bruno
-CA fires n=3698
-\cite{nagyCrowdSentimentDetection2012}
-
-Feature engineering on twitter messages to classify into pre-incident, during
-incident and post-incident
-\cite{chowdhuryTweet4actUsingIncidentspecific2013}
-
-Classifying tweets as informative/ not informative using CNNs vs SVMs (CNN wins)
-\cite{carageaIdentifyingInformativeMessages2016}
-
-CrisisNLP from the Qatar Computing Research Institute
-has a huge datasets
-\cite{nguyenRapidClassificationCrisisRelated}
-
-
-\section{Ensemble Learning Models}
-  Boosting of Tree-Based Classifiers for Predictive Risk Modeling in
-  GIS~\cite{furlanelloBoostingTreeBasedClassifiers2000}
-  
-  This paper~\cite{mouzannarDamageIdentificationSocial2018} uses deep learning to
-  identify damage related info 
-  
-  Low level visual features (extract color, shape texture) + then Use bag of words
+  visual bag of words, then Low level visual features (extract color, shape texture) + then use bag of words
   on the text. Make a~\cite{jomaaSemanticVisualCues2016}
 
-  Hierarchical Mixtures of experts using the EM
-  algorithm~\cite{jordanHierarchicalMixturesExperts1994} 
+\subsection{Ensemble Learning Models}
+  The prospect of using many learning models and combine them has driven many 
+  research goals. Bagging, the practice of using many simple learners on different 
+  subsets of the training data has shown to be particularly useful~\cite{breimanBaggingPredictors1996}.
+  Boosting is a related technique where an emsemble of simple classfiers are trained in succession, with
+  data points misclassified by the nth classifer are weighed as more important for classifier $n+1$
   
-  There have been some notable projects that attempt to provide complete systems
-  that can be used for different disasters. Most notably are the Sahana and the
-  AIDR projects.
+  Furlanello et al. used boosting to train decision trees and geospatially predict
+  the risk of tickborne illnesses~\cite{furlanelloBoostingTreeBasedClassifiers2000}.
   
-  Sahana has suspended its disaster response project that helped to
-  mobilize volunteers to respond to disasters.
-  // not focusing enough on the HCI and hidden wiring?
+  
+  \subsubsection{Multimodal data} 
+  Ensemble models are not only attractive because they can increase precision on a
+  single type of data, but also because they can enable classifiers to process
+  many types of data. For example, Mouzannar et al. used two different CNNs to 
+  process image and text data. The team then used a variety of simple classifiers 
+  as the ensemble learners to produce a final result,
+  classification into one of 6 classes ~\cite{mouzannarDamageIdentificationSocial2018}.
+  In this manner, they were able to achieve higher than 90\% accuracy with a dataset of 
+  35,000 data points.
 
+  Researchers have also used neural networks as the ensemble learners. These models enable
+  much more flexibility because the learner is able to encode a much more complex
+  function and can therefore learn more information about the
+  latent features between learners~\cite{jordanHierarchicalMixturesExperts1994}.
 
 \section{Challenges}
 \subsection{Task Subjectivity}
@@ -104,7 +120,6 @@ issue~\cite{nguyenDamageAssessmentSocial2017,
 quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
 whether an object is or is not an apple, this task does not translate to
 defining if a picture indicates a severe event or a minor one. 
-
 In other words, people's perception of risk varies widely from region to region
 and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
 
@@ -118,20 +133,21 @@ dataset~\cite{perezEffectivenessDataAugmentation2017,nguyenRapidClassificationCr
 In many early studies only hundreds of data points were considered--- combined
 with the small size of those data points (for example, twitter microblogs of
 140 or 280 characters) and effectively using deep learning becomes very
-difficult.
-% TODO for Adi should I not write this? % 
-For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
-order to train 
-
-\subsubsection{Connects citizens to EOC}
-As discussed in~\ref{chap2:riskmap}, the Riskmap system helps to connect
-citizens to Emergency Operations Centers
+difficult. For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
+order to train their classifier.
 
 \subsubsection{Focus on technology rather than whole system design}
 A series of UN case studies on six disaster information systems found that while
 engineering and system design were essential, it was the hidden wiring of support
 networks that allows for technology to succeed.
 
+There have been some notable projects that attempt to provide complete systems
+that can be used for different disasters. Most notably are the Sahana and the
+AIDR projects.
+
+Sahana has suspended its disaster response project that helped to
+mobilize volunteers to respond to disasters.
+  
 \begin{quote}
 An important message emerges from the case studies: an effective disaster
 information management system requires a good technological platform,
