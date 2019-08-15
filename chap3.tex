@@ -21,7 +21,6 @@ data~\cite{doanAnalysisTwitterMessages2012}. Researchers then either hand label
 a small subset of the data or use keywords to aggregate data points and examine
 statistics on those aggregates.
 
-
 \subsection{keyword searches and hand labeling}
 Many studies of social media disaster data focused around post-event analysis
 using manual labeling. In~\cite{starbirdVoluntweetersSelforganizingDigital}
@@ -34,7 +33,7 @@ TtT syntax by other users. The authors also point out that social media enable n
 forms of volunteerism where humans can be used to manually `translate' user tweets.
 
 Other studies have analyzed social media behavior by using key word searches only and
-creating aggregate statistics. For example, Vieweg et al. state that they `reduced
+creating aggregate statistics. For example, Vieweg et al.\ state that they `reduced
 the data sets to those user streams that included more than three tweets
 containing the search terms' in order to 
 `make samples manageable'~\cite{viewegMicrobloggingTwoNatural2010}. The team then looked
@@ -48,7 +47,7 @@ consumed by even a large team of people, and they can do it in a much
 shorter amount of time.
 
 \subsection{On Text Data}\label{chap3:text}
-Nagy et al. used SentiWordNet, a lexical embedding for sentiment analysis, in order 
+Nagy et al.\ used SentiWordNet, a lexical embedding for sentiment analysis, in order 
 to classify tweets as mainly containing positive or negative feelings~\cite{nagyCrowdSentimentDetection2012}.
 A dataset of 3698 tweets created during the 2010 San Bruno, CA fires was used in this study. 
 The authors did manually label the tweets in order to find the performance of their
@@ -56,13 +55,13 @@ method and found a precision score of 90\% on a held out set. After validation,
 the authors can use this process to classify tweets with little human interaction,
 allowing them to process much larger datasets.
 
-In 2013, Chowdhury et al. used feature extraction to classify tweets into
+In 2013, Chowdhury et al.\ used feature extraction to classify tweets into
 pre-incident, during-incident, and post-incident categories~\cite{chowdhuryTweet4actUsingIncidentspecific2013}.
 They showed the importance of treating crisis messages as distinct from other
 text based machine classification tasks. The precision score of this method 
 was at least 96\%~\cite{chowdhuryTweet4actUsingIncidentspecific2013}.
 
-Caragea et al. and Imran et al. compared the performance of Support Vector Machines (SVMs) and Convolutional 
+Caragea et al.\ and Imran et al.\ compared the performance of Support Vector Machines (SVMs) and Convolutional 
 Neural Networks (CNNs) at classifying tweets into two classes: informative, and not
 informative~\cite{carageaIdentifyingInformativeMessages2016,imranPracticalExtractionDisasterrelevant2013}. The
 teams found that CNNs performed much better at the classification task because they were better 
@@ -80,7 +79,7 @@ for image recognition tasks, however training these large neural nets traditiona
 requires very large datasets. In 2014, the DeCAF team showed how to conduct 
 transfer learning on deep neural nets in order to reduce the number of 
 training images required without sacrificing performance~\cite{donahueDeCAFDeepConvolutional2013}.
-Following this result, Nguyen et al. used transfer learning with an online component 
+Following this result, Nguyen et al.\ used transfer learning with an online component 
 to classify social media disaster images into 3 classes: severe, mild, and little
 damage~\cite{nguyenDamageAssessmentSocial2017}. 
 
@@ -89,22 +88,23 @@ damage~\cite{nguyenDamageAssessmentSocial2017}.
 
 \subsection{Ensemble Learning Models}
   The prospect of using many learning models and combine them has driven many 
-  research goals. Bagging, the practice of using many simple learners on different 
-  subsets of the training data has shown to be particularly useful~\cite{breimanBaggingPredictors1996}.
-  Boosting is a related technique where an emsemble of simple classfiers are trained in succession, with
-  data points misclassified by the nth classifer are weighed as more important for classifier $n+1$
-  
-  Furlanello et al. used boosting to train decision trees and geospatially predict
-  the risk of tickborne illnesses~\cite{furlanelloBoostingTreeBasedClassifiers2000}.
+  research goals. Bagging, the practice of using many simple learners on
+  different subsets of the training data has shown to be particularly
+  useful~\cite{breimanBaggingPredictors1996}.  Boosting is a related technique
+  where an emsemble of simple classfiers are trained in succession, with
+  data points misclassified by the nth classifer are weighed as more important
+  for classifier $n+1$. In a disaster data context, Furlanello et al.\ used
+  boosting to train decision trees and geospatially predict the risk of
+  tickborne illnesses~\cite{furlanelloBoostingTreeBasedClassifiers2000}.
   
   
   \subsubsection{Multimodal data} 
   Ensemble models are not only attractive because they can increase precision on a
   single type of data, but also because they can enable classifiers to process
-  many types of data. For example, Mouzannar et al. used two different CNNs to 
+  many types of data. For example, Mouzannar et al.\ used two different CNNs to 
   process image and text data. The team then used a variety of simple classifiers 
   as the ensemble learners to produce a final result,
-  classification into one of 6 classes ~\cite{mouzannarDamageIdentificationSocial2018}.
+  classification into one of 6 classes~\cite{mouzannarDamageIdentificationSocial2018}.
   In this manner, they were able to achieve higher than 90\% accuracy with a dataset of 
   35,000 data points.
 
@@ -114,14 +114,6 @@ damage~\cite{nguyenDamageAssessmentSocial2017}.
   latent features between learners~\cite{jordanHierarchicalMixturesExperts1994}.
 
 \section{Challenges}
-\subsection{Task Subjectivity}
-Task subjectivity is an incredibly common
-issue~\cite{nguyenDamageAssessmentSocial2017,
-quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
-whether an object is or is not an apple, this task does not translate to
-defining if a picture indicates a severe event or a minor one. 
-In other words, people's perception of risk varies widely from region to region
-and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
 
 \subsection{Small Datasets}
 Although a limited number of larger datasets have recently become available, there has
@@ -135,6 +127,23 @@ with the small size of those data points (for example, twitter microblogs of
 140 or 280 characters) and effectively using deep learning becomes very
 difficult. For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
 order to train their classifier.
+\subsection{Cold Start}
+
+At the beginning of a disaster, there is not much data available in order to
+train a classifier.
+
+\subsection{Task Subjectivity}
+Task subjectivity is an incredibly common
+issue~\cite{nguyenDamageAssessmentSocial2017,
+quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on
+whether an object is or is not an apple, this task does not translate to
+defining if a picture indicates a severe event or a minor one. 
+In other words, people's perception of risk varies widely from region to region
+and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
+
+Houses look different in different built environments, so cross location
+transfer might not work as well as we think it will.
+
 
 \subsubsection{Focus on technology rather than whole system design}
 A series of UN case studies on six disaster information systems found that while
