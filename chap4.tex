@@ -102,14 +102,15 @@ greater than $.5$ and into light or no flooding otherwise.
 We use bayes' rule in order to analyze the true positive rate--- the
 probability that a report represents heavy flooding given a negative sentiment:
 \\
-$$P( Heavy Flooding | negative) =  \frac{P(heavy Flooding | negative)}{P(negative)} =.65 $$
+$$P( Heavy Flooding | negative) = $$
+$$\frac{P(negative | Heavy Flooding)*P(HeavyFlooding)}{P(negative)} =.65 $$
 \\
 
 The false positive rate, which is the probability that there is no heavy
 flooding given a negative sentiment is given by:
 
 \\
-$$P( No Flooding | negative) =  \frac{P(No Flooding | negative)}{P(negative)} =.34 $$
+$$P( No Flooding | negative) =  \frac{P(negative | NoFlooding)*P(NoFlooding)}{P(negative)} =.34 $$
 \\
 
 These probabilities show that while there is some relation between a negative
