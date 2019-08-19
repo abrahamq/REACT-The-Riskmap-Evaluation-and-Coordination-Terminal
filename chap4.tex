@@ -156,9 +156,42 @@ between adjacent words. The vocabulary is created by using pairs of adjacent
 words, such that `no flooding here' would turn into 2 tokens: `no flooding' and
 `flooding here'.
 
+%TODO: graph of svm/ perceptron cross validation performance
+
 \section{Images}
 \subsection{Transfer Learning}
-Transfer learning as described in Section~\ref{chap3:image}
+Image classification as described in Section~\ref{chap3:image} traditionally uses a
+deep convolutional neural network and requires millions of images. Since both the
+Chennai and Jakarta datasets are quite small (<5000 images), it would not be
+feasible to create and train our own CNN. Transfer learning uses a pretrained
+image classifier trained on a different dataset in order to assign labels that the
+original network was not trained on.
+We used the Resnet18 architecture pretrained on ImageNet in order to
+experiment with transfer learning.
+
+\begin{tabular}{llr}\label{table:transfer_learning}
+\toprule
+      dataset &             method &  best validation acc. \\
+ Jakarta 2017 &           Full net &                  0.60 \\
+\midrule
+ Jakarta 2017 &  Feature extractor &                  0.61 \\
+ Chennai 2017 &           Full net &                  0.62 \\
+ Chennai 2017 &  Feature extractor &                  0.62 \\
+\bottomrule
+\end{tabular}
+
+\subsection{Using Machine Learning as a Service}
+
+\subsubsection{AWS Image Rekognition}
+\subsubsection{Google Cloud Vision AI}
+\subsubsection{Cross Validation Results}
+When the dataset size is limited and it is difficult to gather new data, 
+it is possible to estimate future true error rates by using
+cross validation. Cross validation consists of splitting the dataset into
+k many groups. The learning model is then trained on k-1 groups and tested 
+against the held out group. The average error over all k groups is then 
+taken as an estimate of the true error rate of the model.
+%TODO: graph of perceptron and svm cross validation
 
 \subsection{Visual Bag of Words}
 ~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
@@ -166,17 +199,16 @@ Transfer learning as described in Section~\ref{chap3:image}
 \section{Flood Height}
 \subsection{Raw}
 \subsection{Normalized}
-
 \section{Ensemble with Neural Net}
 In~\cite{jordanHierarchicalMixturesExperts1994}, Jordan and Jacobs showed that
-nueral networks can be effectively used to vote between different classifiers
-that are effictive only in their specific domain of the space. They present a
+neural networks can be effectively used to vote between different classifiers
+that are effective only in their specific domain of the overall space. They present a
 case for using the Estimation Maximization (EM) algorithm for optimizing the
 weights of the neural network.
 Hierarchical mixtures of experts and the EM
 algorithm~\cite{jordanHierarchicalMixturesExperts1994}
 + bishop p. 673~\cite{bishopPatternRecognitionMachine2006}
 
+%TODO: table giving cross validation on ensemble learning
+
 \subsection{Validation Scores}
-
-

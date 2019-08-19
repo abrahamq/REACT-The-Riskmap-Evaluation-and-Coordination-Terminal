@@ -1,24 +1,34 @@
 \chapter{Future Work}
 
-\section{Individual}
-\subsection{Image Data}
-\subsubsection{Using transfer learning}
+\section{Image Data}
+\subsection{Using transfer learning}
 As the time goes on and the Riskmap System registers more flood events, 
-more data will be collected. One possible method that is not explored in this
-work is the use of transfer learning inside of an image classifier neural
-network as in~\cite{donahueDeCAFDeepConvolutional2013}.
-\subsection{Text Data}
+more data will be collected, thereby increasing the  
+
+\section{Text Data}
 \subsubsection{word2vec}
 As outlined previously, we did not experiment with word2vec embeddings because
-of the difficulty of handling multi language datasets; however, it would be
+of the difficulty of handling multilanguage datasets; however, it would be
 possible to create a word2vec embedder for Indonesian by using publicly
-available texts such as Wikipedia.
-\subsection{Flood Height}
-\subsection{Location Information}
-\subsubsection{}
+available texts such as Wikipedia. The short coming of using Indonesian Wikipedia 
+is that there are only 500 thousand articles compared to 5.9 million in English Wikipedia.
+
+\section{Flood Height}
+\section{Location Information}
 
 \section{Ensemble Methods}
 \subsection{Bigger network}
 Our current bagging network is very small so as to reduce over fitting on the
 small datasets we currently have. As the Riskmap System collects more data, it
 is likely that we can use a larger network with a decreased risk of over fitting.
+
+\subsection{Data Augmentation}
+It might be possible to use generative adversarial learning in order to create
+new example reports that fit into the distribution of user submitted reports.
+This would increase the size of the dataset without having to deploy the
+Riskmap system to more locations. One of the challenges related to
+generating new reports would be the multi-language problem and validating
+that generated report texts in other languages fit the distribution of user
+submitted reports in that language.
+
+% TODO conclusion
