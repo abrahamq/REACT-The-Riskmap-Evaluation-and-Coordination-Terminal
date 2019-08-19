@@ -11,7 +11,7 @@ ahernGlobalHealthImpacts2005}. Deltaic megacities in developing countries are
 particularly at risk because of unregulated urbanization, rising population, and
 climate change~\cite{chanFloodRiskAsia2012}.  Moreover, there is little data
 that is available before, during, and after a disaster to help stakeholders
-mitigate hazards~\cite{meierDigitalHumanitariansHow2015}.
+respond to hazards~\cite{meierDigitalHumanitariansHow2015}.
 % Data scarcity makes it
 % hard to pinpoint where to direct aid during disasters and where to make
 % infrastructure improvements after
@@ -44,17 +44,18 @@ its own issue: in times of crisis EOCs can suffer from information overload when
 they are presented with too much
 data~\cite{tierneyFacingUnexpectedDisaster2001}.
 
-The REACT system uses novel machine learning and human computer interaction
-research to reduce information overload from crowd sourced data in EOCs, thereby
-decreasing disaster response time. REACT classifies reports as indicating heavy
-flooding or not through an ensemble model. It extracts key features from
-each of the parts of a report (text, picture, metadata) using domain specific
-techniques and then uses a small dense neural net to classify the citizen
-report.
+In this work we present the REACT system, which uses novel machine learning and
+human computer interaction research to reduce information overload from crowd
+sourced data in EOCs, thereby decreasing data analysis time during disasters.
+It classifies reports as indicating heavy flooding or not through an ensemble
+model. It extracts key features from each of the parts of a report (text,
+picture, metadata) using domain specific techniques and then uses a small dense
+neural net to classify the citizen report.
 
-First we establish the motivation for using citizens as sensors and
-analyzing this noisy data using machine learning. We then review different
-machine learning techniques that have been used in crisis information
-systems, including those that also utilize social media.  Finally we present a
-novel ensemble learning model is presented that can accurately predict large
-urban flood events from crowdsourced data.
+First we establish the motivation for using citizens as sensors and provide an
+overview of the Riskmap System which allows for gathering of citizen reports. We
+then show the need for analyzing this noisy data using machine learning. A
+review of different machine learning techniques that have been used in crisis
+information systems, including those that also utilize social media is
+presented.  Finally we describe REACT, a novel ensemble learning model that can
+accurately predict large urban flood events from noisy crowdsourced data.
