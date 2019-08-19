@@ -16,21 +16,17 @@ submitted in English even though the system also supports Tamil. In both Chennai
 and Jakarta these reports are quite brief, with the longest reports having 140
 characters. In this manner, they are quite similar to tweets which were
 initially 140 characters but this limit was doubled in 2017. Helpfully, this
-means that much of the work described in~\ref{chap3:text} applies to the Riskmap
+means that much of the work described in Section~\ref{chap3:text} applies to the Riskmap
 text corpus.
 
 Table~\ref{table:text_sample} contains a sample of ten reports that are
 indicative of those found in the Riskmap textual descriptions.
 
-\label{table:text_sample}
 \begin{table}
   \begin{tabular}{ll}
     \toprule
-    {} &
-    text \\
-    pkey &
-    \\
-    \hline{}
+    pkey & text \\ 
+    \hline
     \midrule
     169  &
     Waterlogging near cathedral road flyover  \\
@@ -57,6 +53,8 @@ indicative of those found in the Riskmap textual descriptions.
     Luz signal flooded knee deep water \\
     \bottomrule
   \end{tabular}
+\label{table:text_sample}
+  \caption{A representative selection of report texts}
 \end{table}
 
 \subsection{Preprocessing}
@@ -181,17 +179,50 @@ experiment with transfer learning.
 \end{tabular}
 
 \subsection{Using Machine Learning as a Service}
-
+% motivation -
+Results from popular machine learning as a service providers have a `flooding'
+label whereas publicly available pretrained networks do not.
+As Google and AWS improve their own models, a classifier based on these results
+will also improve without the need to invest large compute resources.
 \subsubsection{AWS Image Rekognition}
+% here's what an image and the top 10 labels look like
+
 \subsubsection{Google Cloud Vision AI}
-\subsubsection{Cross Validation Results}
+% here's what an image and the top 10 labels look like
+
+\subsubsection{Results}
 When the dataset size is limited and it is difficult to gather new data, 
 it is possible to estimate future true error rates by using
 cross validation. Cross validation consists of splitting the dataset into
 k many groups. The learning model is then trained on k-1 groups and tested 
 against the held out group. The average error over all k groups is then 
 taken as an estimate of the true error rate of the model.
-%TODO: graph of perceptron and svm cross validation
+%TODO: table of perceptron and svm cross validation
+
+With a balanced hold out set comprising of ten percent of the
+data points, the Support Vector Machine (SVM) linear classifier achieves a score
+upwards of \.70 as shown in \tablename{}~\ref{chap4:imageSvmPerceptron}.
+Labels from AWS Rekognition were used because AWS returned many more labels than 
+Google did for the same image. More labels means that there are more dimensions
+for the classifier to differentiate between heavy flooding and no heavy flooding
+images.
+
+\begin{table}[htbp]
+\caption{Image Classification Accuracy}
+\label{chap4:imageSvmPerceptron}
+\begin{tabular}{lllr}
+\toprule
+      Dataset &      Method &           Validation Method &  Validation Acc. \\
+ Jakarta 2017 &  Perceptron &     held out validation set &             0.70 \\
+\midrule
+ Jakarta 2017 &         SVM &     held out validation set &             0.71 \\
+ Chennai 2017 &  Perceptron &  five fold cross validation &             0.83 \\
+ Chennai 2017 &         SVM &  five fold cross validation &             0.84 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% with zero labels and without
 
 \subsection{Visual Bag of Words}
 ~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
@@ -208,6 +239,12 @@ weights of the neural network.
 Hierarchical mixtures of experts and the EM
 algorithm~\cite{jordanHierarchicalMixturesExperts1994}
 + bishop p. 673~\cite{bishopPatternRecognitionMachine2006}
+
+It has been shown that ensemble learning methods that pick between several
+experts can provide accurate prediction even if the experts have low accuracy.
+By combining weak experts, we were able to achieve upwards of 85\% accuracy on a
+randomly sample held out validation set comprised of ten percent of the data
+points.
 
 %TODO: table giving cross validation on ensemble learning
 
