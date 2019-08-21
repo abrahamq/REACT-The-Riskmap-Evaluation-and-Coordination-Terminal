@@ -71,6 +71,16 @@ features are desired.
     \label{fig:learners}
 \end{figure}
 
+\section{Ground Truth}
+We explored two different methods in order to decide whether a particular report
+was indicative of heavy flooding or not. We first classified a report as heavy
+flooding if it was submitted during a time range when we knew there to be heavy 
+flooding in the corresponding city. These shall be referred to as time-classified.
+Although we expected this classification to be very coarse, we hoped that it would
+be specific enough to create an accurate predictor. In order to test this theory 
+we also hand labeled reports by inspecting the images that accompanied them; these
+will be referred to as hand-classified. 
+
 \section{Text}
 As shown in Section~\ref{chap1:riskmap}, the Riskmap system allows citizens to provide
 a textual description to emergency managers. In Indonesia, most of the reports
@@ -135,7 +145,7 @@ AND      text NOT similar TO '%%(T|t)(E|e)(S|s)(T|t)%%'
 ORDER BY created_at;
 \end{lstlisting}
 
-We then use python to remove punctuation and then split along whitespace, thus
+We then use python to remove punctuation and split along whitespace, thus
 splitting the source text into individual words without any spaces.
 
 \begin{lstlisting}[language=python]
