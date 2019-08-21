@@ -3,7 +3,9 @@
 \section{Image Data}
 \subsection{Using transfer learning}
 As the time goes on and the Riskmap System registers more flood events, 
-more data will be collected, thereby increasing the  
+more data will be collected, thereby increasing the amount of training data 
+available. With more training data, transfer learning will become more and 
+more accurate.
 
 \section{Text Data}
 \subsubsection{word2vec}
@@ -13,8 +15,15 @@ possible to create a word2vec embedder for Indonesian by using publicly
 available texts such as Wikipedia. The short coming of using Indonesian Wikipedia 
 is that there are only 500 thousand articles compared to 5.9 million in English Wikipedia.
 
-\section{Flood Height}
 \section{Location Information}
+% Location information was not used because we wanted to have a heuristic for the
+% whole city rather than spatially disparate areas. 
+Location information was not used because we aimed to create a per report heuristic 
+for the whole city rather than concentrate on spatially disparate areas. In order 
+to use spatial data it would be necessary to counteract the sampling bias present
+in the dataset. Richer neighborhoods have much higher rates of ownership of smart phones,
+which means citizens in those areas are more likely to report flooding than poorer
+areas--- even if flooding is accruing at the same levels in both neighborhoods.
 
 \section{Ensemble Methods}
 \subsection{Bigger network}
@@ -30,5 +39,3 @@ Riskmap system to more locations. One of the challenges related to
 generating new reports would be the multi-language problem and validating
 that generated report texts in other languages fit the distribution of user
 submitted reports in that language.
-
-% TODO conclusion
