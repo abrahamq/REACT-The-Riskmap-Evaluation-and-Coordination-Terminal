@@ -13,6 +13,64 @@ It is paramount for disaster systems to be highly available and scalable during
 events. The REACT system has been designed such that it is modular and ready to
 scale.
 
+\subsection{Configuration}
+A single configuration file allows for easy customization of the underlying 
+training data. \figureautorefname{}~\ref{fig:config} shows two default configurations 
+that include all of the data from Chennai and Jakarta in 2017. Other 
+configurations allow the opportunity to choose only those reports that 
+include an image, or those that come from a specific social network.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{images/config.jpg}
+    \caption{Configuration Abstraction}
+    \label{fig:config}
+\end{figure}
+
+\subsection{Data Loaders}
+Data Loaders are constructed by passing a configuration that implements the 
+GenericConfig interface. They are then responsible for implementing methods 
+that allow for retrieving the three kinds of data that the REACT system 
+uses for prediction: text, image, and flood depth estimation. While the
+RiskmapLoader is the only Loader that is currently implemented, it was 
+important to separate data loaders in order to make REACT ready for future change.
+% TODO talk about japan?
+% TODO CITE :https://www.gov-online.go.jp/eng/publicity/book/hlj/html/201803/201803_03_en.html
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{images/loaders.jpg}
+    \caption{Adaptable Data Loaders}
+    \label{fig:data_loaders}
+\end{figure}
+
+\subsection{Labelers}
+Data embeddings, or labels, turn human recognizable data into feature vectors
+that can be used for machine learning. There are many choices for how to 
+label the disaster data in REACT, as such any Labeler that implements the 
+GenericLabeler interface can be used seamlessly in the system as shown in \figureautorefname{}~\ref{fig:labelers}. The AwsLabeler uses AWS Rekognition 
+to create feature vectors, while the BowLabeler uses a bag of words approach 
+to encode textual information. An IdentityLabeler is provided in order to 
+facilitate the passing of raw features.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{images/labelers.png}
+    \caption{Many different labelers can be used to encode data in REACT}
+    \label{fig:labelers}
+\end{figure}
+
+\subsection{Learners}
+Different learning methods are represented by different implementations of
+the GenericLearner interface as shown in \figureautorefname{}~\ref{fig:labelers}. The perceptron algorithm and the Support Vector
+Machine method are implemented in REACT as simple linear classifiers. An 
+IdentityLearner is also provided to act as a pass through in case raw 
+features are desired.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{images/learners.png}
+    \caption{The Learner abstraction makes it easy to switch from one method to another}
+    \label{fig:learners}
+\end{figure}
+
 \section{Text}
 As shown in Section~\ref{chap1:riskmap}, the Riskmap system allows citizens to provide
 a textual description to emergency managers. In Indonesia, most of the reports
@@ -157,7 +215,10 @@ between adjacent words.
 Bigrams are an embedding that allows the separator to learn relationships
 between adjacent words. The vocabulary is created by using pairs of adjacent
 words, such that `no flooding here' would turn into 2 tokens: `no flooding' and
-`flooding here'.
+`flooding here'. Embedding the text data from the Riskmap system into a bigram
+vector creates a very large vector (over 3 times the size of the unitary approach),
+and only improves accuracy by .02 on average, as such we chose not to use a
+bigram embedding.
 
 %TODO: graph of svm/ perceptron cross validation performance
 
@@ -252,5 +313,10 @@ randomly sample held out validation set comprised of ten percent of the data
 points.
 
 %TODO: table giving cross validation on ensemble learning
+
+.74 all data 
+.77 with picture
+ 
+ with pic plus report 
 
 \subsection{Validation Scores}
