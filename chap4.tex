@@ -1,17 +1,36 @@
 \chapter{Methodology and Results}
 The Riskmap system allows citizens to easily submit
-disaster reports as such it has allowed the Urban Risk Lab at
-MIT to gather thousands of reports of real flooding in Indonesia and India.
-These data points include requests for help, traffic reports, indications that an
-area is safe, and advice for other citizens in the area. Images attached to
-reports include a wide variety of scenes, from daylight highways with cars and
-motorcycles to night time deserted alleys. Additionally, citizens were asked to
-provide an estimated flood height using a slider.
+disaster reports. From 2016 to date, the system has allowed the Urban Risk Lab
+at MIT (MIT-URL) to gather 2229 reports before, during, and after flood
+emergencies in Jakarta. Similarly the Riskmap platform has also gathered 356
+reports in Chennai. \figureautorefname{}~\ref{fig:ch_typical_reports} demonstrates
+that these data points include traffic reports, indications
+that an area is unsafe, and advice for other citizens in the area.  Images
+attached to reports include a wide variety of scenes, from daylight highways
+with cars and motorcycles to night time deserted alleys. The data points include
+not only textual and image data but also an estimated flood height.
+
+\begin{figure}[ht]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=\textwidth]{images/ch/typical_reports.png}
+    \caption{Representative reports of heavy flooding in Chennai during Nov.
+    2017 Monsoon }\label{fig:ch_typical_reports}
+\end{figure}
+
+The disparate datasets contained in the Riskmap System motivate the creation of
+REACT in order to process and summarize results in real time.
 
 \section{System Design}
 It is paramount for disaster systems to be highly available and scalable during
 events. The REACT system has been designed such that it is modular and ready to
-scale.
+scale. A simple but expandable configuration file interface serves as a
+singleton for sharing global environment variables such as database connections
+and logging capabilities. The DataLoader interface allows for flexibility in the
+data source that is used, while the Labeler construct allows one to use
+different services to create embeddings of that data. Finally, any class that
+follows the Learner specification is able to train and validate on those
+embeddings.
 
 \subsection{Configuration}
 A single configuration file allows for easy customization of the underlying 
@@ -22,8 +41,7 @@ include an image, or those that come from a specific social network.
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{images/config.jpg}
-    \caption{Configuration Abstraction}
-    \label{fig:config}
+    \caption{Configuration Abstraction}\label{fig:config}
 \end{figure}
 
 \subsection{Data Loaders}
@@ -39,8 +57,7 @@ important to separate data loaders in order to make REACT ready for future chang
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{images/loaders.jpg}
-    \caption{Adaptable Data Loaders}
-    \label{fig:data_loaders}
+    \caption{Adaptable Data Loaders}\label{fig:data_loaders}
 \end{figure}
 
 \subsection{Labelers}
@@ -126,8 +143,7 @@ indicative of those found in the Riskmap textual descriptions.
     Luz signal flooded knee deep water \\
     \bottomrule
   \end{tabular}
-\label{table:text_sample}
-  \caption{A representative selection of report texts}
+  \caption{A representative selection of report texts}\label{table:text_sample}
 \end{table}
 
 \subsection{Preprocessing}
@@ -233,6 +249,19 @@ bigram embedding.
 %TODO: graph of svm/ perceptron cross validation performance
 
 \section{Images}
+Visual cues are integral disaster mitigation because they allow Emergency
+Operations Centers (EOCs) to quickly assess the situation in different parts of
+the city. The Riskmap system gathered 2159 images in Jakarta and 143 in Chennai
+during 2017. While not every report has an image, every image contains a
+multitude of information that can help EOCs better understand the situation in
+different parts of the city. Because reports are submitted at different times and
+from different places the images accompanying them vary widely, from bright
+daylight scenes of puddles and water stagnation to barely illuminated nighttime
+pictures of heavily inundated alleyways.
+\appendixautorefname{}~\ref{fig:id_flood_sample} contains a representative
+sample of images labeled `heavy flooding' from the Jakarta 2017 dataset.
+\appendixautorefname{}~\ref{fig:id_no_flood_sample}
+
 \subsection{Transfer Learning}
 Image classification as described in Section~\ref{chap3:image} traditionally uses a
 deep convolutional neural network and requires millions of images. Since both the
@@ -258,14 +287,72 @@ experiment with transfer learning.
 % motivation -
 Results from popular machine learning as a service providers have a `flooding'
 label whereas publicly available pretrained networks do not.
-As Google and AWS improve their own models, a classifier based on these results
-will also improve without the need to invest large compute resources.
+As Google and Amazon Web Services (AWS) improve their own models, a classifier
+based on these results will also improve without the need to invest large
+compute resources.
 
-\subsubsection{AWS Image Rekognition}
+\subsubsection{AWS Image Rekognition}\label{chap4:aws}
 % here's what an image and the top 10 labels look like
+The boto3 python library is used to create a detect\_labels API call 
+to AWS Rekognition, which then responds with a list of (label,
+confidence\_score) tuples. For example, AWS provides 1,319 unique labels for the
+Chennai 2017 dataset and 2,436 for the Jakarta 2017 images. For example, the
+heavy flooding report image with the unique identifier 272 shown in
+\figureautorefname{}~\ref{fig:aws_272} is labeled with upwards of 99\% confidence as containing `Nature', `Human', and `Flood'\footnote{the `Instances' parameter is
+not included here for readability, but it contains bounding boxes for certain
+objects. It is unused in the training of the classifier.}.
+\begin{figure}[ht]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[scale=0.6]{images/ch/272.jpeg}
+    \includegraphics[scale=0.6]{images/ch/aws_272.png}
+    \caption{Report image 272 and its top 5 AWS provided labels from Chennai
+    2017 Dataset, Riskmap India}\label{fig:aws_272}
+\end{figure}
+
+The report image with id 1 from the Jakarta 2017 dataset was not taken during
+heavy flooding. It depicts a drain that needs to be cleared ahead of the
+monsoon season. Labeling the image shows that the labels are quite different and
+that AWS correctly identifies the image as a ditch.
+\begin{figure}[ht]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[scale=0.3]{images/id/1.jpeg}
+    \includegraphics[scale=0.6]{images/id/aws_1.png}
+    \caption{Report image 1 and its top 5 AWS provided labels from Jakarta
+    2017 Dataset, Petabencana }\label{fig:aws_1}
+\end{figure}
+
 
 \subsubsection{Google Cloud Vision AI}
 % here's what an image and the top 10 labels look like
+
+Figure \figureautorefname{}~\ref{fig:goog_272} shows report image 272 as labeled
+by the Google Cloud Vision AI API\footnote{The `mid' and `topicality' properties
+have been redacted for brevity}.
+\begin{figure}[ht]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[scale=0.6]{images/ch/272.jpeg}
+    \includegraphics[scale=0.6]{images/ch/goog_272.png}
+    \caption{Report image 272 and its top 5 Google Cloud Vision AI provided
+    labels from Chennai 2017 Dataset, Riskmap India}\label{fig:goog_272}
+\end{figure}
+
+Whereas the top 5 labels from AWS are very distinct between Jakarta report 1 and 
+Chennai report 272, the label annotations are quite similar for the response
+from the Google API as shown in \figureautorefname{}~\ref{fig:goog_1}
+\begin{figure}[ht]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[scale=0.3]{images/id/1.jpeg}
+    \includegraphics[scale=0.6]{images/id/goog_1.png}
+    \caption{Report image 1 and its top 5 Google Cloud Vision AI provided
+    labels from Jakarta 2017 Dataset, Petabencana}\label{fig:goog_1}
+\end{figure}
+
+
+
 
 \subsubsection{Results}
 When the dataset size is limited and it is difficult to gather new data, 
