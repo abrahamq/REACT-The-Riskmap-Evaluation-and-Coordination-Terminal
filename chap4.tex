@@ -247,6 +247,20 @@ and only improves accuracy by .02 on average, as such we chose not to use a
 bigram embedding.
 
 %TODO: graph of svm/ perceptron cross validation performance
+\begin{table}[h]
+  \begin{tabular}{llr}
+  \toprule
+        dataset &   method &  mean 5 fold cross validation acc. \\
+   Jakarta 2017 &      BOW &                              0.707 \\
+  \midrule
+   Jakarta 2017 &  Bigrams &                              0.711 \\
+   Chennai 2017 &      BOW &                              0.725 \\
+   Chennai 2017 &  Bigrams &                              0.730 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Accuracy of Bag of Words and Bigram
+  embeddings}\label{table:bow_bigram_acc}
+\end{table}
 
 \section{Images}
 Visual cues are integral disaster mitigation because they allow Emergency
