@@ -68,11 +68,12 @@ The history of social media and the hashtag is invariably linked to disaster
 communication.  It was during the San Diego bush fires of 2007 that the hashtag
 was first widely used on twitter~\cite{salazarHashtagsAnnotatedHistory2017}.
 
-Quarantelli emphasized that  `management of hazards is fundamentally social in
-nature and not something that can be achieved strictly through technological
+Quarantelli, a pioneer of disaster sociology, emphasized that  `management of
+hazards is fundamentally social in nature and not something that can be achieved
+strictly through technological
 upgrading'~\cite{tierneyFacingUnexpectedDisaster2001} yet social media brings
-human behavior into a machine readable format can provide further information
-during disasters.
+human behavior into a machine readable format that can provide
+information that was previously hidden.
 
 Work has been done in passively listening to social media streams in order
 to better understand how disasters unfold and how humans use social media as a
@@ -105,14 +106,15 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
     \includegraphics[width=\linewidth]{riskmap.png}
     \caption{Submitting a flood report card. Graphic by MIT-URL}\label{fig:cards}
   \end{figure}
-  The Riskmap system alleviates the load on
+  The Riskmap System was created by the Urban Risk Lab (MIT-URL) in 2016 to
+  collect citizen reports on disaster events. It alleviates the load on
   emergency managers by centralizing reports from many social media
-  sources. It also makes it easy not only for reports to come into the
-  response center, but also for emergency managers to indicate which areas
+  sources. Riskmap not only makes it easy for reports to come into the
+  response center, but it also allows emergency managers to indicate which areas
   of a city are most affected at any one time. The data gathered during an
   event is persistent and available under the Creative Commons license,
-  which allows researchers to track the flood over time and pinpoint areas
-  that are particularly vulnerable to flooding, thus fulfilling the need
+  which allows researchers to track the flood over time and pinpoint areas that
+  are particularly vulnerable to flooding, thus fulfilling the need
   for open data~\cite{PhilippinesPDCCollaborate,
   antaranews.comBNPBPetaBencanaId}.
 
@@ -177,21 +179,13 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
   for image recognition, finally showing that transfer learning at the 
   output layer can turn off the shelf multi---label  classification
   algorithms into classifiers for flood image classification. For textual analysis, 
-  we will show the performance of bag of words, bigrams, and a combination of 
-  both techniques to classify report texts into heavy flooding/ no heavy flooding classes.
-  Flood height will first be assessed as a raw numerical feature but will then be 
-  joined with nearby reports through a one dimensional convolutional filter in order
-  to draw out temporal patterns. Finally, the output of these disparate
-  techniques will be combined by using a small deep neural network to classify
-  a report into one of two classes: `heavy flooding' or `no heavy flooding'
+  we will show the performance of two commonly used techniques to classify
+  report texts into `heavy flooding' or `no heavy flooding' classes.  Flood
+  height will first be assessed as a raw numerical feature. Finally, the output
+  of these disparate techniques will be combined by using a small deep neural
+  network to classify a report into one of two classes: `heavy flooding' or `no
+  heavy flooding'
 
-  Finally, the output of these disparate techniques will be combined by using a 
-  small deep neural network. In order to allow better interpretability, the
-  most important labels from feature extraction machine learning algorithms are
-  presented to the user so that they can understand what drove the machine's
-  choice.
-  
-%  In order to
-%  allow better interpretability, the most important labels from feature
-%  extraction machine learning algorithms are presented to the user so that they
-%  can understand what drove the machine's choice.
+  In order to increase interpretability, the most important labels from
+  the feature extraction machine learning algorithms are used to explain the
+  decisions of the system.

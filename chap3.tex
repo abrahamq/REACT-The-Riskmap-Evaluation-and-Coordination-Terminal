@@ -131,10 +131,14 @@ with the small size of those data points (for example, twitter microblogs of
 140 or 280 characters) and effectively using deep learning becomes very
 difficult. For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
 order to train their classifier.
-\subsection{Cold Start}
 
+\subsection{Cold Start}
 At the beginning of a disaster, there is not much data available in order to
-train a classifier.
+train a classifier. Some researchers have tried to remedy this problem by
+augmenting their datasets by adding data from other
+disasters~\cite{perezEffectivenessDataAugmentation2017}. This data augmentation
+brings its own issues as it is important to ensure that the added data comes
+from the same distribution as the organically generated data.
 
 \subsection{Task Subjectivity}
 Task subjectivity is an incredibly common
@@ -144,9 +148,8 @@ whether an object is or is not an apple, this task does not translate to
 defining if a picture indicates a severe event or a minor one. 
 In other words, people's perception of risk varies widely from region to region
 and from citizen to citizen~\cite{quarantelliUrbanVulnerabilityDisasters2003}.
-
-Houses look different in different built environments, so cross location
-transfer might not work as well as we think it will.
+Furthermore, the features of the built environment change from location to
+location, making it difficult to execute cross location transfer learning.
 
 \subsubsection{Focus on technology rather than whole system design}
 A series of UN case studies on six disaster information systems found that while
