@@ -497,23 +497,24 @@ trained.
 % psuedo code or maybe real code 
 
 \subsection{Validation Scores}~\label{chap4:ensemble_scores}
-%TODO: THIS IS A PLACEHOLDER 
-TODO: this a place holder --- will want to report std div of cross val + tidy up
-the experiment jupyter notebooks. 10\% held out set is correct however.
+As \tableautorefname{}~\ref{table:ensemble_short_acc} shows, the ensemble net is
+able to achieve scores that are higher than any one expert is able to achieve on
+their own for that dataset.
 \begin{table}
 \centering
-\begin{tabular}{llrlr}
+
+%% begin auto generated
+\begin{tabular}{llr}
 \toprule
-      dataset &              Learners &  size of hidden layer & mean 5 fold cross validation acc. &  10\% held out set \\
- Jakarta 2017 &         Aws,Bow,Flood &                     8 &                                xx &            0.7600 \\
+      Dataset &              Learners &  10\% held out set acc.\\
+\hline
+ Jakarta 2017 &         Aws,Bow,Flood &              0.76 \\
 \midrule
- Jakarta 2017 &               Aws,Bow &                     8 &                                xx &            0.8250 \\
- Jakarta 2017 &               Aws,Bow &                     9 &                                xx &            0.8375 \\
- Chennai 2017 &         Aws,Bow,Flood &                    10 &                                xx &            0.7300 \\
- Chennai 2017 &  Google,Aws,Bow,Flood &                    12 &                                xx &            0.8800 \\
- Chennai 2017 &               Aws,Bow &                    11 &                                xx &            0.7100 \\
+ Chennai 2017 &  Google,Aws,Bow,Flood &              0.83 \\
 \bottomrule
 \end{tabular}
+%% end auto generated
+\caption{The learners that make the best experts and ensemble net accuracy on a
+  held out set of 10\% of the training data}\label{table:ensemble_short_acc}
 \end{table}
 
-Where $\lambda{}$ is the mean 5 fold cross validation acc.
