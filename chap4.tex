@@ -287,8 +287,8 @@ experiment with transfer learning.
 \subsection{Using Machine Learning as a Service}
 % motivation -
 Results from popular machine learning as a service providers have a `flooding'
-label whereas publicly available pretrained networks do not.
-As Google and Amazon Web Services (AWS) improve their own models, a classifier
+label whereas publicly available pretrained networks do not. Furthermore, as
+Google and Amazon Web Services (AWS) improve their own models, a classifier
 based on these results will also improve without the need to invest large
 compute resources.
 
@@ -352,7 +352,10 @@ from the Google API as shown in \figureautorefname{}~\ref{fig:goog_1}
     labels from Jakarta 2017 Dataset, Petabencana}\label{fig:goog_1}
 \end{figure}
 
+% with zero labels and without
+\subsection{Visual Bag of Words}
 
+~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
 
 
 \subsubsection{Results}
@@ -378,44 +381,54 @@ images.
 \begin{tabular}{lllr}
 \toprule
       Dataset &      Method &           Validation Method &  Validation Acc. \\
- Jakarta 2017 &  Perceptron &     held out validation set &             0.70 \\
+ Jakarta 2017 &  Perceptron &     10\% held out validation set &             0.70 \\
 \midrule
- Jakarta 2017 &         SVM &     held out validation set &             0.71 \\
- Chennai 2017 &  Perceptron &  five fold cross validation &             0.83 \\
- Chennai 2017 &         SVM &  five fold cross validation &             0.84 \\
+ Jakarta 2017 &         SVM &     10\% held out validation set &             0.71 \\
+ Chennai 2017 &  Perceptron &  mean 5 fold cross validation &             0.83 \\
+ Chennai 2017 &         SVM &  mean 5 fold cross validation &             0.84 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% with zero labels and without
-
-\subsection{Visual Bag of Words}
-~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
 
 \section{Flood Height}
 \subsection{Raw}
-\subsection{Normalized}
+The flood height parameter was added as a raw feature. Since it was a scalar,
+there were few degrees of freedom for a linear separator to split the space.
+Attempting to create a decision tree on the flood height did not create a
+predictor that could generalize well, neither on a held out validation set or
+during cross validation with random shuffles; however, the inclusion of the raw
+feature into the ensemble net increased performance.
+
 \section{Ensemble with Neural Net}
 In~\cite{jordanHierarchicalMixturesExperts1994}, Jordan and Jacobs showed that
 neural networks can be effectively used to vote between different classifiers
 that are effective only in their specific domain of the overall space. They present a
-case for using the Estimation Maximization (EM) algorithm for optimizing the
-weights of the neural network.
-Hierarchical mixtures of experts and the EM
-algorithm~\cite{jordanHierarchicalMixturesExperts1994}
-+ bishop p. 673~\cite{bishopPatternRecognitionMachine2006}
+case for using several weak classifiers that have middling performance in order
+to create a neural network that has better performance than any of the experts
+it uses~\cite{jordanHierarchicalMixturesExperts1994}. Although Jordan and
+Peterson formulated the problem as an extension of the EM algorithm and
+therefore only used linear units, we use back propagation for training. This
+choice was motivated by the desire to have an easy to modify network with
+elements that may not be linear in the future. Furthermore, the compute savings
+presented by Jordan and Peterson are less relevant now than in 1994~\cite{bishopPatternRecognitionMachine2006}.
 
-It has been shown that ensemble learning methods that pick between several
-experts can provide accurate prediction even if the experts have low accuracy.
-By combining weak experts, we were able to achieve upwards of 85\% accuracy on a
-randomly sample held out validation set comprised of ten percent of the data
-points.
+We first train SvmLearners using the BowLabeler for text and either the AwsLabeler or
+GoogLabeler for images. We then use the IdentityLearner in order to pass through
+flood height as a raw feature. The results of these learners is synthesized into
+a single feature vector by taking each applicable piece of data, creating its
+embedding, and finding the signed distance from the learned separator to the
+embedding. If the type of data for this separator doesn't exist, then that
+feature is set to zero. In this way, each datapoint that is embedded into a
+feature vector that has the same length as the number of Learners that were
+trained.
 
+% psuedo code or maybe real code 
+
+\subsection{Validation Scores}
 %TODO: table giving cross validation on ensemble learning
-
 .74 all data 
 .77 with picture
  
  with pic plus report 
 
-\subsection{Validation Scores}
