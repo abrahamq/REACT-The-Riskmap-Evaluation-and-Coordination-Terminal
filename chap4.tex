@@ -6,9 +6,9 @@ emergencies in Jakarta. Similarly the Riskmap platform has also gathered 356
 reports in Chennai. \figureautorefname{}~\ref{fig:ch_typical_reports} demonstrates
 that these data points include traffic reports, indications
 that an area is unsafe, and advice for other citizens in the area.  Images
-attached to reports include a wide variety of scenes, from daylight highways
+attached to reports include a wide variety of scenes, from daylight-highways
 with cars and motorcycles to night time deserted alleys. The data points include
-not only textual and image data but also an estimated flood height.
+not only textual and image data but also estimated flood heights.
 
 \begin{figure}[ht]
     \centering
@@ -34,10 +34,11 @@ embeddings.
 
 \subsection{Configuration}
 A single configuration file allows for easy customization of the underlying 
-training data. \figureautorefname{}~\ref{fig:config} shows two default configurations 
-that include all of the data from Chennai and Jakarta in 2017. Other 
-configurations allow the opportunity to choose only those reports that 
-include an image, or those that come from a specific social network.
+training data. \figureautorefname{}~\ref{fig:config} shows the configuration
+abstraction. Two default implementations of this interface include all of the
+data from Chennai and Jakarta in 2017. Other configurations allow the
+opportunity to choose only those reports that include an image, or those that
+come from a specific social network.
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{images/config.jpg}
@@ -71,24 +72,26 @@ facilitate the passing of raw features.
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{images/labelers.png}
-    \caption{Many different labelers can be used to encode data in REACT}
-    \label{fig:labelers}
+    \caption{Many different labelers can be used to encode data in REACT}\label{fig:labelers}
 \end{figure}
 
 \subsection{Learners}
 Different learning methods are represented by different implementations of
-the GenericLearner interface as shown in \figureautorefname{}~\ref{fig:labelers}. The perceptron algorithm and the Support Vector
-Machine method are implemented in REACT as simple linear classifiers. An 
-IdentityLearner is also provided to act as a pass through in case raw 
-features are desired.
+the GenericLearner interface as shown in
+\figureautorefname{}~\ref{fig:labelers}. The perceptron algorithm and the
+Support Vector Machine (SVM) method are implemented in REACT as simple linear
+classifiers. The perceptron algorithm is an iterative method that tries to find
+a separator through simple linear transformations, meanwhile SVMs try to find
+the max margin separator by using a squared loss
+objective~\cite{bishopPatternRecognitionMachine2006}. An IdentityLearner is also
+provided to act as a pass through in case raw features are desired.
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{images/learners.png}
-    \caption{The Learner abstraction makes it easy to switch from one method to another}
-    \label{fig:learners}
+    \caption{The Learner abstraction makes it easy to switch from one method to another}\label{fig:learners}
 \end{figure}
 
-\section{Ground Truth}
+\section{Ground Truth}~\label{chap4:ground_truth}
 We explored two different methods in order to decide whether a particular report
 was indicative of heavy flooding or not. We first classified a report as heavy
 flooding if it was submitted during a time range when we knew there to be heavy 
@@ -113,6 +116,7 @@ Table~\ref{table:text_sample} contains a sample of ten reports that are
 indicative of those found in the Riskmap textual descriptions.
 
 \begin{table}
+\centering
   \begin{tabular}{ll}
     \toprule
     pkey & text \\ 
@@ -246,11 +250,20 @@ vector creates a very large vector (over 3 times the size of the unitary approac
 and only improves accuracy by .02 on average, as such we chose not to use a
 bigram embedding.
 
+\subsection{Results}
+As mentioned in \sectionautorefname{}~\ref{chap4:ground_truth} two different
+classifications of the data were used:`time-classified' and `hand-classified'.
+The two classifications gave very similar results therefore only the
+results on `time-classified' data are shown in
+\tableautorefname{}~\ref{table:bow_bigram_acc}
+
 %TODO: graph of svm/ perceptron cross validation performance
 \begin{table}[h]
+	\centering
   \begin{tabular}{llr}
   \toprule
-        dataset &   method &  mean 5 fold cross validation acc. \\
+        Dataset &   Method &  $\lambda{}$ = mean 5 fold cross validation acc. \\
+	\hline
    Jakarta 2017 &      BOW &                              0.707 \\
   \midrule
    Jakarta 2017 &  Bigrams &                              0.711 \\
@@ -272,10 +285,44 @@ different parts of the city. Because reports are submitted at different times an
 from different places the images accompanying them vary widely, from bright
 daylight scenes of puddles and water stagnation to barely illuminated nighttime
 pictures of heavily inundated alleyways.
-\appendixautorefname{}~\ref{fig:id_flood_sample} contains a representative
+\figureautorefname{}~\ref{fig:id_flood_sample} contains a representative
 sample of images labeled `heavy flooding' from the Jakarta 2017 dataset.
-\appendixautorefname{}~\ref{fig:id_no_flood_sample} shows a sample of images
+\figureautorefname{}~\ref{fig:id_no_flood_sample} shows a sample of images
 that are labeled `no heavy flooding'.
+
+\vspace{.5in}
+
+\newcommand\floodpath{images/id/flood/}
+\begin{figure}[hp]
+  \captionsetup{justification=centering}
+  \caption{Examples of Jakarta 2017 reports gathered by the Riskmap System labeled `heavy flooding'}\label{fig:id_flood_sample}
+  \begin{tabular}{cc}
+    \includegraphics[width=65mm]{\floodpath13911.jpeg} &
+    \includegraphics[width=65mm]{\floodpath17183.jpeg} \\
+      (a) Dark Alley & (b) Daylight street \\[6pt]
+       \includegraphics[width=65mm]{\floodpath17188.jpeg} &
+       \includegraphics[width=65mm]{\floodpath17915.jpeg} \\
+       (c) Heavy flooding and heavy traffic & (d) Car submerged in water \\[6pt]
+  \end{tabular}
+\end{figure}
+
+\newcommand\nofloodpath{images/id/no_flood/}
+
+\begin{figure}[hp]
+  \captionsetup{justification=centering}
+  \caption{Examples of Jakarta 2017 reports gathered by the Riskmap System
+  labeled `no heavy flooding'}\label{fig:id_no_flood_sample}
+  \begin{tabular}{cc}
+    \includegraphics[width=65mm]{\nofloodpath132.jpeg} &
+    \includegraphics[width=65mm]{\nofloodpath1674.jpeg} \\
+      (a) Small puddle & (b) Drain in need of cleaning \\[6pt]
+       \includegraphics[width=65mm]{\nofloodpath1713.jpeg} &
+       \includegraphics[width=65mm]{\nofloodpath2938.jpeg} \\
+       (c) Stagnant water on the road & (d) Trash by the roadside \\[6pt]
+  \end{tabular}
+\end{figure}
+
+\newpage
 
 \subsection{Transfer Learning}
 Image classification as described in Section~\ref{chap3:image} traditionally uses a
@@ -287,9 +334,12 @@ original network was not trained on.
 We used the Resnet18 architecture pretrained on ImageNet in order to
 experiment with transfer learning.
 
+\begin{table}
+\centering
 \begin{tabular}{llr}\label{table:transfer_learning}
 \toprule
-      dataset &             method &  best validation acc. \\
+      Dataset &             Method &  Best validation acc. \\
+\hline
  Jakarta 2017 &           Full net &                  0.60 \\
 \midrule
  Jakarta 2017 &  Feature extractor &                  0.61 \\
@@ -297,6 +347,7 @@ experiment with transfer learning.
  Chennai 2017 &  Feature extractor &                  0.62 \\
 \bottomrule
 \end{tabular}
+\end{table}
 
 \subsection{Using Machine Learning as a Service}
 % motivation -
@@ -368,9 +419,12 @@ from the Google API as shown in \figureautorefname{}~\ref{fig:goog_1}
 
 % with zero labels and without
 \subsection{Visual Bag of Words}
-
-~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}
-
+The bag of visual words as described in \sectionautorefname{}~\ref{chap3:image}
+is used to create image embeddings out of the labels obtained from the
+AwsLabeler or GoogleLabeler. Here a particular feature vector has a confidence
+score at position i if the ith label in the vocabulary (created out of all
+unique labels) is present in the
+image~\cite{yangEvaluatingBagofvisualwordsRepresentations2007}.
 
 \subsubsection{Results}
 When the dataset size is limited and it is difficult to gather new data, 
@@ -390,11 +444,13 @@ for the classifier to differentiate between heavy flooding and no heavy flooding
 images.
 
 \begin{table}[htbp]
+\centering
 \caption{Image Classification Accuracy}
 \label{chap4:imageSvmPerceptron}
 \begin{tabular}{lllr}
 \toprule
       Dataset &      Method &           Validation Method &  Validation Acc. \\
+\hline
  Jakarta 2017 &  Perceptron &     10\% held out validation set &             0.70 \\
 \midrule
  Jakarta 2017 &         SVM &     10\% held out validation set &             0.71 \\
@@ -412,7 +468,8 @@ there were few degrees of freedom for a linear separator to split the space.
 Attempting to create a decision tree on the flood height did not create a
 predictor that could generalize well, neither on a held out validation set or
 during cross validation with random shuffles; however, the inclusion of the raw
-feature into the ensemble net increased performance.
+feature into the ensemble net increased performance as shown
+in~\ref{chap4:ensemble_scores}.
 
 \section{Ensemble with Neural Net}
 In~\cite{jordanHierarchicalMixturesExperts1994}, Jordan and Jacobs showed that
@@ -439,10 +496,23 @@ trained.
 
 % psuedo code or maybe real code 
 
-\subsection{Validation Scores}
-%TODO: table giving cross validation on ensemble learning
-.74 all data 
-.77 with picture
- 
- with pic plus report 
+\subsection{Validation Scores}~\label{chap4:ensemble_scores}
+%TODO: THIS IS A PLACEHOLDER 
+TODO: this a place holder --- will want to report std div of cross val + tidy up
+the experiment jupyter notebooks. 10\% held out set is correct however.
+\begin{table}
+\centering
+\begin{tabular}{llrlr}
+\toprule
+      dataset &       learners &  size of hidden layer & $\lambda{}$ &  10\% held out set \\
+\hline
+ Jakarta 2017 &  Aws,Bow,Flood &                     8 &                                xx &              0.76 \\
+\midrule
+ Jakarta 2017 &        Aws,Bow &                     9 &                                xx &              0.70 \\
+ Chennai 2017 &  Aws,Bow,Flood &                    10 &                                xx &              0.73 \\
+ Chennai 2017 &        Aws,Bow &                    11 &                                xx &              0.71 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
+Where $\lambda{}$ is the mean 5 fold cross validation acc.
