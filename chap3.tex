@@ -9,9 +9,10 @@ example more than 1.5 million disaster related tweets were created during the
 million during hurricane Sandy~\cite{meierDigitalHumanitariansHow2015}. While
 all of these tweets concern the natural disaster and citizen's reaction to the
 event, only a few have actionable intelligence that can help Emergency
-Operations Systems to better respond to an event--- filtering out these 
-actionable tweets and thus better understanding the ground truth is at the core 
-of much research. 
+Operations Systems to better respond to an
+event~\cite{meierDigitalHumanitariansHow2015}--- filtering out these actionable
+tweets and thus better understanding the ground truth is at the core of much
+research. 
 
 \section{Passive Collection after Event}
 Because of the large number of data points and because of the difficulty of
@@ -21,7 +22,6 @@ data~\cite{doanAnalysisTwitterMessages2012}. Researchers then either hand label
 a small subset of the data or use keywords to aggregate data points and examine
 statistics on those aggregates.
 
-\subsection{Keyword Searches and Hand Labeling}
 Many studies of social media disaster data focused around post-event analysis
 using manual labeling. In~\cite{starbirdVoluntweetersSelforganizingDigital}
 Starbird and Palen explore the uptake of the Tweek the Tweet (TtT) microsyntax, where
@@ -41,12 +41,16 @@ at easily machine readable features such as the inclusion of geotags.
 
 \section{Artificial Intelligence}
 While it is possible to gather some intelligence by using key words and
-digital volunteers to label data, artificial intelligence has two main advantages. 
+digital volunteers to label data, artificial intelligence has two main advantages.
 Machine learning algorithms can handle much larger volumes of data than can be 
 consumed by even a large team of people, and they can do it in a much 
-shorter amount of time.
+shorter amount of time. Social media disaster data is mainly composed of images
+or text, therefore researchers have focused on either image recognition or
+Natural Language Processing (NLP) to classify data. More recently, there
+have been some inroads to using ensemble methods that can utilize images and
+text at the same time.
 
-\subsection{On Text Data}\label{chap3:text}
+\subsection{Textual Analysis}\label{chap3:text}
 Nagy et al.\ used SentiWordNet, a lexical embedding for sentiment analysis, in order 
 to classify tweets as mainly containing positive or negative feelings~\cite{nagyCrowdSentimentDetection2012}.
 A dataset of 3698 tweets created during the 2010 San Bruno, CA fires was used in this study. 
@@ -73,7 +77,7 @@ on creating textual datasets to help researchers conduct machine learning resear
 The Qatar Computing Research Institute has created the CrisisNLP datasets that 
 contain thousands of tweets that have been human labeled~\cite{nguyenRapidClassificationCrisisRelated}.
 
-\subsection{On Image Data}\label{chap3:image}
+\subsection{Image Recognition}\label{chap3:image}
 In the past decade there have been very promising results to using Convolutional Neural Networks
 for image recognition tasks, however training these large neural nets traditionally
 requires very large datasets. In 2014, the DeCAF team showed how to conduct 
@@ -119,7 +123,7 @@ images~\cite{jomaaSemanticVisualCues2016}.
 
 \section{Challenges}
 
-\subsection{Small Datasets}
+\subsubsection{Small Datasets}
 Although a limited number of larger datasets have recently become available, there has
 historically been a scarcity of training and validation data available for
 Deep learning models that are trained on small datasets tend to overfit on the
@@ -132,7 +136,7 @@ with the small size of those data points (for example, twitter microblogs of
 difficult. For example~\cite{nagyCrowdSentimentDetection2012} only uses 3,698 tweets in
 order to train their classifier.
 
-\subsection{Cold Start}
+\subsubsection{Cold Start}
 At the beginning of a disaster, there is not much data available in order to
 train a classifier. Some researchers have tried to remedy this problem by
 augmenting their datasets by adding data from other
@@ -140,7 +144,7 @@ disasters~\cite{perezEffectivenessDataAugmentation2017}. This data augmentation
 brings its own issues as it is important to ensure that the added data comes
 from the same distribution as the organically generated data.
 
-\subsection{Task Subjectivity}
+\subsubsection{Task Subjectivity}
 Task subjectivity is an incredibly common
 issue~\cite{nguyenDamageAssessmentSocial2017,
 quarantelliUrbanVulnerabilityDisasters2003}. While most humans can agree on

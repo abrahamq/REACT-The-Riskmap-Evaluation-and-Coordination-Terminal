@@ -1,25 +1,28 @@
 \chapter{Methodology and Results}
-The Riskmap system allows citizens to easily submit
-disaster reports. From 2016 to date, the system has allowed the Urban Risk Lab
-at MIT (MIT-URL) to gather 2229 reports before, during, and after flood
+As described in \sectionautoref~\ref{chap2:riskmap}, the Riskmap system allows
+citizens to easily submit disaster reports. From 2016 to date, the system has
+allowed the Urban Risk Lab at MIT (MIT-URL) to gather 2229 reports before,
+during, and after flood
 emergencies in Jakarta. Similarly the Riskmap platform has also gathered 356
 reports in Chennai. \figureautorefname{}~\ref{fig:ch_typical_reports} demonstrates
 that these data points include traffic reports, indications
 that an area is unsafe, and advice for other citizens in the area.  Images
 attached to reports include a wide variety of scenes, from daylight-highways
-with cars and motorcycles to night time deserted alleys. The data points include
-not only textual and image data but also estimated flood heights.
+with cars and motorcycles to night time deserted alleys. The report data points
+include not only textual and image data but also estimated flood heights.The
+disparate datasets contained in the Riskmap System motivate the creation of
+REACT in order to process and summarize results in real time. REACT is trained
+on historical reports that are labeled `heavy flooding' or `no heavy flooding'
+and can then provide the probability that an unseen report is indicative of
+either.
 
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \captionsetup{justification=centering}
-    \includegraphics[width=\textwidth]{images/ch/typical_reports.png}
+    \includegraphics[width=\textwidth]{images/ch/riskmap_reports.jpg}
     \caption{Representative reports of heavy flooding in Chennai during Nov.
-    2017 Monsoon }\label{fig:ch_typical_reports}
+    2017 Monsoon. Graphic by MIT-URL}\label{fig:ch_typical_reports}
 \end{figure}
-
-The disparate datasets contained in the Riskmap System motivate the creation of
-REACT in order to process and summarize results in real time.
 
 \section{System Design}
 It is paramount for disaster systems to be highly available and scalable during
@@ -32,18 +35,19 @@ different services to create embeddings of that data. Finally, any class that
 follows the Learner specification is able to train and validate on those
 embeddings.
 
+
 \subsection{Configuration}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{images/config.jpg}
+    \caption{Configuration Abstraction}\label{fig:config}
+\end{figure}
 A single configuration file allows for easy customization of the underlying 
 training data. \figureautorefname{}~\ref{fig:config} shows the configuration
 abstraction. Two default implementations of this interface include all of the
 data from Chennai and Jakarta in 2017. Other configurations allow the
 opportunity to choose only those reports that include an image, or those that
 come from a specific social network.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.6]{images/config.jpg}
-    \caption{Configuration Abstraction}\label{fig:config}
-\end{figure}
 
 \subsection{Data Loaders}
 Data Loaders are constructed by passing a configuration that implements the 
@@ -55,9 +59,9 @@ important to separate data loaders in order to make REACT ready for future chang
 % TODO talk about japan?
 % TODO CITE :https://www.gov-online.go.jp/eng/publicity/book/hlj/html/201803/201803_03_en.html
 
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=0.6]{images/loaders.jpg}
+    \includegraphics[scale=0.7]{images/loaders.jpg}
     \caption{Adaptable Data Loaders}\label{fig:data_loaders}
 \end{figure}
 
@@ -69,7 +73,7 @@ GenericLabeler interface can be used seamlessly in the system as shown in \figur
 to create feature vectors, while the BowLabeler uses a bag of words approach 
 to encode textual information. An IdentityLabeler is provided in order to 
 facilitate the passing of raw features.
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.6]{images/labelers.png}
     \caption{Many different labelers can be used to encode data in REACT}\label{fig:labelers}
@@ -102,7 +106,7 @@ we also hand labeled reports by inspecting the images that accompanied them; the
 will be referred to as hand-classified. 
 
 \section{Text}
-As shown in Section~\ref{chap1:riskmap}, the Riskmap system allows citizens to provide
+As shown in Section~\ref{chap2:riskmap}, the Riskmap system allows citizens to provide
 a textual description to emergency managers. In Indonesia, most of the reports
 are provided in Bahasa, the local language; however, in Chennai all reports were
 submitted in English even though the system also supports Tamil. In both Chennai
@@ -366,7 +370,7 @@ Chennai 2017 dataset and 2,436 for the Jakarta 2017 images. For example, the
 heavy flooding report image with the unique identifier 272 shown in
 \figureautorefname{}~\ref{fig:aws_272} is labeled with upwards of 99\% confidence as containing `Nature', `Human', and `Flood'\footnote{the `Instances' parameter is
 not included here for readability, but it contains bounding boxes for certain
-objects. It is unused in the training of the classifier.}.
+objects. It is not used in the training of the classifier.}.
 \begin{figure}[ht]
     \centering
     \captionsetup{justification=centering}
@@ -469,7 +473,7 @@ Attempting to create a decision tree on the flood height did not create a
 predictor that could generalize well, neither on a held out validation set or
 during cross validation with random shuffles; however, the inclusion of the raw
 feature into the ensemble net increased performance as shown
-in~\ref{chap4:ensemble_scores}.
+in~\ref{table:ensemble_short_acc}.
 
 \section{Ensemble with Neural Net}
 In~\cite{jordanHierarchicalMixturesExperts1994}, Jordan and Jacobs showed that
@@ -477,14 +481,8 @@ neural networks can be effectively used to vote between different classifiers
 that are effective only in their specific domain of the overall space. They present a
 case for using several weak classifiers that have middling performance in order
 to create a neural network that has better performance than any of the experts
-it uses~\cite{jordanHierarchicalMixturesExperts1994}. Although Jordan and
-Peterson formulated the problem as an extension of the EM algorithm and
-therefore only used linear units, we use back propagation for training. This
-choice was motivated by the desire to have an easy to modify network with
-elements that may not be linear in the future. Furthermore, the compute savings
-presented by Jordan and Peterson are less relevant now than in 1994~\cite{bishopPatternRecognitionMachine2006}.
-
-We first train SvmLearners using the BowLabeler for text and either the AwsLabeler or
+it uses~\cite{jordanHierarchicalMixturesExperts1994}. We first train the expert
+SvmLearners using the BowLabeler for text and either the AwsLabeler or
 GoogLabeler for images. We then use the IdentityLearner in order to pass through
 flood height as a raw feature. The results of these learners is synthesized into
 a single feature vector by taking each applicable piece of data, creating its
@@ -492,14 +490,13 @@ embedding, and finding the signed distance from the learned separator to the
 embedding. If the type of data for this separator doesn't exist, then that
 feature is set to zero. In this way, each datapoint that is embedded into a
 feature vector that has the same length as the number of Learners that were
-trained.
+trained. The ensemble learners that had the highest accuracy were those that
+used all available learners as shown in
+\tableautoref{}~\ref{table:ensemble_short_acc}. Furthermore,
+\tableautorefname{}~\ref{table:ensemble_short_acc} also indicates that, the
+ensemble net is able to achieve scores that are higher than any one expert is
+able to achieve on their own.
 
-% psuedo code or maybe real code 
-
-\subsection{Validation Scores}~\label{chap4:ensemble_scores}
-As \tableautorefname{}~\ref{table:ensemble_short_acc} shows, the ensemble net is
-able to achieve scores that are higher than any one expert is able to achieve on
-their own for that dataset.
 \begin{table}
 \centering
 
@@ -508,13 +505,13 @@ their own for that dataset.
 \toprule
       Dataset &              Learners &  10\% held out set acc.\\
 \hline
- Jakarta 2017 &         Aws,Bow,Flood &              0.76 \\
+ Jakarta 2017 &         Google,Aws,Bow,Flood &              0.77 \\
 \midrule
  Chennai 2017 &  Google,Aws,Bow,Flood &              0.83 \\
 \bottomrule
 \end{tabular}
 %% end auto generated
+
 \caption{The learners that make the best experts and ensemble net accuracy on a
   held out set of 10\% of the training data}\label{table:ensemble_short_acc}
 \end{table}
-

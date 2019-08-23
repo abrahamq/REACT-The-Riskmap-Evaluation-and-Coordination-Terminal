@@ -39,19 +39,21 @@ been developed, but they often suffer from a lack of institutional
 buy-in~\cite{aminDataNaturalDisasters2008}. The lack of engagement can be partly
 attributed to the difficulty of adding data gathering responsibilities to
 emergency personnel that have little time during crises. One solution to this
-problem is asking citizens to submit information; however, crowdsourcing brings
+problem is asking citizens to submit information to allow for peer to peer and
+citizen to govenment information
+sharing~\cite{meierDigitalHumanitariansHow2015}; however, crowdsourcing brings
 its own issue: in times of crisis EOCs can suffer from information overload when
 they are presented with too much
-data~\cite{tierneyFacingUnexpectedDisaster2001}. Furthermore, crowdsourcing
-allows for peer to peer information and resource sharing~\cite{meierDigitalHumanitariansHow2015}.
+data~\cite{tierneyFacingUnexpectedDisaster2001}. 
 
-In this work we present the REACT system, which uses novel machine learning and
-human computer interaction research to reduce information overload from crowd
-sourced data in EOCs, thereby decreasing data analysis time during disasters.
-It classifies reports as indicating heavy flooding or not through an ensemble
-model. It extracts key features from each of the parts of a report (text,
-picture, metadata) using domain specific techniques and then uses a small dense
-neural net to classify the citizen report.
+The REACT System is built on top of the Riskmap Platform for crowdsourcing
+disaster information\footnote{REACT is libre software and can be found
+\href{http://doi.org/10.5281/zenodo.3374994}{here}}.
+REACT uses novel machine learning research to reduce information overload from
+crowd sourced data in EOCs, thereby decreasing data
+analysis time during disasters. It first extracts key features from each of
+the parts of a report (text, picture, metadata) using domain specific techniques
+and then uses an ensemble learner to classify the citizen report.
 
 First we establish the motivation for using citizens as sensors and provide an
 overview of the Riskmap System which allows for gathering of citizen reports. We

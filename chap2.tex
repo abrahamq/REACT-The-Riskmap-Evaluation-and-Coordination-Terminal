@@ -31,16 +31,14 @@ John Snow used mapping technology to track the spread of disease, but now
 researchers are using artificial intelligence to predict cholera outbreaks
 before they happen~\cite{radinskyMiningWebPredict2013}.
 
-%% this needs to get moved somewhere else, but I'm not sure where...
 In more recent times, the need for Information Technology (IT) in disaster
 management has been clear since the mid 1980s when computers became user
 friendly enough to be used during
-disasters~\cite{universityTerminalDisastersComputer1986}.
-
-Now many Emergency Operations Centers (EOCs) use Geographic Information Systems
-(GIS), inventory control systems, and online messaging systems among other
-technology in order to organize spatial data and analyze disaster information.
-For example, Mozambique used an integrated disaster management system to provide
+disasters~\cite{universityTerminalDisastersComputer1986}. Now many Emergency
+Operations Centers (EOCs) use Geographic Information Systems (GIS), inventory
+control systems, and online messaging systems among other technology in order to
+organize spatial data and analyze disaster information.  For example, Mozambique
+used an integrated disaster management system to provide
 early warning during the 2007  Zambezi floods, while Guatemala's inventory
 management helped to curb government bribes~\cite{aminDataNaturalDisasters2008}.
 While technology has helped some EOCs to better respond to disaster events,
@@ -54,19 +52,22 @@ outdated information~\cite{quarantelliProblematicalAspectsInformation1997,
 flentgeDesigningContextAwareHCI}.
 
 \subsection{Social Media and Disasters}\label{chap2:socialMedia}
-%% TODO is this in the right place??
-The history of online communities is firmly linked to disasters. Internet
-Relay Chat (IRC) was one of the first truly global online communication systems;
-its adoption among internet connected citizens was `prompted by the First Gulf
-War'~\cite{salazarHashtagsAnnotatedHistory2017}. Although radio and
+The history of online communities is firmly linked to disasters. In the early
+days of the internet the Internet Relay Chat (IRC) became one of the first truly
+global online communication systems after its adoption was `prompted by the
+First Gulf War'~\cite{salazarHashtagsAnnotatedHistory2017}. Although radio and
 television broadcasts were halted by the Iraqi army shortly after the invasion,
 IRC communication continued for days afterward. IRC allowed users to communicate
 about conditions on the ground, including the Gulf War oil spill that grew to be
 the largest oil spill in history~\cite{Timeline20Years2010}.
 
-The history of social media and the hashtag is invariably linked to disaster
-communication.  It was during the San Diego bush fires of 2007 that the hashtag
-was first widely used on twitter~\cite{salazarHashtagsAnnotatedHistory2017}.
+In more recent years, social media networks on mobile devices have taken over
+the role that IRC played in 1991. Social media allows users to connect to
+friends and family as well as celebrities and organization. The hashtag is a key
+part of many social media networks, including instagram, twitter, and facebook.
+The history of the hashtag is also invariably linked to disaster communication.
+It was during the San Diego bush fires of 2007 that the hashtag was first widely
+used on twitter~\cite{salazarHashtagsAnnotatedHistory2017}.
 
 Quarantelli, a pioneer of disaster sociology, emphasized that  `management of
 hazards is fundamentally social in nature and not something that can be achieved
@@ -86,7 +87,7 @@ used volunteers to classify large number of tweets, but his more recent projects
 focus on the use of AI for tackling big data
 problems~\cite{meierDigitalHumanitariansHow2015}.
 
-\subsection{Crowdsourcing vs. Passive Listening} 
+\subsection{Big data collection: Crowdsourcing vs. Passive Listening} 
 During disasters, survivors are the first responders until help arrives. This
 means that citizens are key eyewitnesses and have the most up to date
 disaster information.
@@ -104,7 +105,7 @@ that `data processing and consolidation [were] difficult' and that `the few data
 entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
 
 %% TODO not sure where to place this section?
-\section{The Riskmap System}\label{chap1:riskmap}
+\section{The Riskmap System}\label{chap2:riskmap}
   \begin{figure}
     \includegraphics[width=\linewidth]{riskmap.png}
     \caption{Submitting a flood report card. Graphic by MIT-URL}\label{fig:cards}
@@ -121,9 +122,12 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
   for open data~\cite{PhilippinesPDCCollaborate,
   antaranews.comBNPBPetaBencanaId}.
 
-  The system has been in place in Jakarta and Chennai since 2016, and has
-  seen hundreds of thousands of views during flood
-  events~\cite{noveckOpinionElectionsWon2018, oct31ChennaiGetsRain}.
+  The system has been in place in Jakarta (as Petabencana.id) and Chennai (as
+  Riskmap.in\footnote{For more information go to
+  \href{http://riskmap.org}{riskmap.org}}) since
+  2016, and has seen hundreds of thousands of views during flood
+  events~\cite{noveckOpinionElectionsWon2018, oct31ChennaiGetsRain,
+  sridharRealtimeFloodMapping2017}.
 
   \subsection{Social Media Outreach}
   Riskmap consists of many different social media bots that are actively
@@ -137,23 +141,25 @@ entry clerks struggled to keep up'~\cite{aminDataNaturalDisasters2008}.
   are able to access the Risk Evaluation Matrix (REM), a special dashboard that
   allows them to give even more information to citizens.
 
-  \subsection{Need for open data} Creating bespoke information systems at
-  the beginning of disasters has been the
-  norm~\cite{aminDataNaturalDisasters2008}; however this means that disaster
-  response organizations must become acclimated with the system at the same time
-  that they are dealing with disaster situations.  Researchers have shown the
-  need to create open sourced crowdsourced emergency systems that provide open
-  data~\cite{avvenutiNeedOpeningCrowdsourced2018a}. The Riskmap System was
-  created to fill that need.
+  \begin{figure}[h]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[scale=.3]{uber_drivers.png}
+    \caption{Uber drivers in Jakarta were informed via a screenshot of the
+    public Petabencana map. Graphic by Petabencana}\label{fig:uber}
+  \end{figure}
 
+  \subsection{Need for open data}
   Disasters often affect a wide variety of services that do not have established
   Standard Operating Procedures (SOPs) to deal with hazardous events. In order
   for these services to decrease the impact of the disaster they must have open
   data that is available without delay or bureaucracy. One example of the
   Riskmap serving in this role occurred in Jakarta in 2017: Uber, a ride hailing
-  service, used our public map to warn passengers of service disruptions. This
-  would not have been possible if the disaster data was siloed.
-  
+  service, used our public map to help drivers navigate the flooded city. A
+  screen shot of the Uber drivers app is shown in
+  \figureautorefname~\ref{fig:uber}. This would not have been possible if the
+  disaster data was siloed.
+    
 \section{Conquering Information Overload} 
   When researchers have tried using social media to track real-time disasters,
   they often suffer from information overload. For example, Meier states that
