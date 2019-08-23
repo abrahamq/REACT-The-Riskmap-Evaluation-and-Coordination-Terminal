@@ -503,15 +503,14 @@ able to achieve on their own.
 %% begin auto generated
 \begin{tabular}{llr}
 \toprule
-      Dataset &              Learners &  10\% held out set acc.\\
+      dataset &              Learners &  Random 10 fold stratified cross validation \\
 \hline
- Jakarta 2017 &         Google,Aws,Bow,Flood &              0.77 \\
+ Jakarta 2017 &     Google,Aws,Bow,Flood &                                        0.74 \\
 \midrule
- Chennai 2017 &  Google,Aws,Bow,Flood &              0.83 \\
+ Chennai 2017 &  Google,Aws,Bow,Flood &                                        0.80 \\
 \bottomrule
 \end{tabular}
 %% end auto generated
 
-\caption{The learners that make the best experts and ensemble net accuracy on a
-  held out set of 10\% of the training data}\label{table:ensemble_short_acc}
+\caption{The learners that make the best experts and ensemble net accuracy on a randomized 10 fold cross validation split with a 10\% test set}\label{table:ensemble_short_acc}
 \end{table}
